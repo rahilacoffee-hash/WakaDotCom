@@ -13,6 +13,13 @@ import { BiLogoPlayStore } from "react-icons/bi";
 import { FaApple } from "react-icons/fa";
 
 /* =========================================================
+   STORE LINKS — update these to WakaDotCom's real listings
+========================================================= */
+
+const APP_STORE_URL = "https://apps.apple.com/app/wakadotcom/idXXXXXXXXX";
+const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.wakadotcom.app";
+
+/* =========================================================
    STORE BUTTONS
 ========================================================= */
 
@@ -25,7 +32,10 @@ function StoreButtons({ dark = false }) {
     <div className="mt-7 flex flex-wrap items-center gap-2.5">
       {/* App Store */}
 
-      <motion.button
+      <motion.a
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noreferrer noopener"
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.97 }}
         className={`
@@ -51,11 +61,14 @@ function StoreButtons({ dark = false }) {
             App Store
           </span>
         </span>
-      </motion.button>
+      </motion.a>
 
       {/* Google Play */}
 
-      <motion.button
+      <motion.a
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noreferrer noopener"
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.97 }}
         className={`
@@ -84,7 +97,7 @@ function StoreButtons({ dark = false }) {
             Google Play
           </span>
         </span>
-      </motion.button>
+      </motion.a>
     </div>
   );
 }
