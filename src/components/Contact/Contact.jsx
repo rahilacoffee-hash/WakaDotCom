@@ -4,8 +4,8 @@ import { FiPhoneCall, FiMail, FiMessageCircle, FiTarget } from "react-icons/fi";
 let channels = [
   {
     label: "Call",
-    value: "+234 816 566 2099",
-    href: "tel:+2348165662099",
+    value: "+234 816 000 0000",
+    href: "tel:+2348100000000",
     icon: <FiPhoneCall />,
   },
   {
