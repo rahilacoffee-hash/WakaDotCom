@@ -11,7 +11,7 @@ let channels = [
   {
     label: "WhatsApp",
     value: "Chat with support",
-    href: "https://wa.me/2348165662099",
+    href: "https://wa.me/2348100000000",
     icon: <FiMessageCircle />,
   },
   {
