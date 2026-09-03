@@ -528,35 +528,34 @@ function Hero() {
         {/* ================= MOBILE HEADING ================= */}
 
         <motion.h1
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.7,
-            delay: 0.1,
-          }}
-          className="
-            mt-5
-            text-[3.6rem]
-            font-bold
-            leading-[0.8]
-            tracking-[-0.045em]
-            text-[#1B1B1B]
-            sm:text-[4rem]
-          "
-        >
-          One Signup.
-          <br />
+  initial={{
+    opacity: 0,
+    y: 20,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 0.7,
+    delay: 0.1,
+  }}
+  className="
+    mt-5
+    font-bold
+    leading-[1]
+    tracking-[-0.045em]
+    text-[#1B1B1B]
+  "
+>
+  <span className="block text-[3.6rem] sm:text-[4rem]">
+    One Signup.
+  </span>
 
-          <span className="text-[2.5rem] text-[#FB7A00]">
-            Four Apps. One Waka.
-          </span>
-        </motion.h1>
+  <span className="mt-3 block font-semiboild text-[2.15rem] sm:text-[3rem] text-[#FB7A00]">
+    Four Apps. One Waka.
+  </span>
+</motion.h1>
 
         {/* ================= DESCRIPTION ================= */}
 
