@@ -542,9 +542,9 @@ function Hero() {
           }}
           className="
             mt-5
-            text-[3.25rem]
+            text-[3.6rem]
             font-bold
-            leading-[0.98]
+            leading-[0.8]
             tracking-[-0.045em]
             text-[#1B1B1B]
             sm:text-[4rem]
