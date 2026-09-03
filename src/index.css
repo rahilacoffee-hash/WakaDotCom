@@ -11,3 +11,84 @@
   --muted-gray: #6C6B6A;
   --beige: #ECDBCD;
 }
+
+/* =========================================================
+   CUSTOM SCROLLBAR — WakaDotCom
+   Works cross-browser: WebKit (Chrome, Edge, Safari) + Firefox
+========================================================= */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FB7A00 #FFF5EB;
+}
+
+/* WebKit (Chrome, Edge, Safari, Opera) */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #FFF5EB;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #FB7A00;
+  border-radius: 999px;
+  border: 2px solid #FFF5EB;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #C25E00;
+}
+
+*::-webkit-scrollbar-corner {
+  background: #FFF5EB;
+}
+
+/* =========================================================
+   THIN VARIANT — for horizontal card carousels
+   (e.g. the "Find a Plumber near you" scroller)
+   Apply the class below to the scrolling container instead
+   of relying on the global rule.
+========================================================= */
+
+.scrollbar-thin-orange {
+  scrollbar-width: thin;
+  scrollbar-color: #FB7A00 transparent;
+}
+
+.scrollbar-thin-orange::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrollbar-thin-orange::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin-orange::-webkit-scrollbar-thumb {
+  background-color: #FB7A00;
+  border-radius: 999px;
+  border: none;
+}
+
+.scrollbar-thin-orange::-webkit-scrollbar-thumb:hover {
+  background-color: #C25E00;
+}
+
+/* =========================================================
+   HIDDEN VARIANT — scrolls, but no visible scrollbar at all
+   Useful for carousels where you're using dot indicators
+   instead (e.g. the "Find a Plumber near you" section)
+========================================================= */
+
+.scrollbar-hidden {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* old Edge/IE */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, Edge */
+}
