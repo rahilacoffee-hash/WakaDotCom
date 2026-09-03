@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 function Hero() {
   const navBullets = [
-    "Something broken? MyFixer fixes.",
-    "Got a delivery? WakaRider delivers.",
-    "Want to buy something? Go to WakaStores.",
-    "Hungry? Go to WakaFoods.",
+    { prefix: "Something broken? ", bold: "SmartFixer fixes." },
+    { prefix: "Got a delivery? ", bold: "WakaRider delivers." },
+    { prefix: "Want to buy something? ", bold: "Go to WakaStores." },
+    { prefix: "Hungry? ", bold: "Go to WakaFoods." },
   ];
 
   const bulletVariants = {
@@ -275,7 +275,7 @@ function Hero() {
             >
               {navBullets.map((item, index) => (
                 <motion.li
-                  key={item}
+                  key={item.prefix}
                   custom={index}
                   variants={bulletVariants}
                   initial="hidden"
@@ -312,7 +312,8 @@ function Hero() {
                     "
                   />
 
-                  {item}
+                  {item.prefix}
+                  <span className="font-bold">{item.bold}</span>
                 </motion.li>
               ))}
             </ul>
@@ -610,7 +611,7 @@ function Hero() {
         >
           {navBullets.map((item, index) => (
             <li
-              key={item}
+              key={item.prefix}
               className="
                 flex
                 items-start
@@ -641,7 +642,10 @@ function Hero() {
                 "
               />
 
-              <span>{item}</span>
+              <span>
+                {item.prefix}
+                <span className="font-bold">{item.bold}</span>
+              </span>
             </li>
           ))}
         </motion.ul>
