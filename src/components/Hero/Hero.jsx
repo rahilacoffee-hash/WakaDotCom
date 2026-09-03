@@ -41,8 +41,8 @@ function Hero() {
           absolute
           -top-40
           -right-40
-          w-[500px]
           h-[500px]
+          w-[500px]
           rounded-full
           bg-[#FEEAD7]
           blur-3xl
@@ -56,8 +56,8 @@ function Hero() {
           absolute
           top-[45%]
           -left-52
-          w-[400px]
           h-[400px]
+          w-[400px]
           rounded-full
           bg-[#FEEAD7]
           blur-3xl
@@ -71,16 +71,16 @@ function Hero() {
 
       <div
         className="
-          hidden
-          lg:block
-          max-w-7xl
-          mx-auto
-          px-6
-          lg:px-12
-          pt-32
-          pb-0
           relative
           z-10
+          mx-auto
+          hidden
+          max-w-7xl
+          px-6
+          pt-32
+          pb-0
+          lg:block
+          lg:px-12
         "
       >
         {/* ================= TOP CONTENT ================= */}
@@ -136,15 +136,15 @@ function Hero() {
                   inline-flex
                   items-center
                   gap-2.5
-                  px-5
-                  py-2.5
                   rounded-full
-                  bg-[#FEEAD7]
-                  text-[#FB7A00]
-                  text-sm
-                  font-medium
                   border
                   border-[#ECDBCD]
+                  bg-[#FEEAD7]
+                  px-5
+                  py-2.5
+                  text-sm
+                  font-medium
+                  text-[#FB7A00]
                 "
               >
                 {/* Pulsing dot */}
@@ -160,11 +160,11 @@ function Hero() {
                     ease: "easeInOut",
                   }}
                   className="
-                    w-2.5
                     h-2.5
+                    w-2.5
+                    shrink-0
                     rounded-full
                     bg-[#FB7A00]
-                    shrink-0
                   "
                 />
 
@@ -177,17 +177,17 @@ function Hero() {
                 className="
                   mt-7
                   text-[clamp(3rem,5vw,4.5rem)]
+                  font-bold
                   leading-[1.05]
                   tracking-[-0.04em]
-                  font-bold
                   text-[#1B1B1B]
                 "
               >
-                One signup.
+                One Signup.
                 <br />
 
-                <span className="inline-block mt-2 text-[#FB7A00]">
-                  Many possibilities.
+                <span className="mt-2 inline-block text-[#FB7A00]">
+                  Four Apps. One Waka.
                 </span>
               </h1>
 
@@ -198,14 +198,12 @@ function Hero() {
                   mt-6
                   max-w-lg
                   text-base
-                  lg:text-lg
                   leading-relaxed
                   text-[#6C6B6A]
+                  lg:text-lg
                 "
               >
-                One account gives you access to everything you need
-                for your everyday life — from fixing things and
-                getting around to shopping and ordering food.
+               Find Fixers, Merchants, Vendors and Riders Near You.
               </p>
 
               {/* CTA */}
@@ -220,21 +218,21 @@ function Hero() {
                   scale: 0.97,
                 }}
                 className="
+                  mt-7
                   inline-flex
                   items-center
                   justify-center
-                  mt-7
+                  rounded-full
                   bg-[#FB7A00]
-                  hover:bg-[#e96f00]
-                  text-white
-                  font-semibold
                   px-7
                   py-3.5
-                  rounded-full
+                  font-semibold
+                  text-white
                   shadow-[0_15px_40px_rgba(251,122,0,0.22)]
-                  hover:shadow-[0_20px_50px_rgba(251,122,0,0.32)]
                   transition-all
                   duration-300
+                  hover:bg-[#e96f00]
+                  hover:shadow-[0_20px_50px_rgba(251,122,0,0.32)]
                 "
               >
                 Explore the Ecosystem
@@ -306,11 +304,11 @@ function Hero() {
                       ease: "easeInOut",
                     }}
                     className="
-                      w-2
                       h-2
+                      w-2
+                      shrink-0
                       rounded-full
                       bg-[#FB7A00]
-                      shrink-0
                     "
                   />
 
@@ -365,9 +363,9 @@ function Hero() {
               absolute
               left-[20%]
               top-5
-              text-[#1B1B1B]
-              text-xl
               z-10
+              text-xl
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -388,9 +386,9 @@ function Hero() {
               absolute
               left-[22%]
               top-2
-              text-[#1B1B1B]
-              text-sm
               z-10
+              text-sm
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -411,9 +409,9 @@ function Hero() {
               absolute
               left-[56%]
               top-7
-              text-[#1B1B1B]
-              text-lg
               z-10
+              text-lg
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -434,9 +432,9 @@ function Hero() {
               absolute
               left-[58%]
               top-4
-              text-[#1B1B1B]
-              text-sm
               z-10
+              text-sm
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -450,10 +448,10 @@ function Hero() {
             className="
               relative
               z-[1]
-              w-full
               h-auto
-              object-contain
+              w-full
               select-none
+              object-contain
             "
           />
         </motion.div>
@@ -465,14 +463,14 @@ function Hero() {
 
       <div
         className="
-          lg:hidden
           relative
           z-10
           px-5
-          sm:px-6
           pt-28
           pb-8
           text-center
+          sm:px-6
+          lg:hidden
         "
       >
         {/* Badge */}
@@ -493,16 +491,16 @@ function Hero() {
             inline-flex
             items-center
             gap-2
-            px-4
-            py-2
             rounded-full
-            bg-[#FEEAD7]
-            text-[#FB7A00]
-            text-xs
-            sm:text-sm
-            font-medium
             border
             border-[#ECDBCD]
+            bg-[#FEEAD7]
+            px-4
+            py-2
+            text-xs
+            font-medium
+            text-[#FB7A00]
+            sm:text-sm
           "
         >
           <motion.span
@@ -516,18 +514,18 @@ function Hero() {
               ease: "easeInOut",
             }}
             className="
-              w-2.5
               h-2.5
+              w-2.5
+              shrink-0
               rounded-full
               bg-[#FB7A00]
-              shrink-0
             "
           />
 
           Africa's connected digital lifestyle ecosystem
         </motion.span>
 
-        {/* Heading */}
+        {/* ================= MOBILE HEADING ================= */}
 
         <motion.h1
           initial={{
@@ -544,23 +542,23 @@ function Hero() {
           }}
           className="
             mt-5
-            text-[2.5rem]
-            sm:text-5xl
+            text-[3.25rem]
             font-bold
-            leading-[1.05]
-            tracking-[-0.04em]
+            leading-[0.98]
+            tracking-[-0.045em]
             text-[#1B1B1B]
+            sm:text-[4rem]
           "
         >
-          One signup.
+          One Signup.
           <br />
 
-          <span className="text-[#FB7A00]">
-            Many possibilities.
+          <span className="text-[2.5rem] text-[#FB7A00]">
+            Four Apps. One Waka.
           </span>
         </motion.h1>
 
-        {/* Description */}
+        {/* ================= DESCRIPTION ================= */}
 
         <motion.p
           initial={{
@@ -576,20 +574,19 @@ function Hero() {
             delay: 0.25,
           }}
           className="
+            mx-auto
             mt-5
             max-w-md
-            mx-auto
             text-sm
-            sm:text-base
             leading-relaxed
             text-[#6C6B6A]
+            sm:text-base
           "
         >
-          Everything you need for everyday life,
-          all connected in one ecosystem.
+          Find Fixers, Merchants, Vendors and Riders Near You.
         </motion.p>
 
-        {/* Bullets */}
+        {/* ================= BULLETS ================= */}
 
         <motion.ul
           initial={{
@@ -606,10 +603,10 @@ function Hero() {
           }}
           className="
             mt-5
-            space-y-2.5
-            text-left
             inline-block
             max-w-full
+            space-y-2.5
+            text-left
           "
         >
           {navBullets.map((item, index) => (
@@ -637,11 +634,11 @@ function Hero() {
                 }}
                 className="
                   mt-1.5
-                  w-2
                   h-2
+                  w-2
+                  shrink-0
                   rounded-full
                   bg-[#FB7A00]
-                  shrink-0
                 "
               />
 
@@ -650,7 +647,7 @@ function Hero() {
           ))}
         </motion.ul>
 
-        {/* CTA */}
+        {/* ================= CTA ================= */}
 
         <motion.a
           href="#ecosystem"
@@ -673,20 +670,20 @@ function Hero() {
             scale: 0.97,
           }}
           className="
+            mt-6
             inline-flex
             items-center
             justify-center
-            mt-6
+            rounded-full
             bg-[#FB7A00]
-            hover:bg-[#e96f00]
-            text-white
-            font-semibold
             px-6
             py-3
-            rounded-full
+            font-semibold
+            text-white
             shadow-[0_15px_40px_rgba(251,122,0,0.22)]
             transition-all
             duration-300
+            hover:bg-[#e96f00]
           "
         >
           Explore the Ecosystem
@@ -696,7 +693,7 @@ function Hero() {
           </span>
         </motion.a>
 
-        {/* Mobile Image */}
+        {/* ================= MOBILE IMAGE ================= */}
 
         <motion.div
           initial={{
@@ -733,9 +730,9 @@ function Hero() {
               absolute
               left-[8%]
               top-3
-              text-[#1B1B1B]
-              text-lg
               z-10
+              text-lg
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -756,9 +753,9 @@ function Hero() {
               absolute
               right-[10%]
               top-1
-              text-[#1B1B1B]
-              text-base
               z-10
+              text-base
+              text-[#1B1B1B]
             "
           >
             ✦
@@ -772,10 +769,10 @@ function Hero() {
             className="
               relative
               z-[1]
-              w-full
               h-auto
-              object-contain
+              w-full
               select-none
+              object-contain
             "
           />
         </motion.div>
