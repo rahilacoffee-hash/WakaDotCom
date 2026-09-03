@@ -543,7 +543,7 @@ function Hero() {
   className="
     mt-5
     font-bold
-    leading-[1]
+    leading-[1.15]
     tracking-[-0.045em]
     text-[#1B1B1B]
   "
@@ -552,7 +552,7 @@ function Hero() {
     One Signup.
   </span>
 
-  <span className="mt-3 block font-semiboild text-[2.15rem] sm:text-[3rem] text-[#FB7A00]">
+  <span className="mt-4 block font-bold text-[2.15rem] sm:text-[3rem] text-[#FB7A00]">
     Four Apps. One Waka.
   </span>
 </motion.h1>
