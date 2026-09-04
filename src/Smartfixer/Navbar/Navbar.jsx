@@ -3,13 +3,17 @@ import {
   HiMenu,
   HiX,
   HiChevronDown,
-  HiCake,
+  HiLightningBolt,
   HiTruck,
   HiShoppingBag,
 } from "react-icons/hi";
 import { HiWrench } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
 
 const navLinks = [
   {
@@ -26,41 +30,35 @@ const navLinks = [
   },
 ];
 
-/**
- * FIX: every href here was either malformed ("#smartfixers.vercel.app/" —
- * a hash glued to a domain, which just scrolls to a non-existent in-page
- * anchor) or a bare in-page anchor ("#wakarider" etc.) that doesn't point
- * anywhere real. These now point to the live app for each ecosystem
- * product, opened in a new tab since they're separate deployments — swap
- * in the real production domains if they differ from the *.vercel.app
- * ones below.
- */
+/* =========================================================
+   SERVICES
+========================================================= */
+
 const services = [
-  {
-    name: "SmartFixer",
-    description: "Fix anything, anywhere",
-    href: "/smartfixer",
-    icon: HiWrench,
-  },
+
   {
     name: "WakaRider",
     description: "Fast & reliable deliveries",
-    href: "https://wakarider.vercel.app/",
+    href: "#wakarider",
     icon: HiTruck,
   },
   {
     name: "WakaFoods",
     description: "Your favourite meals",
-    href: "https://wakafoods.vercel.app/",
-    icon: HiCake,
+    href: "#wakafoods",
+    icon: HiLightningBolt,
   },
   {
     name: "WakaStores",
     description: "Shop what you need",
-    href: "https://wakastores.vercel.app/",
+    href: "#wakastores",
     icon: HiShoppingBag,
   },
 ];
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
 
 const dropdownVariants = {
   hidden: {
@@ -68,6 +66,7 @@ const dropdownVariants = {
     y: 8,
     scale: 0.98,
   },
+
   visible: {
     opacity: 1,
     y: 0,
@@ -77,6 +76,7 @@ const dropdownVariants = {
       ease: [0.22, 1, 0.36, 1],
     },
   },
+
   exit: {
     opacity: 0,
     y: 8,
@@ -91,6 +91,7 @@ const mobileMenuVariants = {
   hidden: {
     x: "100%",
   },
+
   visible: {
     x: 0,
     transition: {
@@ -98,6 +99,7 @@ const mobileMenuVariants = {
       ease: [0.22, 1, 0.36, 1],
     },
   },
+
   exit: {
     x: "100%",
     transition: {
@@ -107,16 +109,20 @@ const mobileMenuVariants = {
   },
 };
 
-export default function Navbar() {
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] =
     useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  /* =========================================
+  /* =======================================================
      SCROLL STATE
-  ========================================= */
+  ======================================================= */
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,9 +138,9 @@ export default function Navbar() {
     };
   }, []);
 
-  /* =========================================
-     LOCK BODY SCROLL WHEN MOBILE MENU OPENS
-  ========================================= */
+  /* =======================================================
+     LOCK BODY SCROLL
+  ======================================================= */
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -148,9 +154,9 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
-  /* =========================================
+  /* =======================================================
      CLOSE MOBILE MENU
-  ========================================= */
+  ======================================================= */
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
@@ -164,7 +170,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`
+      className="
         fixed
         left-0
         top-0
@@ -172,17 +178,20 @@ export default function Navbar() {
         w-full
         transition-all
         duration-500
-      `}
+      "
     >
-      {/* =========================================
+      {/* ===================================================
           NAVBAR BACKGROUND
-      ========================================= */}
+      =================================================== */}
 
       <div
         className={`
           absolute
           inset-x-0
           top-0
+          backdrop-blur-xl
+          border-b
+          border-black/[0.05]
           transition-all
           duration-500
 
@@ -190,24 +199,20 @@ export default function Navbar() {
             isScrolled
               ? `
                 h-[72px]
-                bg-[#FFF5EB]/85
+                bg-[#EEF7FF]/90
                 shadow-[0_8px_35px_rgba(27,27,27,0.08)]
               `
               : `
                 h-20
-                bg-[#FFF5EB]/75
+                bg-[#EEF7FF]/75
               `
           }
-
-          backdrop-blur-xl
-          border-b
-          border-black/[0.05]
         `}
       />
 
-      {/* =========================================
-          NAV
-      ========================================= */}
+      {/* ===================================================
+          NAVIGATION
+      =================================================== */}
 
       <nav
         className={`
@@ -224,21 +229,17 @@ export default function Navbar() {
           sm:px-7
           lg:px-8
 
-          ${
-            isScrolled
-              ? "h-[72px]"
-              : "h-20"
-          }
+          ${isScrolled ? "h-[72px]" : "h-20"}
         `}
       >
-        {/* =======================================
+        {/* =================================================
             LOGO
-        ======================================= */}
+        ================================================= */}
 
         <a
           href="/"
           onClick={closeMobileMenu}
-          aria-label="WakaDotCom home"
+          aria-label="SmartFixer home"
           className="
             relative
             z-[60]
@@ -249,28 +250,37 @@ export default function Navbar() {
             hover:scale-[1.02]
             focus:outline-none
             focus-visible:ring-2
-            focus-visible:ring-[#FB7A00]
+            focus-visible:ring-[#1769C2]
             focus-visible:ring-offset-4
-            focus-visible:ring-offset-[#FFF5EB]
+            focus-visible:ring-offset-[#EEF7FF]
           "
         >
           <img
-            src="/Wakadotcom-logo.webp"
-            alt="WakaDotCom"
+            src="/smartfixer-logo.png"
+            alt="SmartFixer"
             className="
-              w-[128px]
+              w-[145px]
               object-contain
-              sm:w-[140px]
-              lg:w-[145px]
+              sm:w-[155px]
+              lg:w-[165px]
             "
           />
         </a>
 
-        {/* =======================================
-            DESKTOP NAVIGATION
-        ======================================= */}
+        {/* =================================================
+            DESKTOP NAV
+        ================================================= */}
 
-        <div className="hidden lg:flex lg:items-center lg:gap-10">
+        <div
+          className="
+            hidden
+            lg:flex
+            lg:items-center
+            lg:gap-10
+          "
+        >
+          {/* NAV LINKS */}
+
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -281,12 +291,12 @@ export default function Navbar() {
                 py-2
                 text-[14px]
                 font-semibold
-                text-[#1B1B1B]
+                text-[#171717]
                 transition-colors
                 duration-300
-                hover:text-[#FB7A00]
+                hover:text-[#1769C2]
                 focus:outline-none
-                focus-visible:text-[#FB7A00]
+                focus-visible:text-[#1769C2]
               "
             >
               {link.name}
@@ -299,7 +309,7 @@ export default function Navbar() {
                   h-[2px]
                   w-0
                   rounded-full
-                  bg-[#FB7A00]
+                  bg-[#1769C2]
                   transition-all
                   duration-300
                   group-hover:w-full
@@ -308,9 +318,9 @@ export default function Navbar() {
             </a>
           ))}
 
-          {/* =====================================
+          {/* =================================================
               SERVICES
-          ===================================== */}
+          ================================================= */}
 
           <div
             className="relative"
@@ -325,18 +335,19 @@ export default function Navbar() {
               aria-expanded={isServicesOpen}
               className="
                 group
+                relative
                 flex
                 items-center
                 gap-1.5
                 py-2
                 text-[14px]
                 font-semibold
-                text-[#1B1B1B]
+                text-[#171717]
                 transition-colors
                 duration-300
-                hover:text-[#FB7A00]
+                hover:text-[#1769C2]
                 focus:outline-none
-                focus-visible:text-[#FB7A00]
+                focus-visible:text-[#1769C2]
               "
             >
               <span>Services</span>
@@ -346,6 +357,7 @@ export default function Navbar() {
                   text-lg
                   transition-transform
                   duration-300
+
                   ${
                     isServicesOpen
                       ? "rotate-180"
@@ -361,9 +373,10 @@ export default function Navbar() {
                   left-0
                   h-[2px]
                   rounded-full
-                  bg-[#FB7A00]
+                  bg-[#1769C2]
                   transition-all
                   duration-300
+
                   ${
                     isServicesOpen
                       ? "w-full"
@@ -373,9 +386,9 @@ export default function Navbar() {
               />
             </button>
 
-            {/* ===================================
+            {/* =================================================
                 DESKTOP DROPDOWN
-            =================================== */}
+            ================================================= */}
 
             <AnimatePresence>
               {isServicesOpen && (
@@ -396,35 +409,34 @@ export default function Navbar() {
                   <div
                     className="
                       overflow-hidden
-                      rounded-[22px]
+                      rounded-2xl
                       border
-                      border-[#F0DED0]
-                      bg-white/95
-                      p-2
-                      shadow-[0_25px_70px_rgba(27,27,27,0.13)]
-                      backdrop-blur-xl
+                      border-[#DCEBFA]
+                      bg-white
+                      p-3
+                      shadow-[0_25px_70px_rgba(27,27,27,0.12)]
                     "
                   >
-                    {/* Dropdown header */}
+                    {/* Dropdown heading */}
 
-                    <div className="px-4 pb-3 pt-3">
+                    <div className="px-3 pb-3 pt-2">
                       <p
                         className="
                           text-[10px]
                           font-bold
                           uppercase
-                          tracking-[0.18em]
-                          text-[#9A8F87]
+                          tracking-[0.2em]
+                          text-[#7A7A7A]
                         "
                       >
-                        Our Ecosystem
+                        WakaDotCom Services
                       </p>
 
                       <p
                         className="
                           mt-1
                           text-xs
-                          text-[#6C6B6A]
+                          text-[#9A9A9A]
                         "
                       >
                         Everything you need, in one place.
@@ -441,19 +453,17 @@ export default function Navbar() {
                           <Link
                             key={service.name}
                             to={service.href}
-                            
-                            rel="noopener noreferrer"
                             onClick={handleServiceClick}
                             className="
                               group
                               flex
                               items-center
                               gap-3
-                              rounded-[16px]
+                              rounded-xl
                               p-3
                               transition-all
                               duration-200
-                              hover:bg-[#FFF5EB]
+                              hover:bg-[#EEF7FF]
                             "
                           >
                             {/* Icon */}
@@ -467,12 +477,11 @@ export default function Navbar() {
                                 items-center
                                 justify-center
                                 rounded-xl
-                                bg-[#FEEAD7]
-                                text-[#FB7A00]
+                                bg-[#EEF7FF]
+                                text-[#1769C2]
                                 transition-all
                                 duration-200
-                                group-hover:scale-105
-                                group-hover:bg-[#FB7A00]
+                                group-hover:bg-[#1769C2]
                                 group-hover:text-white
                               "
                             >
@@ -481,15 +490,15 @@ export default function Navbar() {
 
                             {/* Text */}
 
-                            <div className="min-w-0 flex-1">
+                            <div className="min-w-0">
                               <p
                                 className="
                                   text-sm
-                                  font-bold
-                                  text-[#1B1B1B]
+                                  font-semibold
+                                  text-[#171717]
                                   transition-colors
                                   duration-200
-                                  group-hover:text-[#FB7A00]
+                                  group-hover:text-[#1769C2]
                                 "
                               >
                                 {service.name}
@@ -498,9 +507,8 @@ export default function Navbar() {
                               <p
                                 className="
                                   mt-0.5
-                                  text-[11px]
-                                  leading-4
-                                  text-[#77716C]
+                                  text-xs
+                                  text-[#777777]
                                 "
                               >
                                 {service.description}
@@ -511,12 +519,15 @@ export default function Navbar() {
 
                             <span
                               className="
-                                text-[#B7ADA5]
+                                ml-auto
+                                translate-x-[-4px]
+                                text-sm
+                                text-[#B7B7B7]
                                 opacity-0
                                 transition-all
                                 duration-200
-                                group-hover:translate-x-1
-                                group-hover:text-[#FB7A00]
+                                group-hover:translate-x-0
+                                group-hover:text-[#1769C2]
                                 group-hover:opacity-100
                               "
                             >
@@ -526,26 +537,6 @@ export default function Navbar() {
                         );
                       })}
                     </div>
-
-                    {/* Bottom strip */}
-
-                    <div
-                      className="
-                        mt-2
-                        rounded-[14px]
-                        bg-[#1B1B1B]
-                        px-4
-                        py-3
-                      "
-                    >
-                      <p className="text-[10px] text-white/50">
-                        One platform.
-                      </p>
-
-                      <p className="text-xs font-semibold text-white">
-                        Many ways to make life easier.
-                      </p>
-                    </div>
                   </div>
                 </motion.div>
               )}
@@ -553,11 +544,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* =======================================
+        {/* =================================================
             RIGHT SIDE
-        ======================================= */}
+        ================================================= */}
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {/* Desktop CTA */}
 
           <a
@@ -567,64 +558,51 @@ export default function Navbar() {
               items-center
               justify-center
               rounded-full
-              bg-[#FB7A00]
+              bg-[#1769C2]
               px-6
               py-3
               text-sm
-              font-bold
+              font-semibold
               text-white
-              shadow-[0_10px_30px_rgba(251,122,0,0.18)]
+              shadow-[0_10px_30px_rgba(23,105,194,0.20)]
               transition-all
               duration-300
-              hover:scale-[1.04]
-              hover:bg-[#e96f00]
-              hover:shadow-[0_15px_40px_rgba(251,122,0,0.28)]
-              focus:outline-none
-              focus-visible:ring-2
-              focus-visible:ring-[#FB7A00]
-              focus-visible:ring-offset-2
+              hover:scale-105
+              hover:bg-[#125AA7]
+              hover:shadow-[0_15px_40px_rgba(23,105,194,0.30)]
               lg:flex
             "
           >
             Get Started
           </a>
 
-          {/* Mobile menu */}
+          {/* Mobile menu button */}
 
           <button
             type="button"
             onClick={() => setIsMenuOpen(true)}
-            aria-label="Open menu"
-            aria-expanded={isMenuOpen}
             className="
-              relative
-              z-[60]
               flex
               h-11
               w-11
               items-center
               justify-center
               rounded-full
-              border
-              border-[#EBDDD2]
-              bg-white/70
-              text-[#1B1B1B]
-              transition-all
+              transition-colors
               duration-300
-              hover:border-[#FB7A00]
-              hover:bg-[#FEEAD7]
-              hover:text-[#FB7A00]
+              hover:bg-[#DCEBFA]
               lg:hidden
             "
+            aria-label="Open menu"
           >
-            <HiMenu className="text-2xl" />
+            <HiMenu className="text-2xl text-[#171717]" />
           </button>
         </div>
       </nav>
 
-      {/* =========================================
+      {/* ===================================================
           MOBILE OVERLAY
-      ========================================= */}
+      =================================================== */}
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -637,21 +615,21 @@ export default function Navbar() {
               fixed
               inset-0
               z-40
-              bg-[#1B1B1B]/35
-              backdrop-blur-[4px]
+              bg-black/30
+              backdrop-blur-sm
               lg:hidden
             "
           />
         )}
       </AnimatePresence>
 
-      {/* =========================================
+      {/* ===================================================
           MOBILE MENU
-      ========================================= */}
+      =================================================== */}
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.aside
+          <motion.div
             variants={mobileMenuVariants}
             initial="hidden"
             animate="visible"
@@ -661,105 +639,93 @@ export default function Navbar() {
               right-0
               top-0
               z-50
-              flex
               h-screen
-              w-[88%]
-              max-w-[400px]
-              flex-col
+              w-[84%]
+              max-w-[390px]
               overflow-y-auto
-              bg-[#FFF5EB]
-              shadow-[-20px_0_70px_rgba(0,0,0,0.15)]
+              bg-[#EEF7FF]
+              shadow-2xl
               lg:hidden
             "
           >
-            {/* =====================================
+            {/* =================================================
                 MOBILE HEADER
-            ===================================== */}
+            ================================================= */}
 
             <div
               className="
                 flex
                 h-20
-                shrink-0
                 items-center
                 justify-between
                 border-b
-                border-[#ECDBCD]
+                border-black/[0.05]
                 px-6
               "
             >
               <img
-                src="/Wakadotcom-logo.webp"
-                alt="WakaDotCom"
-                className="w-[130px]"
+                src="/smartfixer-logo.png"
+                alt="SmartFixer"
+                className="w-[135px] object-contain"
               />
 
               <button
                 type="button"
                 onClick={closeMobileMenu}
-                aria-label="Close menu"
                 className="
                   flex
-                  h-10
-                  w-10
+                  h-11
+                  w-11
                   items-center
                   justify-center
                   rounded-full
                   bg-white
-                  text-[#1B1B1B]
-                  shadow-sm
+                  text-[#171717]
                   transition-all
                   duration-300
-                  hover:bg-[#FEEAD7]
-                  hover:text-[#FB7A00]
+                  hover:bg-[#DCEBFA]
+                  hover:text-[#1769C2]
                 "
+                aria-label="Close menu"
               >
-                <HiX className="text-xl" />
+                <HiX className="text-2xl" />
               </button>
             </div>
 
-            {/* =====================================
+            {/* =================================================
                 MOBILE CONTENT
-            ===================================== */}
+            ================================================= */}
 
-            <div className="flex flex-1 flex-col px-6 pb-8">
-              {/* Mobile links */}
+            <div className="px-7 pb-10 pt-7">
+              {/* Nav links */}
 
-              <div className="mt-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={closeMobileMenu}
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      border-b
-                      border-[#ECDBCD]
-                      py-5
-                      text-lg
-                      font-bold
-                      text-[#1B1B1B]
-                      transition-colors
-                      duration-300
-                      hover:text-[#FB7A00]
-                    "
-                  >
-                    {link.name}
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={closeMobileMenu}
+                  className="
+                    block
+                    border-b
+                    border-black/[0.06]
+                    py-5
+                    text-lg
+                    font-semibold
+                    text-[#171717]
+                    transition-colors
+                    duration-300
+                    hover:text-[#1769C2]
+                  "
+                >
+                  {link.name}
+                </a>
+              ))}
 
-                    <span className="text-[#C1B6AE]">
-                      →
-                    </span>
-                  </a>
-                ))}
-              </div>
-
-              {/* ===================================
+              {/* =================================================
                   MOBILE SERVICES
-              =================================== */}
+              ================================================= */}
 
-              <div className="border-b border-[#ECDBCD]">
+              <div className="border-b border-black/[0.06]">
                 <button
                   type="button"
                   onClick={() =>
@@ -767,7 +733,6 @@ export default function Navbar() {
                       (current) => !current
                     )
                   }
-                  aria-expanded={isMobileServicesOpen}
                   className="
                     flex
                     w-full
@@ -775,37 +740,26 @@ export default function Navbar() {
                     justify-between
                     py-5
                     text-lg
-                    font-bold
-                    text-[#1B1B1B]
+                    font-semibold
+                    text-[#171717]
                   "
                 >
                   <span>Services</span>
 
-                  <span
-                    className="
-                      flex
-                      h-8
-                      w-8
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#FEEAD7]
-                      text-[#FB7A00]
-                    "
-                  >
-                    <HiChevronDown
-                      className={`
-                        text-lg
-                        transition-transform
-                        duration-300
-                        ${
-                          isMobileServicesOpen
-                            ? "rotate-180"
-                            : ""
-                        }
-                      `}
-                    />
-                  </span>
+                  <HiChevronDown
+                    className={`
+                      text-xl
+                      text-[#1769C2]
+                      transition-transform
+                      duration-300
+
+                      ${
+                        isMobileServicesOpen
+                          ? "rotate-180"
+                          : ""
+                      }
+                    `}
+                  />
                 </button>
 
                 <AnimatePresence>
@@ -833,21 +787,20 @@ export default function Navbar() {
                           const Icon = service.icon;
 
                           return (
-                            <Link
+                            <a
                               key={service.name}
-                              to={service.href}
-                              rel="noopener noreferrer"
+                              href={service.href}
                               onClick={handleServiceClick}
                               className="
                                 group
                                 flex
                                 items-center
                                 gap-3
-                                rounded-2xl
+                                rounded-xl
                                 p-3
                                 transition-colors
                                 duration-200
-                                hover:bg-[#FEEAD7]
+                                hover:bg-white
                               "
                             >
                               <div
@@ -860,7 +813,7 @@ export default function Navbar() {
                                   justify-center
                                   rounded-xl
                                   bg-white
-                                  text-[#FB7A00]
+                                  text-[#1769C2]
                                   shadow-sm
                                 "
                               >
@@ -868,15 +821,27 @@ export default function Navbar() {
                               </div>
 
                               <div>
-                                <p className="text-sm font-bold text-[#1B1B1B]">
+                                <p
+                                  className="
+                                    text-sm
+                                    font-semibold
+                                    text-[#171717]
+                                  "
+                                >
                                   {service.name}
                                 </p>
 
-                                <p className="mt-0.5 text-[11px] text-[#77716C]">
+                                <p
+                                  className="
+                                    mt-0.5
+                                    text-xs
+                                    text-[#777777]
+                                  "
+                                >
                                   {service.description}
                                 </p>
                               </div>
-                            </Link>
+                            </a>
                           );
                         })}
                       </div>
@@ -885,54 +850,51 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
 
-              {/* ===================================
+              {/* =================================================
                   MOBILE CTA
-              =================================== */}
+              ================================================= */}
 
               <a
                 href="#get-started"
                 onClick={closeMobileMenu}
                 className="
                   mt-8
-                  flex
-                  items-center
-                  justify-center
+                  block
                   rounded-full
-                  bg-[#FB7A00]
-                  px-6
+                  bg-[#1769C2]
                   py-4
-                  text-sm
-                  font-bold
+                  text-center
+                  font-semibold
                   text-white
-                  shadow-[0_15px_35px_rgba(251,122,0,0.22)]
+                  shadow-[0_10px_30px_rgba(23,105,194,0.20)]
                   transition-all
                   duration-300
-                  hover:bg-[#e96f00]
-                  active:scale-[0.98]
+                  hover:scale-[1.02]
+                  hover:bg-[#125AA7]
                 "
               >
                 Get Started
               </a>
 
-              {/* ===================================
-                  MOBILE FOOTER
-              =================================== */}
+              {/* Small footer text */}
 
-              <div className="mt-auto pt-10">
-                <div className="h-px w-full bg-[#ECDBCD]" />
-
-                <div className="flex items-center justify-between pt-5">
-                  <p className="text-[10px] text-[#8C8178]">
-                    One App. Many Solutions.
-                  </p>
-
-                  <span className="h-2 w-2 rounded-full bg-[#FB7A00]" />
-                </div>
-              </div>
+              <p
+                className="
+                  mt-8
+                  text-center
+                  text-[11px]
+                  leading-5
+                  text-[#8A8A8A]
+                "
+              >
+                Fix anything. Anywhere.
+              </p>
             </div>
-          </motion.aside>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
   );
-}
+};
+
+export default Navbar;
