@@ -29,7 +29,7 @@ const services = [
   {
     name: "SmartFixer",
     description: "Fix anything, anywhere",
-    href: "#smartfixer",
+    href: "#https://smartfixers.vercel.app/",
     icon: HiWrench,
   },
   {
