@@ -545,7 +545,7 @@ const SmartFixer = () => {
                 text-[#FB7A00]
               "
             >
-              Your problems. Solved.
+              What needs fixing?
             </p>
 
             {/* Heading */}
@@ -562,11 +562,9 @@ const SmartFixer = () => {
                 sm:text-5xl
               "
             >
-              Something broken?
-              <br />
-
+              Fix anything with{" "}
               <span className="text-[#FB7A00]">
-                Let's fix it for you.
+                SmartFixer.
               </span>
             </h3>
 

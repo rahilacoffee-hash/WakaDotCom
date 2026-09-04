@@ -531,7 +531,7 @@ function Logo() {
       "
     >
       <img
-        src="/Wakadotcom-logo.png"
+        src="/Wakadotcom-logo.webp"
         alt="WakaDotCom"
         className="
           h-auto

@@ -3,10 +3,22 @@ import { motion } from "framer-motion";
 
 function Hero() {
   const navBullets = [
-    { prefix: "Something broken? ", bold: "SmartFixer fixes." },
-    { prefix: "Got a delivery? ", bold: "WakaRider delivers." },
-    { prefix: "Want to buy something? ", bold: "Go to WakaStores." },
-    { prefix: "Hungry? ", bold: "Go to WakaFoods." },
+    {
+      prefix: "Something broken? ",
+      bold: "SmartFixer fixes.",
+    },
+    {
+      prefix: "Got a delivery? ",
+      bold: "WakaRider delivers.",
+    },
+    {
+      prefix: "Want to buy something? ",
+      bold: "Go to WakaStores.",
+    },
+    {
+      prefix: "Hungry? ",
+      bold: "Go to WakaFoods.",
+    },
   ];
 
   const bulletVariants = {
@@ -14,6 +26,7 @@ function Hero() {
       opacity: 0,
       y: 15,
     },
+
     visible: (index) => ({
       opacity: 1,
       y: 0,
@@ -26,27 +39,23 @@ function Hero() {
   };
 
   return (
-    <section
-      className="
-        relative
-        overflow-hidden
-        bg-[#FFF5EB]
-      "
-    >
-      {/* ================= BACKGROUND DECORATION ================= */}
+    <section className="relative overflow-hidden bg-[#FFF5EB]">
+      {/* =========================================================
+          BACKGROUND DECORATION
+      ========================================================= */}
 
       <div
         className="
           pointer-events-none
           absolute
-          -top-40
           -right-40
+          -top-40
           h-[500px]
           w-[500px]
           rounded-full
           bg-[#FEEAD7]
-          blur-3xl
           opacity-50
+          blur-3xl
         "
       />
 
@@ -54,14 +63,14 @@ function Hero() {
         className="
           pointer-events-none
           absolute
-          top-[45%]
           -left-52
+          top-[45%]
           h-[400px]
           w-[400px]
           rounded-full
           bg-[#FEEAD7]
-          blur-3xl
           opacity-30
+          blur-3xl
         "
       />
 
@@ -77,8 +86,8 @@ function Hero() {
           hidden
           max-w-7xl
           px-6
-          pt-32
           pb-0
+          pt-32
           lg:block
           lg:px-12
         "
@@ -90,7 +99,8 @@ function Hero() {
             flex
             items-center
             justify-between
-            gap-16
+            gap-12
+            xl:gap-20
           "
         >
           {/* ================= LEFT CONTENT ================= */}
@@ -112,7 +122,7 @@ function Hero() {
               duration: 0.8,
               ease: [0.25, 0.1, 0.25, 1],
             }}
-            className="flex-1"
+            className="min-w-0 flex-1"
           >
             <div className="max-w-2xl">
               {/* Badge */}
@@ -203,7 +213,7 @@ function Hero() {
                   lg:text-lg
                 "
               >
-               Find Fixers, Merchants, Vendors and Riders Near You.
+                Find Fixers, Merchants, Vendors and Riders Near You.
               </p>
 
               {/* CTA */}
@@ -237,9 +247,7 @@ function Hero() {
               >
                 Explore the Ecosystem
 
-                <span className="ml-2 text-lg">
-                  →
-                </span>
+                <span className="ml-2 text-lg">→</span>
               </motion.a>
             </div>
           </motion.div>
@@ -313,7 +321,10 @@ function Hero() {
                   />
 
                   {item.prefix}
-                  <span className="font-bold">{item.bold}</span>
+
+                  <span className="font-bold">
+                    {item.bold}
+                  </span>
                 </motion.li>
               ))}
             </ul>
@@ -446,9 +457,11 @@ function Hero() {
           <img
             src="/hero-lg.webp"
             alt="WakaDot ecosystem team"
+            draggable="false"
             className="
               relative
               z-[1]
+              mx-auto
               h-auto
               w-full
               select-none
@@ -467,8 +480,8 @@ function Hero() {
           relative
           z-10
           px-5
-          pt-28
           pb-8
+          pt-28
           text-center
           sm:px-6
           lg:hidden
@@ -490,6 +503,7 @@ function Hero() {
           }}
           className="
             inline-flex
+            max-w-full
             items-center
             gap-2
             rounded-full
@@ -529,34 +543,42 @@ function Hero() {
         {/* ================= MOBILE HEADING ================= */}
 
         <motion.h1
-  initial={{
-    opacity: 0,
-    y: 20,
-  }}
-  animate={{
-    opacity: 1,
-    y: 0,
-  }}
-  transition={{
-    duration: 0.7,
-    delay: 0.1,
-  }}
-  className="
-    mt-5
-    font-bold
-    leading-[1.15]
-    tracking-[-0.045em]
-    text-[#1B1B1B]
-  "
->
-  <span className="block text-[3.6rem] sm:text-[4rem]">
-    One Signup.
-  </span>
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.1,
+          }}
+          className="
+            mt-5
+            font-bold
+            leading-[1.08]
+            tracking-[-0.045em]
+            text-[#1B1B1B]
+          "
+        >
+          <span className="block text-[clamp(2.9rem,14vw,4rem)]">
+            One Signup.
+          </span>
 
-  <span className="mt-4 block font-bold text-[2.15rem] sm:text-[3rem] text-[#FB7A00]">
-    Four Apps. One Waka.
-  </span>
-</motion.h1>
+          <span
+            className="
+              mt-3
+              block
+              text-[clamp(2rem,9vw,3rem)]
+              font-bold
+              text-[#FB7A00]
+            "
+          >
+            Four Apps. One Waka.
+          </span>
+        </motion.h1>
 
         {/* ================= DESCRIPTION ================= */}
 
@@ -602,6 +624,7 @@ function Hero() {
             delay: 0.35,
           }}
           className="
+            mx-auto
             mt-5
             inline-block
             max-w-full
@@ -644,7 +667,10 @@ function Hero() {
 
               <span>
                 {item.prefix}
-                <span className="font-bold">{item.bold}</span>
+
+                <span className="font-bold">
+                  {item.bold}
+                </span>
               </span>
             </li>
           ))}
@@ -672,28 +698,28 @@ function Hero() {
           whileTap={{
             scale: 0.97,
           }}
-          className="
-            mt-6
-            inline-flex
-            items-center
-            justify-center
-            rounded-full
-            bg-[#FB7A00]
-            px-6
-            py-3
-            font-semibold
-            text-white
-            shadow-[0_15px_40px_rgba(251,122,0,0.22)]
-            transition-all
-            duration-300
-            hover:bg-[#e96f00]
-          "
+        className="
+  mx-auto
+  mt-6
+  flex
+  w-fit
+  items-center
+  justify-center
+  rounded-full
+  bg-[#FB7A00]
+  px-6
+  py-3
+  font-semibold
+  text-white
+  shadow-[0_15px_40px_rgba(251,122,0,0.22)]
+  transition-all
+  duration-300
+  hover:bg-[#e96f00]
+"
         >
           Explore the Ecosystem
 
-          <span className="ml-2">
-            →
-          </span>
+          <span className="ml-2">→</span>
         </motion.a>
 
         {/* ================= MOBILE IMAGE ================= */}
@@ -769,9 +795,11 @@ function Hero() {
           <img
             src="/hero-sm.webp"
             alt="WakaDot ecosystem team"
+            draggable="false"
             className="
               relative
               z-[1]
+              mx-auto
               h-auto
               w-full
               select-none

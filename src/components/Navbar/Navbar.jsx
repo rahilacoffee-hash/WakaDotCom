@@ -677,7 +677,7 @@ export default function Navbar() {
               "
             >
               <img
-                src="/Wakadotcom-logo.png"
+                src="/Wakadotcom-logo.webp"
                 alt="WakaDotCom"
                 className="w-[130px]"
               />
