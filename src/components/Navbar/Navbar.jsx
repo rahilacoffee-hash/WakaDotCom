@@ -3,7 +3,7 @@ import {
   HiMenu,
   HiX,
   HiChevronDown,
-  HiLightningBolt,
+  HiCake,
   HiTruck,
   HiShoppingBag,
 } from "react-icons/hi";
@@ -25,29 +25,38 @@ const navLinks = [
   },
 ];
 
+/**
+ * FIX: every href here was either malformed ("#smartfixers.vercel.app/" —
+ * a hash glued to a domain, which just scrolls to a non-existent in-page
+ * anchor) or a bare in-page anchor ("#wakarider" etc.) that doesn't point
+ * anywhere real. These now point to the live app for each ecosystem
+ * product, opened in a new tab since they're separate deployments — swap
+ * in the real production domains if they differ from the *.vercel.app
+ * ones below.
+ */
 const services = [
   {
     name: "SmartFixer",
     description: "Fix anything, anywhere",
-    href: "#https://smartfixers.vercel.app/",
+    href: "https://smartfixers.vercel.app/",
     icon: HiWrench,
   },
   {
     name: "WakaRider",
     description: "Fast & reliable deliveries",
-    href: "#wakarider",
+    href: "https://wakarider.vercel.app/",
     icon: HiTruck,
   },
   {
     name: "WakaFoods",
     description: "Your favourite meals",
-    href: "#wakafoods",
-    icon: HiLightningBolt,
+    href: "https://wakafoods.vercel.app/",
+    icon: HiCake,
   },
   {
     name: "WakaStores",
     description: "Shop what you need",
-    href: "#wakastores",
+    href: "https://wakastores.vercel.app/",
     icon: HiShoppingBag,
   },
 ];
@@ -431,6 +440,8 @@ export default function Navbar() {
                           <a
                             key={service.name}
                             href={service.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             onClick={handleServiceClick}
                             className="
                               group
@@ -824,6 +835,8 @@ export default function Navbar() {
                             <a
                               key={service.name}
                               href={service.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               onClick={handleServiceClick}
                               className="
                                 group
