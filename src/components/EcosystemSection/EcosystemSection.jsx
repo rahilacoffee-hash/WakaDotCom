@@ -408,7 +408,7 @@ function EcosystemSection() {
     {
       id: "wakarider",
       name: "WakaRider",
-      image: "wakarider-card.png",
+      image: "wakarider-card.webp",
       features: [
         {
           icon: <HiClock size={17} />,
@@ -434,7 +434,7 @@ function EcosystemSection() {
     {
        id: "wakafoods",
       name: "WakaFoods",
-      image: "wakafoods-card.png",
+      image: "wakafoods-card.webp",
       dark: true,
       featured: true,
       features: [
@@ -462,7 +462,7 @@ function EcosystemSection() {
     {
       id: "wakastores",
       name: "WakaStore",
-      image: "wakastores-card.png",
+      image: "wakastores-card.webp",
       features: [
         {
           icon: <HiShieldCheck size={17} />,

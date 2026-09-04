@@ -13,7 +13,7 @@ const options = [
       "Transparent pricing",
       "Quick booking",
     ],
-    image: "/smartfixer-2.png",
+    image: "/smartfixer-2.webp",
   },
   {
     number: "02",
@@ -25,7 +25,7 @@ const options = [
       "Priority support",
       "End-to-end convenience",
     ],
-    image: "/smartfixer-1.png",
+    image: "/smartfixer-1.webp",
   },
 ];
 

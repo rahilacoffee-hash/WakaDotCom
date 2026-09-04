@@ -268,7 +268,7 @@ const SmartFixer = () => {
               "
             >
               <img
-                src="/smartfixer-1.png"
+                src="/smartfixer-1.webp"
                 alt="SmartFixer app"
                 className="
                   h-full
@@ -309,7 +309,7 @@ const SmartFixer = () => {
               "
             >
               <img
-                src="/smartfixer-2.png"
+                src="/smartfixer-2.webp"
                 alt="SmartFixer app home"
                 className="
                   h-full
@@ -350,7 +350,7 @@ const SmartFixer = () => {
               "
             >
               <img
-                src="/smartfixer-3.png"
+                src="/smartfixer-3.webp"
                 alt="SmartFixer service screen"
                 className="
                   h-full

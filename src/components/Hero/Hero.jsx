@@ -444,7 +444,7 @@ function Hero() {
           {/* Image */}
 
           <img
-            src="/hero-lg.png"
+            src="/hero-lg.webp"
             alt="WakaDot ecosystem team"
             className="
               relative
@@ -767,7 +767,7 @@ function Hero() {
           {/* Image */}
 
           <img
-            src="/hero-sm.png"
+            src="/hero-sm.webp"
             alt="WakaDot ecosystem team"
             className="
               relative
