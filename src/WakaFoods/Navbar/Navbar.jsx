@@ -51,7 +51,7 @@ const services = [
   {
     name: "WakaStores",
     description: "Shop what you need",
-    href: "wakastores",
+    href: "/wakastores",
     icon: HiShoppingBag,
     type: "external",
   },
