@@ -5,6 +5,7 @@ import {
   HiChevronDown,
   HiTruck,
   HiShoppingBag,
+  HiCake,
 } from "react-icons/hi";
 import { HiWrench } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
@@ -41,13 +42,13 @@ const services = [
     icon: HiWrench,
     type: "internal",
   },
-  {
-    name: "WakaRider",
-    description: "Fast & reliable deliveries",
-    href: "/wakarider",
-    icon: HiTruck,
-    type: "external",
-  },
+   {
+     name: "WakaFoods",
+     description: "Your favourite meals",
+     href: "/wakafoods",
+     icon: HiCake,
+     type: "external",
+   },
   {
     name: "WakaStores",
     description: "Shop what you need",
@@ -177,7 +178,7 @@ const Navbar = () => {
     <header className="fixed left-0 top-0 z-50 w-full">
       {/* =====================================================
           NAVBAR BACKGROUND
-      ===================================================== */}
+      ====================================================== */}
 
       <div
         className={`
@@ -187,18 +188,19 @@ const Navbar = () => {
           transition-all
           duration-500
           backdrop-blur-xl
+
           ${
             isScrolled
               ? `
-                h-[72px]
-                bg-[#FCF3F6]/90
-                shadow-[0_8px_35px_rgba(20,19,16,0.08)]
+                h-[68px]
+                bg-[#EFFFF9]/95
+                shadow-[0_8px_35px_rgba(0,107,77,0.08)]
                 border-b
-                border-[#E8D8DE]/70
+                border-[#BFEBDD]/80
               `
               : `
                 h-20
-                bg-[#FCF3F6]/75
+                bg-[#EFFFF9]/85
               `
           }
         `}
@@ -206,7 +208,7 @@ const Navbar = () => {
 
       {/* =====================================================
           NAV
-      ===================================================== */}
+      ====================================================== */}
 
       <nav
         className={`
@@ -220,9 +222,11 @@ const Navbar = () => {
           px-5
           transition-all
           duration-500
+
           sm:px-7
           lg:px-8
-          ${isScrolled ? "h-[72px]" : "h-20"}
+
+          ${isScrolled ? "h-[68px]" : "h-20"}
         `}
       >
         {/* ===================================================
@@ -232,7 +236,7 @@ const Navbar = () => {
         <Link
           to="/"
           onClick={closeMobileMenu}
-          aria-label="WakaFoods home"
+          aria-label="WakaRider home"
           className="
             relative
             z-[60]
@@ -241,20 +245,23 @@ const Navbar = () => {
             transition-transform
             duration-300
             hover:scale-[1.02]
+
             focus:outline-none
             focus-visible:ring-2
-            focus-visible:ring-[#902141]
+            focus-visible:ring-[#008F68]
             focus-visible:ring-offset-4
-            focus-visible:ring-offset-[#FCF3F6]
+            focus-visible:ring-offset-[#EFFFF9]
           "
         >
           <img
-            src="/wakafoods-logo.webp"
-            alt="WakaFoods"
+            src="/wakarider-logo.webp"
+            alt="WakaRider"
             className="
               w-[128px]
               object-contain
+
               sm:w-[140px]
+
               lg:w-[145px]
             "
           />
@@ -284,12 +291,14 @@ const Navbar = () => {
                 py-2
                 text-[14px]
                 font-semibold
-                text-[#141310]
+                text-[#171A19]
                 transition-colors
                 duration-300
-                hover:text-[#902141]
+
+                hover:text-[#008F68]
+
                 focus:outline-none
-                focus-visible:text-[#902141]
+                focus-visible:text-[#008F68]
               "
             >
               {link.name}
@@ -302,9 +311,10 @@ const Navbar = () => {
                   h-[2px]
                   w-0
                   rounded-full
-                  bg-[#902141]
+                  bg-[#008F68]
                   transition-all
                   duration-300
+
                   group-hover:w-full
                 "
               />
@@ -335,11 +345,14 @@ const Navbar = () => {
                 py-2
                 text-[14px]
                 font-semibold
-                text-[#141310]
+                text-[#171A19]
                 transition-colors
                 duration-300
-                hover:text-[#902141]
+
+                hover:text-[#008F68]
+
                 focus:outline-none
+                focus-visible:text-[#008F68]
               "
             >
               <span>Services</span>
@@ -349,6 +362,7 @@ const Navbar = () => {
                   text-lg
                   transition-transform
                   duration-300
+
                   ${isServicesOpen ? "rotate-180" : ""}
                 `}
               />
@@ -360,9 +374,10 @@ const Navbar = () => {
                   left-0
                   h-[2px]
                   rounded-full
-                  bg-[#902141]
+                  bg-[#008F68]
                   transition-all
                   duration-300
+
                   ${
                     isServicesOpen
                       ? "w-full"
@@ -397,10 +412,10 @@ const Navbar = () => {
                       overflow-hidden
                       rounded-[22px]
                       border
-                      border-[#E8D8DE]
-                      bg-white/95
+                      border-[#BFEBDD]
+                      bg-[#FFFFFF]/95
                       p-2
-                      shadow-[0_25px_70px_rgba(20,19,16,0.13)]
+                      shadow-[0_25px_70px_rgba(0,107,77,0.13)]
                       backdrop-blur-xl
                     "
                   >
@@ -413,7 +428,7 @@ const Navbar = () => {
                           font-bold
                           uppercase
                           tracking-[0.18em]
-                          text-[#8A777D]
+                          text-[#66736E]
                         "
                       >
                         Our Ecosystem
@@ -423,7 +438,7 @@ const Navbar = () => {
                         className="
                           mt-1
                           text-xs
-                          text-[#5F5957]
+                          text-[#66736E]
                         "
                       >
                         Everything you need, in one place.
@@ -449,12 +464,13 @@ const Navbar = () => {
                                 items-center
                                 justify-center
                                 rounded-xl
-                                bg-[#FCF3F6]
-                                text-[#902141]
+                                bg-[#EFFFF9]
+                                text-[#008F68]
                                 transition-all
                                 duration-200
+
                                 group-hover:scale-105
-                                group-hover:bg-[#902141]
+                                group-hover:bg-[#008F68]
                                 group-hover:text-white
                               "
                             >
@@ -468,10 +484,11 @@ const Navbar = () => {
                                 className="
                                   text-sm
                                   font-bold
-                                  text-[#141310]
+                                  text-[#171A19]
                                   transition-colors
                                   duration-200
-                                  group-hover:text-[#902141]
+
+                                  group-hover:text-[#008F68]
                                 "
                               >
                                 {service.name}
@@ -482,7 +499,7 @@ const Navbar = () => {
                                   mt-0.5
                                   text-[11px]
                                   leading-4
-                                  text-[#756B68]
+                                  text-[#66736E]
                                 "
                               >
                                 {service.description}
@@ -493,12 +510,13 @@ const Navbar = () => {
 
                             <span
                               className="
-                                text-[#A58F97]
+                                text-[#9BB8AD]
                                 opacity-0
                                 transition-all
                                 duration-200
+
                                 group-hover:translate-x-1
-                                group-hover:text-[#902141]
+                                group-hover:text-[#008F68]
                                 group-hover:opacity-100
                               "
                             >
@@ -521,7 +539,8 @@ const Navbar = () => {
                               p-3
                               transition-all
                               duration-200
-                              hover:bg-[#FCF3F6]
+
+                              hover:bg-[#EFFFF9]
                             "
                           >
                             {content}
@@ -530,7 +549,6 @@ const Navbar = () => {
                           <a
                             key={service.name}
                             href={service.href}
-                          
                             rel="noopener noreferrer"
                             onClick={handleServiceClick}
                             className="
@@ -542,7 +560,8 @@ const Navbar = () => {
                               p-3
                               transition-all
                               duration-200
-                              hover:bg-[#FCF3F6]
+
+                              hover:bg-[#EFFFF9]
                             "
                           >
                             {content}
@@ -557,7 +576,7 @@ const Navbar = () => {
                       className="
                         mt-2
                         rounded-[14px]
-                        bg-[#141310]
+                        bg-[#303030]
                         px-4
                         py-3
                       "
@@ -591,22 +610,25 @@ const Navbar = () => {
               items-center
               justify-center
               rounded-full
-              bg-[#902141]
+              bg-[#008F68]
               px-6
               py-3
               text-sm
               font-bold
               text-white
-              shadow-[0_10px_30px_rgba(144,33,65,0.18)]
+              shadow-[0_10px_30px_rgba(0,143,104,0.18)]
               transition-all
               duration-300
+
               hover:scale-[1.04]
-              hover:bg-[#7D1C38]
-              hover:shadow-[0_15px_40px_rgba(144,33,65,0.25)]
+              hover:bg-[#006B4D]
+              hover:shadow-[0_15px_40px_rgba(0,107,77,0.25)]
+
               focus:outline-none
               focus-visible:ring-2
-              focus-visible:ring-[#902141]
+              focus-visible:ring-[#008F68]
               focus-visible:ring-offset-2
+
               lg:flex
             "
           >
@@ -630,14 +652,16 @@ const Navbar = () => {
               justify-center
               rounded-full
               border
-              border-[#E8D8DE]
-              bg-white/80
-              text-[#141310]
+              border-[#BFEBDD]
+              bg-white/85
+              text-[#171A19]
               transition-all
               duration-300
-              hover:border-[#902141]
-              hover:bg-[#FCF3F6]
-              hover:text-[#902141]
+
+              hover:border-[#008F68]
+              hover:bg-[#EFFFF9]
+              hover:text-[#008F68]
+
               lg:hidden
             "
           >
@@ -648,7 +672,7 @@ const Navbar = () => {
 
       {/* =====================================================
           MOBILE OVERLAY
-      ===================================================== */}
+      ====================================================== */}
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -661,7 +685,7 @@ const Navbar = () => {
               fixed
               inset-0
               z-40
-              bg-[#141310]/35
+              bg-[#171A19]/35
               backdrop-blur-[4px]
               lg:hidden
             "
@@ -671,7 +695,7 @@ const Navbar = () => {
 
       {/* =====================================================
           MOBILE MENU
-      ===================================================== */}
+      ====================================================== */}
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -691,8 +715,9 @@ const Navbar = () => {
               max-w-[400px]
               flex-col
               overflow-y-auto
-              bg-[#FCF3F6]
-              shadow-[-20px_0_70px_rgba(20,19,16,0.15)]
+              bg-[#EFFFF9]
+              shadow-[-20px_0_70px_rgba(0,107,77,0.15)]
+
               lg:hidden
             "
           >
@@ -708,7 +733,7 @@ const Navbar = () => {
                 items-center
                 justify-between
                 border-b
-                border-[#E8D8DE]
+                border-[#BFEBDD]
                 px-6
               "
             >
@@ -717,8 +742,8 @@ const Navbar = () => {
                 onClick={closeMobileMenu}
               >
                 <img
-                  src="/wakafoods-logo.webp"
-                  alt="WakaFoods"
+                  src="/wakarider-logo.webp"
+                  alt="WakaRider"
                   className="w-[130px]"
                 />
               </Link>
@@ -735,12 +760,13 @@ const Navbar = () => {
                   justify-center
                   rounded-full
                   bg-white
-                  text-[#141310]
+                  text-[#171A19]
                   shadow-sm
                   transition-all
                   duration-300
-                  hover:bg-[#FCF3F6]
-                  hover:text-[#902141]
+
+                  hover:bg-[#D5F8EC]
+                  hover:text-[#008F68]
                 "
               >
                 <HiX className="text-xl" />
@@ -765,19 +791,20 @@ const Navbar = () => {
                       items-center
                       justify-between
                       border-b
-                      border-[#E8D8DE]
+                      border-[#BFEBDD]
                       py-5
                       text-lg
                       font-bold
-                      text-[#141310]
+                      text-[#171A19]
                       transition-colors
                       duration-300
-                      hover:text-[#902141]
+
+                      hover:text-[#008F68]
                     "
                   >
                     {link.name}
 
-                    <span className="text-[#C1B6AE]">
+                    <span className="text-[#9BB8AD]">
                       →
                     </span>
                   </a>
@@ -788,7 +815,7 @@ const Navbar = () => {
                   MOBILE SERVICES
               ================================================= */}
 
-              <div className="border-b border-[#E8D8DE]">
+              <div className="border-b border-[#BFEBDD]">
                 <button
                   type="button"
                   onClick={() =>
@@ -805,7 +832,7 @@ const Navbar = () => {
                     py-5
                     text-lg
                     font-bold
-                    text-[#141310]
+                    text-[#171A19]
                   "
                 >
                   <span>Services</span>
@@ -819,7 +846,8 @@ const Navbar = () => {
                       justify-center
                       rounded-full
                       bg-white
-                      text-[#902141]
+                      text-[#008F68]
+                      shadow-sm
                     "
                   >
                     <HiChevronDown
@@ -827,6 +855,7 @@ const Navbar = () => {
                         text-lg
                         transition-transform
                         duration-300
+
                         ${
                           isMobileServicesOpen
                             ? "rotate-180"
@@ -836,6 +865,8 @@ const Navbar = () => {
                     />
                   </span>
                 </button>
+
+                {/* Mobile Service Dropdown */}
 
                 <AnimatePresence initial={false}>
                   {isMobileServicesOpen && (
@@ -864,6 +895,8 @@ const Navbar = () => {
 
                           const content = (
                             <>
+                              {/* Icon */}
+
                               <div
                                 className="
                                   flex
@@ -874,24 +907,28 @@ const Navbar = () => {
                                   justify-center
                                   rounded-xl
                                   bg-white
-                                  text-[#902141]
+                                  text-[#008F68]
                                   shadow-sm
                                 "
                               >
                                 <Icon size={18} />
                               </div>
 
+                              {/* Text */}
+
                               <div className="min-w-0">
-                                <p className="text-sm font-bold text-[#141310]">
+                                <p className="text-sm font-bold text-[#171A19]">
                                   {service.name}
                                 </p>
 
-                                <p className="mt-0.5 text-[11px] text-[#756B68]">
+                                <p className="mt-0.5 text-[11px] text-[#66736E]">
                                   {service.description}
                                 </p>
                               </div>
 
-                              <span className="ml-auto text-[#C1B6AE]">
+                              {/* Arrow */}
+
+                              <span className="ml-auto text-[#9BB8AD]">
                                 →
                               </span>
                             </>
@@ -911,6 +948,7 @@ const Navbar = () => {
                                 p-3
                                 transition-colors
                                 duration-200
+
                                 hover:bg-white
                               "
                             >
@@ -932,6 +970,7 @@ const Navbar = () => {
                                 p-3
                                 transition-colors
                                 duration-200
+
                                 hover:bg-white
                               "
                             >
@@ -958,16 +997,17 @@ const Navbar = () => {
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#902141]
+                  bg-[#008F68]
                   px-6
                   py-4
                   text-sm
                   font-bold
                   text-white
-                  shadow-[0_15px_35px_rgba(144,33,65,0.22)]
+                  shadow-[0_15px_35px_rgba(0,143,104,0.22)]
                   transition-all
                   duration-300
-                  hover:bg-[#7D1C38]
+
+                  hover:bg-[#006B4D]
                   active:scale-[0.98]
                 "
               >
@@ -979,14 +1019,21 @@ const Navbar = () => {
               ================================================= */}
 
               <div className="mt-auto pt-10">
-                <div className="h-px w-full bg-[#E8D8DE]" />
+                <div className="h-px w-full bg-[#BFEBDD]" />
 
                 <div className="flex items-center justify-between pt-5">
-                  <p className="text-[10px] text-[#8A777D]">
+                  <p className="text-[10px] text-[#66736E]">
                     One App. Many Solutions.
                   </p>
 
-                  <span className="h-2 w-2 rounded-full bg-[#902141]" />
+                  <span
+                    className="
+                      h-2
+                      w-2
+                      rounded-full
+                      bg-[#008F68]
+                    "
+                  />
                 </div>
               </div>
             </div>
