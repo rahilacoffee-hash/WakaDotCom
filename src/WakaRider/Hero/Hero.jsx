@@ -7,6 +7,8 @@ import {
   Bike,
   Clock3,
 } from "lucide-react";
+import { BiLogoPlayStore } from "react-icons/bi";
+import { FaApple } from "react-icons/fa";
 
 /* =========================================================
    HERO IMAGES
@@ -26,6 +28,16 @@ const heroImages = [
  
 ];
 
+const storeButtonVariants = {
+  hidden: {
+    opacity: 0,
+    y: 15,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 /* =========================================================
    HERO
 ========================================================= */
@@ -330,167 +342,82 @@ export default function Hero() {
                 sm:items-center
               "
             >
-              {/* Get Started */}
-
-              <a
-                href="#get-started"
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  bg-[#008F68]
-                  px-6
-                  py-3.5
-                  text-sm
-                  font-bold
-                  text-white
-                  shadow-[0_12px_30px_rgba(0,143,104,0.18)]
-                  transition-all
-                  duration-300
-
-                  hover:-translate-y-0.5
-                  hover:bg-[#006B4D]
-                  hover:shadow-[0_18px_40px_rgba(0,107,77,0.25)]
-
-                  sm:px-7
-                "
-              >
-                Send a package
-
-                <ArrowRight
-                  size={17}
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                  "
-                />
-              </a>
-
-              {/* Track */}
-
-              <a
-                href="#track"
-                className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-[#BFEBDD]
-                  bg-white/70
-                  px-6
-                  py-3.5
-                  text-sm
-                  font-bold
-                  text-[#171A19]
-                  backdrop-blur-md
-                  transition-all
-                  duration-300
-
-                  hover:border-[#008F68]
-                  hover:bg-white
-                  hover:text-[#008F68]
-
-                  sm:px-7
-                "
-              >
-                <MapPin size={16} />
-
-                Track delivery
-              </a>
+        
             </motion.div>
 
             {/* =================================================
                 APP DOWNLOAD
             ================================================== */}
 
-            <motion.div
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                delay: 0.55,
-                duration: 0.7,
-              }}
-              className="
-                mt-7
-                flex
-                flex-wrap
-                items-center
-                gap-3
-              "
-            >
-              <span
-                className="
-                  w-full
-                  text-[9px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.14em]
-                  text-[#66736E]
-
-                  sm:w-auto
-                "
-              >
-                Available on
-              </span>
-
-              {/* App Store */}
-
-              <a
-                href="#app-store"
-                aria-label="Download on the App Store"
-                className="
-                  overflow-hidden
-                  rounded-lg
-                  transition-transform
-                  duration-300
-                  hover:scale-[1.03]
-                "
-              >
-                <img
-                  src="/app-store.webp"
-                  alt="Download on the App Store"
-                  className="
-                    h-10
-                    w-auto
-                    object-contain
-                  "
-                />
-              </a>
-
-              {/* Google Play */}
-
-              <a
-                href="#google-play"
-                aria-label="Get it on Google Play"
-                className="
-                  overflow-hidden
-                  rounded-lg
-                  transition-transform
-                  duration-300
-                  hover:scale-[1.03]
-                "
-              >
-                <img
-                  src="/google-play.webp"
-                  alt="Get it on Google Play"
-                  className="
-                    h-10
-                    w-auto
-                    object-contain
-                  "
-                />
-              </a>
-            </motion.div>
+          <div className="mt-4 flex flex-col gap-4 sm:mt-5 sm:flex-row">
+                        <motion.div
+                          variants={{
+                            hidden: {},
+                            visible: {
+                              transition: {
+                                staggerChildren: 0.12,
+                                delayChildren: 0.25,
+                              },
+                            },
+                          }}
+                          initial="hidden"
+                          animate="visible"
+                          className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
+                        >
+                          {/* Apple */}
+                          <motion.a
+                            variants={storeButtonVariants}
+                            href="#"
+                            whileHover={{
+                              scale: 1.04,
+                              y: -3,
+                            }}
+                            whileTap={{
+                              scale: 0.97,
+                            }}
+                            className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
+                          >
+                            <FaApple className="text-[27px]" />
+          
+                            <span className="flex flex-col items-start leading-none">
+                              <span className="text-[9px] font-medium text-white/55">
+                                Download on the
+                              </span>
+          
+                              <span className="mt-1 text-[15px] font-bold tracking-tight">
+                                App Store
+                              </span>
+                            </span>
+                          </motion.a>
+          
+                          {/* Google Play */}
+                          <motion.a
+                            variants={storeButtonVariants}
+                            href="#"
+                            whileHover={{
+                              scale: 1.04,
+                              y: -3,
+                            }}
+                            whileTap={{
+                              scale: 0.97,
+                            }}
+                            className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
+                          >
+                            <BiLogoPlayStore className="text-[27px] " />
+          
+                            <span className="flex flex-col items-start leading-none">
+                              <span className="text-[9px] font-medium text-white/55">
+                                GET IT ON
+                              </span>
+          
+                              <span className="mt-1 text-[15px] font-bold tracking-tight">
+                                Google Play
+                              </span>
+                            </span>
+                          </motion.a>
+                        </motion.div>
+                      </div>
+          
 
             {/* =================================================
                 TRUST STATS
