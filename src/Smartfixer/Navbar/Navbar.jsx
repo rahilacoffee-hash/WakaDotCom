@@ -39,19 +39,19 @@ const services = [
   {
     name: "WakaRider",
     description: "Fast & reliable deliveries",
-    href: "#wakarider",
+    href: "/wakarider",
     icon: HiTruck,
   },
   {
     name: "WakaFoods",
     description: "Your favourite meals",
-    href: "#wakafoods",
+    href: "/wakafoods",
     icon: HiLightningBolt,
   },
   {
     name: "WakaStores",
     description: "Shop what you need",
-    href: "#wakastores",
+    href: "/wakastores",
     icon: HiShoppingBag,
   },
 ];

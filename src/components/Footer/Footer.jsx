@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaArrowRight,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -292,24 +293,24 @@ export default function Footer() {
               {[
                 {
                   name: "SmartFixer",
-                  href: "#smartfixer",
+                  href: "/smartfixer",
                 },
                 {
                   name: "WakaFoods",
-                  href: "#wakafoods",
+                  href: "/wakafoods",
                 },
                 {
                   name: "WakaRider",
-                  href: "#wakarider",
+                  href: "/wakarider",
                 },
                 {
                   name: "WakaStores",
-                  href: "#wakastores",
+                  href: "/wakastores",
                 },
               ].map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="
                     w-fit
                     text-[10px]
@@ -322,7 +323,7 @@ export default function Footer() {
                   "
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
