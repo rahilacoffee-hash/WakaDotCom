@@ -801,7 +801,7 @@ const HowItWorks = () => {
 
   return (
     <section
-      id="howitworks"
+      id="get-started"
       className="
         relative
         overflow-hidden

@@ -55,7 +55,8 @@ const floatVariants = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#FCF3F6]">
+    <section
+     className="relative min-h-screen overflow-hidden bg-[#FCF3F6]">
       {/* =====================================================
           BACKGROUND
       ====================================================== */}

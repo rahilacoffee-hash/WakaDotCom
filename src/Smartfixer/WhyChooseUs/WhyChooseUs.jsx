@@ -64,7 +64,7 @@ const cardVariants = {
 export default function WhyChooseUs() {
   return (
     <section
-      id="why-us"
+      id="whychooseus"
       className="
         relative
         overflow-hidden

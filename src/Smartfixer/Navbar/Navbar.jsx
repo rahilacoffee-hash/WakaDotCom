@@ -21,8 +21,8 @@ const navLinks = [
     href: "#",
   },
   {
-    name: "About Us",
-    href: "#about",
+    name: "Why Choose Us",
+    href: "#whychooseus",
   },
   {
     name: "Contact Us",
