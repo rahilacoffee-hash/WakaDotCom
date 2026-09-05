@@ -342,12 +342,6 @@ export default function Hero() {
                 sm:items-center
               "
             >
-        
-            </motion.div>
-
-            {/* =================================================
-                APP DOWNLOAD
-            ================================================== */}
 
           <div className="mt-4 flex flex-col gap-4 sm:mt-5 sm:flex-row">
                         <motion.div
@@ -417,6 +411,13 @@ export default function Hero() {
                           </motion.a>
                         </motion.div>
                       </div>
+        
+            </motion.div>
+
+            {/* =================================================
+                APP DOWNLOAD
+            ================================================== */}
+
           
 
             {/* =================================================
