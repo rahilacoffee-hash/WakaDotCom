@@ -45,7 +45,7 @@ const services = [
   {
     name: "WakaRider",
     description: "Fast & reliable deliveries",
-    href: "https://wakarider.vercel.app/",
+    href: "/wakarider",
     icon: HiTruck,
   },
   {
@@ -57,7 +57,7 @@ const services = [
   {
     name: "WakaStores",
     description: "Shop what you need",
-    href: "https://wakastores.vercel.app/",
+    href: "/wakastores",
     icon: HiShoppingBag,
   },
 ];
