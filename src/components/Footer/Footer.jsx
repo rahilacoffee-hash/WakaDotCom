@@ -6,22 +6,39 @@ import {
   FaYoutube,
   FaTiktok,
   FaEnvelope,
-  FaArrowRight,
 } from "react-icons/fa";
+import {
+  ArrowUpRight,
+  ArrowUp,
+  ChevronRight,
+  MapPin,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email.trim()) return;
 
-    // Connect this to your newsletter API later
     console.log("Newsletter email:", email);
 
+    setSubmitted(true);
     setEmail("");
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -30,447 +47,585 @@ export default function Footer() {
       className="
         relative
         overflow-hidden
-        bg-[#1B1B1B]
+        bg-[#111111]
         text-white
       "
     >
-      {/* ==================================================
-          BACKGROUND DECORATION
-      ================================================== */}
+      {/* =====================================================
+          BACKGROUND
+      ====================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -right-40
-          -top-40
-          h-[400px]
-          w-[400px]
-          rounded-full
-          bg-[#FB7A00]
-          opacity-[0.035]
-          blur-3xl
-        "
-      />
+      <div className="pointer-events-none absolute inset-0">
+        {/* Large orange glow */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -left-40
-          bottom-0
-          h-[350px]
-          w-[350px]
-          rounded-full
-          bg-[#FB7A00]
-          opacity-[0.025]
-          blur-3xl
-        "
-      />
+        <div
+          className="
+            absolute
+            -right-[220px]
+            -top-[220px]
+            h-[550px]
+            w-[550px]
+            rounded-full
+            bg-[#FB7A00]/[0.055]
+            blur-[120px]
+          "
+        />
 
-      {/* Orange bottom accent */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FB7A00]" />
+        {/* Bottom glow */}
+
+        <div
+          className="
+            absolute
+            -left-[180px]
+            bottom-[80px]
+            h-[450px]
+            w-[450px]
+            rounded-full
+            bg-[#FB7A00]/[0.035]
+            blur-[120px]
+          "
+        />
+
+        {/* Grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.018]
+          "
+          style={{
+            backgroundImage:
+              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      {/* =====================================================
+          TOP ORANGE LINE
+      ====================================================== */}
+
+      <div className="absolute left-0 right-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FB7A00] to-transparent" />
 
       <div
         className="
           relative
           z-10
           mx-auto
-          max-w-[1280px]
-          px-6
-          pb-10
-          pt-8
+          max-w-[1440px]
+          px-5
+          pb-8
+          pt-14
+
           sm:px-8
-          sm:pb-12
-          sm:pt-10
+          sm:pb-10
+          sm:pt-20
+
           lg:px-12
+          lg:pt-24
         "
       >
-        {/* ==================================================
-            NEWSLETTER
-        ================================================== */}
+        {/* =====================================================
+            BIG CTA / NEWSLETTER
+        ====================================================== */}
 
         <section
           className="
             relative
             overflow-hidden
-            rounded-[14px]
+            rounded-[24px]
             border
-            border-white/[0.06]
-            bg-[#303030]
+            border-white/[0.07]
+            bg-[#1C1C1C]
             px-5
-            py-6
+            py-8
+
+            sm:rounded-[30px]
             sm:px-8
-            sm:py-7
-            lg:px-10
+            sm:py-10
+
+            lg:px-12
+            lg:py-12
           "
         >
-          {/* subtle orange glow */}
+          {/* Card glow */}
 
           <div
             className="
               pointer-events-none
               absolute
-              -right-16
-              -top-16
-              h-40
-              w-40
+              -right-20
+              -top-24
+              h-[280px]
+              w-[280px]
               rounded-full
-              bg-[#FB7A00]
-              opacity-[0.08]
-              blur-3xl
+              bg-[#FB7A00]/[0.08]
+              blur-[90px]
+            "
+          />
+
+          <div
+            className="
+              pointer-events-none
+              absolute
+              bottom-[-100px]
+              left-[30%]
+              h-[200px]
+              w-[200px]
+              rounded-full
+              bg-orange-400/[0.035]
+              blur-[80px]
             "
           />
 
           <div
             className="
               relative
-              flex
-              flex-col
-              gap-6
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
+              grid
+              gap-8
+
+              lg:grid-cols-[1fr_0.85fr]
+              lg:items-center
+              lg:gap-16
             "
           >
-            {/* Heading */}
+            {/* =================================================
+                LEFT
+            ================================================== */}
 
             <div>
-              <p
+              <div
                 className="
-                  mb-2
-                  text-[9px]
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-[#FB7A00]
-                  sm:text-[10px]
+                  mb-4
+                  flex
+                  items-center
+                  gap-2
                 "
               >
-                Stay connected
-              </p>
+                <span
+                  className="
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-[#FB7A00]/10
+                    text-[#FB7A00]
+                  "
+                >
+                  <FaEnvelope size={11} />
+                </span>
+
+                <span
+                  className="
+                    text-[9px]
+                    font-bold
+                    uppercase
+                    tracking-[0.25em]
+                    text-[#FB7A00]
+                  "
+                >
+                  Stay in the loop
+                </span>
+              </div>
 
               <h2
                 className="
-                  max-w-[420px]
-                  text-[20px]
+                  max-w-[620px]
+                  text-[clamp(2rem,5vw,4rem)]
                   font-black
-                  uppercase
-                  leading-[1.05]
-                  tracking-[-0.03em]
+                  leading-[0.94]
+                  tracking-[-0.055em]
                   text-white
-                  sm:text-[25px]
-                  lg:text-[27px]
                 "
               >
-                Stay up to date about
-                <br />
-                our latest offers
+                Good things are
+                <span className="block text-[#FB7A00]">
+                  always moving.
+                </span>
               </h2>
+
+              <p
+                className="
+                  mt-4
+                  max-w-lg
+                  text-xs
+                  leading-6
+                  text-white/45
+
+                  sm:text-sm
+                  sm:leading-7
+                "
+              >
+                Get the latest updates, offers, product launches
+                and everything happening across the WakaDotCom
+                ecosystem.
+              </p>
             </div>
 
-            {/* Form */}
+            {/* =================================================
+                NEWSLETTER FORM
+            ================================================== */}
 
-            <form
-              onSubmit={handleSubmit}
-              className="
-                flex
-                w-full
-                max-w-[400px]
-                flex-col
-                gap-2
-              "
-            >
-              <div
+            <div>
+              <form
+                onSubmit={handleSubmit}
                 className="
-                  flex
-                  h-[42px]
-                  items-center
-                  gap-3
-                  rounded-full
-                  bg-white
-                  px-4
-                  transition-all
-                  duration-300
-                  focus-within:ring-2
-                  focus-within:ring-[#FB7A00]/30
+                  rounded-[18px]
+                  border
+                  border-white/[0.07]
+                  bg-white/[0.035]
+                  p-2
+                  backdrop-blur-xl
+
+                  sm:p-2.5
                 "
               >
-                <FaEnvelope
-                  className="shrink-0 text-[#999]"
-                  size={13}
-                />
-
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
+                <div
                   className="
-                    min-w-0
-                    flex-1
-                    bg-transparent
-                    text-[11px]
-                    text-[#222]
-                    outline-none
-                    placeholder:text-[#999]
-                  "
-                />
-              </div>
+                    flex
+                    flex-col
+                    gap-2
 
-              <button
-                type="submit"
-                className="
-                  group
-                  flex
-                  h-[42px]
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  bg-[#FB7A00]
-                  text-[11px]
-                  font-bold
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:bg-[#ff861f]
-                  hover:shadow-[0_10px_30px_rgba(251,122,0,0.25)]
-                  active:scale-[0.98]
-                "
-              >
-                Subscribe to Newsletter
-
-                <FaArrowRight
-                  size={9}
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
+                    sm:flex-row
                   "
-                />
-              </button>
-            </form>
+                >
+                  <div
+                    className="
+                      flex
+                      h-[48px]
+                      min-w-0
+                      flex-1
+                      items-center
+                      gap-3
+                      rounded-[13px]
+                      bg-white/[0.06]
+                      px-4
+                      transition-all
+                      duration-300
+                      focus-within:bg-white/[0.09]
+                      focus-within:ring-1
+                      focus-within:ring-[#FB7A00]/40
+                    "
+                  >
+                    <FaEnvelope
+                      size={13}
+                      className="shrink-0 text-white/30"
+                    />
+
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your email address"
+                      className="
+                        min-w-0
+                        flex-1
+                        bg-transparent
+                        text-xs
+                        text-white
+                        outline-none
+                        placeholder:text-white/25
+                      "
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="
+                      group
+                      flex
+                      h-[48px]
+                      shrink-0
+                      items-center
+                      justify-center
+                      gap-2
+                      rounded-[13px]
+                      bg-[#FB7A00]
+                      px-6
+                      text-xs
+                      font-bold
+                      text-white
+                      transition-all
+                      duration-300
+
+                      hover:-translate-y-0.5
+                      hover:bg-[#ff861f]
+                      hover:shadow-[0_12px_35px_rgba(251,122,0,0.25)]
+
+                      active:scale-[0.98]
+                    "
+                  >
+                    {submitted ? "Subscribed ✓" : "Subscribe"}
+
+                    {!submitted && (
+                      <ArrowUpRight
+                        size={15}
+                        className="
+                          transition-transform
+                          duration-300
+                          group-hover:-translate-y-0.5
+                          group-hover:translate-x-0.5
+                        "
+                      />
+                    )}
+                  </button>
+                </div>
+              </form>
+
+              <p className="mt-3 px-1 text-[9px] text-white/25">
+                No spam. Just useful updates from WakaDotCom.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ==================================================
-            MAIN FOOTER CONTENT
-        ================================================== */}
+        {/* =====================================================
+            BRAND INTRO
+        ====================================================== */}
 
         <div
           className="
-            mt-10
+            mt-16
             grid
-            grid-cols-2
-            gap-x-8
-            gap-y-10
-            sm:mt-12
-            sm:grid-cols-4
-            lg:mt-14
+            gap-12
+
+            sm:mt-20
+
+            lg:mt-24
+            lg:grid-cols-[1.1fr_2fr]
+            lg:gap-20
           "
         >
-          {/* ==================================================
-              WAKADOTCOM
+          {/* =================================================
+              BRAND
           ================================================== */}
 
           <div>
-            <h3
+            <Logo />
+
+            <p
               className="
-                text-[12px]
-                font-semibold
-                uppercase
-                tracking-[0.04em]
-                text-white
-                sm:text-[13px]
+                mt-5
+                max-w-[330px]
+                text-xs
+                leading-6
+                text-white/35
+
+                sm:text-sm
+                sm:leading-7
               "
             >
-              WakaDotCom
-            </h3>
+              One ecosystem. Multiple ways to make everyday
+              life simpler, faster and more connected.
+            </p>
 
-            <nav className="mt-4 flex flex-col gap-2.5">
-              {[
-                {
-                  name: "SmartFixer",
-                  href: "/smartfixer",
-                },
-                {
-                  name: "WakaFoods",
-                  href: "/wakafoods",
-                },
-                {
-                  name: "WakaRider",
-                  href: "/wakarider",
-                },
-                {
-                  name: "WakaStores",
-                  href: "/wakastores",
-                },
-              ].map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="
-                    w-fit
-                    text-[10px]
-                    text-[#A8A8A8]
-                    transition-all
-                    duration-300
-                    hover:translate-x-1
-                    hover:text-[#FB7A00]
-                    sm:text-[11px]
-                  "
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
+            {/* Location */}
 
-          {/* ==================================================
-              APP
-          ================================================== */}
-
-          <div>
-            <h3
+            <div
               className="
-                text-[12px]
-                font-semibold
-                text-white
-                sm:text-[13px]
+                mt-6
+                flex
+                items-center
+                gap-2
+                text-[10px]
+                text-white/35
               "
             >
-              App
-            </h3>
+              <MapPin
+                size={13}
+                className="text-[#FB7A00]"
+              />
 
-            <nav className="mt-4 flex flex-col gap-2.5">
-              <a
-                href="#faqs"
-                className="
-                  w-fit
-                  text-[10px]
-                  text-[#A8A8A8]
-                  transition-all
-                  duration-300
-                  hover:translate-x-1
-                  hover:text-[#FB7A00]
-                  sm:text-[11px]
-                "
-              >
-                FAQs
-              </a>
-
-              <a
-                href="#privacy"
-                className="
-                  w-fit
-                  text-[10px]
-                  text-[#A8A8A8]
-                  transition-all
-                  duration-300
-                  hover:translate-x-1
-                  hover:text-[#FB7A00]
-                  sm:text-[11px]
-                "
-              >
-                Privacy Policy
-              </a>
-
-              <a
-                href="#terms"
-                className="
-                  w-fit
-                  text-[10px]
-                  text-[#A8A8A8]
-                  transition-all
-                  duration-300
-                  hover:translate-x-1
-                  hover:text-[#FB7A00]
-                  sm:text-[11px]
-                "
-              >
-                Terms
-              </a>
-            </nav>
-          </div>
-
-          {/* ==================================================
-              CONTACT
-          ================================================== */}
-
-          <div>
-            <h3
-              className="
-                text-[12px]
-                font-semibold
-                text-white
-                sm:text-[13px]
-              "
-            >
-              Contact
-            </h3>
-
-            <div className="mt-4 flex flex-col gap-2.5">
-              <a
-                href="mailto:help@WakaDotCom.com"
-                className="
-                  w-fit
-                  text-[10px]
-                  text-[#A8A8A8]
-                  transition-colors
-                  duration-300
-                  hover:text-[#FB7A00]
-                  sm:text-[11px]
-                "
-              >
-                Email: help@WakaDotCom.com
-              </a>
-
-              <span
-                className="
-                  text-[10px]
-                  text-[#A8A8A8]
-                  sm:text-[11px]
-                "
-              >
-                Location: Nigeria
-              </span>
+              Nigeria
             </div>
           </div>
 
-          {/* ==================================================
-              LOGO
+          {/* =================================================
+              LINKS
           ================================================== */}
 
-          <div className="flex items-start justify-start sm:justify-end">
-            <Logo />
+          <div
+            className="
+              grid
+              grid-cols-2
+              gap-x-8
+              gap-y-10
+
+              sm:grid-cols-4
+              sm:gap-8
+            "
+          >
+            {/* Ecosystem */}
+
+            <FooterColumn title="Ecosystem">
+              <FooterLink to="/smartfixer">
+                SmartFixer
+              </FooterLink>
+
+              <FooterLink to="/wakafoods">
+                WakaFoods
+              </FooterLink>
+
+              <FooterLink to="/wakarider">
+                WakaRider
+              </FooterLink>
+
+              <FooterLink to="/wakastores">
+                WakaStores
+              </FooterLink>
+            </FooterColumn>
+
+            {/* Company */}
+
+            <FooterColumn title="Company">
+              <FooterLink to="/about">
+                About us
+              </FooterLink>
+
+              <FooterLink to="/contact">
+                Contact
+              </FooterLink>
+
+              <FooterLink to="/careers">
+                Careers
+              </FooterLink>
+
+              <FooterLink to="/partners">
+                Partners
+              </FooterLink>
+            </FooterColumn>
+
+            {/* Support */}
+
+            <FooterColumn title="Support">
+              <FooterLink to="/faqs">
+                FAQs
+              </FooterLink>
+
+              <FooterLink to="/help">
+                Help center
+              </FooterLink>
+
+              <FooterLink to="/privacy">
+                Privacy
+              </FooterLink>
+
+              <FooterLink to="/terms">
+                Terms
+              </FooterLink>
+            </FooterColumn>
+
+            {/* Contact */}
+
+            <FooterColumn title="Contact">
+              <a
+                href="mailto:help@WakaDotCom.com"
+                className="
+                  block
+                  text-[10px]
+                  leading-5
+                  text-white/40
+                  transition-colors
+                  duration-300
+                  hover:text-[#FB7A00]
+
+                  sm:text-[11px]
+                "
+              >
+                help@WakaDotCom.com
+              </a>
+
+              <p
+                className="
+                  mt-3
+                  text-[10px]
+                  leading-5
+                  text-white/30
+
+                  sm:text-[11px]
+                "
+              >
+                Nigeria
+              </p>
+            </FooterColumn>
           </div>
         </div>
 
-        {/* ==================================================
-            DIVIDER
-        ================================================== */}
+        {/* =====================================================
+            LARGE BRAND STATEMENT
+        ====================================================== */}
 
-        <div className="my-8 h-px w-full bg-white/[0.08] sm:my-10" />
+        <div
+          className="
+            relative
+            mt-16
+            overflow-hidden
+            border-y
+            border-white/[0.06]
+            py-10
 
-        {/* ==================================================
-            BOTTOM
-        ================================================== */}
+            sm:mt-20
+            sm:py-14
+
+            lg:mt-24
+            lg:py-16
+          "
+        >
+          <p
+            className="
+              text-center
+              text-[clamp(2.5rem,8vw,7rem)]
+              font-black
+              leading-[0.85]
+              tracking-[-0.07em]
+              text-white/[0.035]
+              select-none
+            "
+          >
+            WAKADOTCOM
+          </p>
+
+          <div
+            className="
+              absolute
+              left-1/2
+              top-1/2
+              h-20
+              w-[300px]
+              -translate-x-1/2
+              -translate-y-1/2
+              rounded-full
+              bg-[#FB7A00]/[0.035]
+              blur-[70px]
+            "
+          />
+        </div>
+
+        {/* =====================================================
+            BOTTOM BAR
+        ====================================================== */}
 
         <div
           className="
             flex
             flex-col
-            gap-5
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
+            gap-6
+            pt-8
+
+            sm:pt-10
+
+            lg:flex-row
+            lg:items-center
+            lg:justify-between
           "
         >
           {/* Socials */}
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <SocialIcon
               label="Instagram"
               icon={<FaInstagram />}
@@ -502,33 +657,210 @@ export default function Footer() {
           <p
             className="
               text-[9px]
-              text-[#777]
-              sm:text-right
+              text-white/25
+
               sm:text-[10px]
             "
           >
-            © WakaDotCom, all rights reserved.
+            © {new Date().getFullYear()} WakaDotCom.
+            All rights reserved.
           </p>
+
+          {/* Back to top */}
+
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="
+              group
+              flex
+              w-fit
+              items-center
+              gap-2
+              text-[9px]
+              font-bold
+              uppercase
+              tracking-[0.15em]
+              text-white/35
+              transition-colors
+              duration-300
+              hover:text-[#FB7A00]
+            "
+          >
+            Back to top
+
+            <span
+              className="
+                flex
+                h-7
+                w-7
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white/[0.08]
+                transition-all
+                duration-300
+                group-hover:-translate-y-1
+                group-hover:border-[#FB7A00]/30
+                group-hover:bg-[#FB7A00]
+                group-hover:text-white
+              "
+            >
+              <ArrowUp size={12} />
+            </span>
+          </button>
         </div>
       </div>
+
+      {/* =====================================================
+          BOTTOM ACCENT
+      ====================================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          right-0
+          h-[2px]
+          bg-gradient-to-r
+          from-transparent
+          via-[#FB7A00]
+          to-transparent
+        "
+      />
     </footer>
   );
 }
 
-/* ======================================================
+/* ==========================================================
+   FOOTER COLUMN
+========================================================== */
+
+function FooterColumn({ title, children }) {
+  return (
+    <div>
+      <h3
+        className="
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-[0.18em]
+          text-white
+        "
+      >
+        {title}
+      </h3>
+
+      <nav className="mt-5 flex flex-col gap-3">
+        {children}
+      </nav>
+    </div>
+  );
+}
+
+/* ==========================================================
+   FOOTER LINK
+========================================================== */
+
+function FooterLink({ to, children }) {
+  return (
+    <Link
+      to={to}
+      className="
+        group
+        flex
+        w-fit
+        items-center
+        gap-1
+        text-[10px]
+        text-white/35
+        transition-all
+        duration-300
+
+        hover:translate-x-1
+        hover:text-[#FB7A00]
+
+        sm:text-[11px]
+      "
+    >
+      {children}
+
+      <ChevronRight
+        size={11}
+        className="
+          opacity-0
+          -translate-x-1
+          transition-all
+          duration-300
+          group-hover:translate-x-0
+          group-hover:opacity-100
+        "
+      />
+    </Link>
+  );
+}
+
+/* ==========================================================
+   SOCIAL ICON
+========================================================== */
+
+function SocialIcon({ label, icon }) {
+  return (
+    <a
+      href={`#${label.toLowerCase()}`}
+      aria-label={label}
+      title={label}
+      className="
+        group
+        flex
+        h-9
+        w-9
+        items-center
+        justify-center
+        rounded-full
+        border
+        border-white/[0.07]
+        bg-white/[0.025]
+        text-white/40
+        transition-all
+        duration-300
+
+        hover:-translate-y-1
+        hover:border-[#FB7A00]/30
+        hover:bg-[#FB7A00]
+        hover:text-white
+        hover:shadow-[0_8px_25px_rgba(251,122,0,0.2)]
+      "
+    >
+      <span
+        className="
+          text-[12px]
+          transition-transform
+          duration-300
+          group-hover:scale-110
+        "
+      >
+        {icon}
+      </span>
+    </a>
+  );
+}
+
+/* ==========================================================
    LOGO
-====================================================== */
+========================================================== */
 
 function Logo() {
   return (
-    <a
-      href="/"
+    <Link
+      to="/"
       aria-label="WakaDotCom home"
       className="
         group
         inline-flex
         items-center
-        gap-2.5
       "
     >
       <img
@@ -536,51 +868,16 @@ function Logo() {
         alt="WakaDotCom"
         className="
           h-auto
-          w-[105px]
+          w-[120px]
           object-contain
           brightness-0
           invert
-          transition-transform
+          transition-all
           duration-300
+
           group-hover:scale-[1.02]
-          sm:w-[125px]
         "
       />
-    </a>
-  );
-}
-
-/* ======================================================
-   SOCIAL ICON
-====================================================== */
-
-function SocialIcon({ label, icon }) {
-  return (
-    <a
-      href={`#${label.toLowerCase()}`}
-      aria-label={label}
-      className="
-        flex
-        h-8
-        w-8
-        items-center
-        justify-center
-        rounded-full
-        border
-        border-white/[0.08]
-        bg-white/[0.03]
-        text-[#B8B8B8]
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:border-[#FB7A00]/30
-        hover:bg-[#FB7A00]
-        hover:text-white
-      "
-    >
-      <span className="text-[11px]">
-        {icon}
-      </span>
-    </a>
+    </Link>
   );
 }
