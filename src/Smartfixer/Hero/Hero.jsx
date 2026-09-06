@@ -373,7 +373,7 @@ const Hero = () => {
                   sm:w-auto
                 "
               >
-                Become a Fixer
+                 How it works
 
                 <span
                   className="
@@ -395,20 +395,7 @@ const Hero = () => {
               </motion.a>
 
               {/* FIXED ANCHOR */}
-              <a
-                href="#howitworks"
-                className="
-                  text-sm
-                  font-semibold
-                  text-[#1769C2]
-                  transition-all
-                  duration-300
-                  hover:translate-x-1
-                  hover:opacity-70
-                "
-              >
-                How it works →
-              </a>
+             
             </div>
 
             {/* =================================================

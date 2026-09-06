@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const navLinks = [
   {
     name: "Home",
-    href: "#",
+    href: "/",
   },
   {
     name: "Why Choose Us",

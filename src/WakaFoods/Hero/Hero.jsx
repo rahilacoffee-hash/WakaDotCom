@@ -112,7 +112,7 @@ const Hero = () => {
             {/* =================================================
                 BADGE
             ================================================== */}
-            <motion.div
+             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -121,21 +121,14 @@ const Hero = () => {
               }}
               className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#902141]/10 bg-white/70 px-4 py-2 shadow-sm backdrop-blur-md sm:mb-6"
             >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-50" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+              </span>
 
-                  <motion.a
-              href="/"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.05,
-              }}
-              className=" inline-flex items-center gap-2 text-sm font-semibold text-[#902141] transition-all duration-200 hover:gap-3"
-            >
-              <FiArrowLeft size={16} />
-
-              <span>WakaDotCom</span>
-            </motion.a>
+              <span className="text-xs font-semibold text-[#902141] sm:text-sm">
+                Fresh food. Fast delivery.
+              </span>
             </motion.div>
 
             {/* =================================================
