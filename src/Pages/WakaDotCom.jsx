@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Navbar from '../components/Navbar/Navbar'
 import Hero from '../components/Hero/Hero'
 import Contact from '../components/Contact/Contact'
+import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
 
 const Stats = lazy(() => import('../components/Stats/Stats'))
 const SmartFixer = lazy(() => import('../components/SmartFixer/SmartFixer'))
@@ -53,6 +54,7 @@ const WakaDotCom = () => {
      <DeferredSection minHeight="600px"><Contact/></DeferredSection>
      <DeferredSection minHeight="550px"><Testimonials/></DeferredSection>
      <DeferredSection minHeight="300px"><Footer/></DeferredSection>
+     <ScrollToTopButton/>
     </>
   )
 }

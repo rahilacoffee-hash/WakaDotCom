@@ -8,6 +8,7 @@ import Professionals from '../Smartfixer/Professionals/Professionals'
 import Contact from '../Smartfixer/Contact/Contact'
 import Testimonials from '../Smartfixer/Testimonials/Testimonials'
 import Footer from '../components/Footer/Footer'
+import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
 
 
 const SmartFixer = () => {
@@ -22,6 +23,7 @@ const SmartFixer = () => {
       <Contact/>
       <Testimonials/>
       <Footer/>
+      <ScrollToTopButton />
     </>
   )
 }

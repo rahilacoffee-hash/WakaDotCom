@@ -8,6 +8,7 @@ import Testimonials from '../components/Testimonials/Testimonials'
 import Footer from '../components/Footer/Footer'
 import Dishes from '../WakaFoods/Dishes/Dishes'
 import Contact from '../WakaFoods/Contact/Contact'
+import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
 
 const Wakafoods = () => {
   return (
@@ -21,6 +22,7 @@ const Wakafoods = () => {
       <Contact/>
       <Testimonials/>
       <Footer/>
+      <ScrollToTopButton/>
     </>
   )
 }

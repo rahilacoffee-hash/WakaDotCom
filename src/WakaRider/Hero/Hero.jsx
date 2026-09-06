@@ -1,10 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import {
-  ArrowRight,
   MapPin,
   Package,
-  Bike,
   Clock3,
 } from "lucide-react";
 import { BiLogoPlayStore } from "react-icons/bi";
@@ -25,7 +23,6 @@ const heroImages = [
     src: "/wakarider-hero-2.webp",
     alt: "WakaRider fast delivery",
   },
- 
 ];
 
 const storeButtonVariants = {
@@ -254,6 +251,20 @@ export default function Hero() {
             </motion.div>
 
             {/* Heading */}
+            {/*
+              FIX: the lg: breakpoint used clamp(4rem, 6.3vw, 6.8rem) while
+              the base rule below it used clamp(3rem, 12vw, 6.8rem). The
+              base rule's 12vw factor hits the 6.8rem ceiling well before
+              1024px (around ~906px viewport width), so right up until the
+              lg breakpoint the heading is already rendering at its max
+              size. The instant the viewport crosses 1024px and the lg:
+              rule takes over, it evaluates to ~6.3vw (≈64.5px at exactly
+              1024px) — a sudden ~44px drop in font size at the exact
+              breakpoint boundary. Raised the lg: floor to 6.8rem and
+              increased both the vw factor and ceiling so desktop
+              continues growing from where tablet left off instead of
+              visibly shrinking.
+            */}
 
             <h1
               className="
@@ -264,7 +275,7 @@ export default function Hero() {
                 tracking-[-0.065em]
                 text-[#171A19]
 
-                lg:text-[clamp(4rem,6.3vw,6.8rem)]
+                lg:text-[clamp(6.8rem,6.5vw,9rem)]
               "
             >
               Send Anything.
@@ -316,6 +327,13 @@ export default function Hero() {
 
             {/* =================================================
                 CTA
+                FIX: this used to be two nested wrappers that each
+                carried their own top margin (mt-7/sm:mt-8 on the
+                outer, mt-4/sm:mt-5 on the inner) — since the inner
+                div was the outer's only child, both margins stacked
+                instead of one being redundant, pushing the buttons
+                noticeably further down than intended. Flattened to
+                a single wrapper with one margin.
             ================================================== */}
 
             <motion.div
@@ -342,83 +360,73 @@ export default function Hero() {
                 sm:items-center
               "
             >
+              <motion.div
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.12,
+                      delayChildren: 0.25,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+                className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
+              >
+                {/* Apple */}
+                <motion.a
+                  variants={storeButtonVariants}
+                  href="#"
+                  whileHover={{
+                    scale: 1.04,
+                    y: -3,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+                  className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
+                >
+                  <FaApple className="text-[27px]" />
 
-          <div className="mt-4 flex flex-col gap-4 sm:mt-5 sm:flex-row">
-                        <motion.div
-                          variants={{
-                            hidden: {},
-                            visible: {
-                              transition: {
-                                staggerChildren: 0.12,
-                                delayChildren: 0.25,
-                              },
-                            },
-                          }}
-                          initial="hidden"
-                          animate="visible"
-                          className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row"
-                        >
-                          {/* Apple */}
-                          <motion.a
-                            variants={storeButtonVariants}
-                            href="#"
-                            whileHover={{
-                              scale: 1.04,
-                              y: -3,
-                            }}
-                            whileTap={{
-                              scale: 0.97,
-                            }}
-                            className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
-                          >
-                            <FaApple className="text-[27px]" />
-          
-                            <span className="flex flex-col items-start leading-none">
-                              <span className="text-[9px] font-medium text-white/55">
-                                Download on the
-                              </span>
-          
-                              <span className="mt-1 text-[15px] font-bold tracking-tight">
-                                App Store
-                              </span>
-                            </span>
-                          </motion.a>
-          
-                          {/* Google Play */}
-                          <motion.a
-                            variants={storeButtonVariants}
-                            href="#"
-                            whileHover={{
-                              scale: 1.04,
-                              y: -3,
-                            }}
-                            whileTap={{
-                              scale: 0.97,
-                            }}
-                            className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
-                          >
-                            <BiLogoPlayStore className="text-[27px] " />
-          
-                            <span className="flex flex-col items-start leading-none">
-                              <span className="text-[9px] font-medium text-white/55">
-                                GET IT ON
-                              </span>
-          
-                              <span className="mt-1 text-[15px] font-bold tracking-tight">
-                                Google Play
-                              </span>
-                            </span>
-                          </motion.a>
-                        </motion.div>
-                      </div>
-        
+                  <span className="flex flex-col items-start leading-none">
+                    <span className="text-[9px] font-medium text-white/55">
+                      Download on the
+                    </span>
+
+                    <span className="mt-1 text-[15px] font-bold tracking-tight">
+                      App Store
+                    </span>
+                  </span>
+                </motion.a>
+
+                {/* Google Play */}
+                <motion.a
+                  variants={storeButtonVariants}
+                  href="#"
+                  whileHover={{
+                    scale: 1.04,
+                    y: -3,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+                  className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
+                >
+                  <BiLogoPlayStore className="text-[27px]" />
+
+                  <span className="flex flex-col items-start leading-none">
+                    <span className="text-[9px] font-medium text-white/55">
+                      GET IT ON
+                    </span>
+
+                    <span className="mt-1 text-[15px] font-bold tracking-tight">
+                      Google Play
+                    </span>
+                  </span>
+                </motion.a>
+              </motion.div>
             </motion.div>
-
-            {/* =================================================
-                APP DOWNLOAD
-            ================================================== */}
-
-          
 
             {/* =================================================
                 TRUST STATS
@@ -822,12 +830,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* =====================================================
-          IMAGE INDICATORS
-      ====================================================== */}
-
-      
     </section>
   );
 }
