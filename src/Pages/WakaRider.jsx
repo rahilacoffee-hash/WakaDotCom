@@ -6,6 +6,7 @@ import TrustedPartners from '../WakaRider/TrustedPartners/TrustedPartners'
 import WhyChooseUs from '../WakaRider/WhyChooseUs/WhyChooseUs'
 import GetApp from '../WakaRider/GetApp/GetApp'
 import DeliveryProducts from '../WakaRider/DeliveryProducts/DeliveryProducts'
+import HowItWorks from '../WakaRider/HowItWorks/HowItWorks'
 
 const Professionals = lazy(() => import('../WakaRider/Professionals/Professionals'))
 const Contact = lazy(() => import('../WakaRider/Contact/Contact'))
@@ -49,6 +50,7 @@ const WakaRider = () => {
       <DeferredSection minHeight="800px"><Professionals /></DeferredSection>
       <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
         <DeferredSection minHeight="700px"><WhyChooseUs /></DeferredSection>
+        <DeferredSection minHeight="650px"><HowItWorks /></DeferredSection>
       <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
       <DeferredSection minHeight="500px"><Contact /></DeferredSection>
       <DeferredSection minHeight="550px"><Testimonials /></DeferredSection>
