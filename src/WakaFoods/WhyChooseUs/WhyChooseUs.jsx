@@ -27,7 +27,6 @@ const benefits = [
 const WhyChooseUs = () => {
   return (
     <section
-    id="why-choose-us"
      className="relative overflow-hidden bg-[#FCF3F6] py-20 sm:py-24 lg:py-28">
       {/* Decorative background — recolored from bright pink/red to the site's maroon */}
       <div className="pointer-events-none absolute inset-0">

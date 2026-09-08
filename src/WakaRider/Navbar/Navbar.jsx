@@ -20,6 +20,11 @@ const navLinks = [
     name: "Home",
     href: "/",
   },
+  
+  {
+    name: "How It Works",
+    href: "#how-it-works",
+  },
   {
     name: "Why Choose Us",
     href: "#why-choose-us",
@@ -234,7 +239,7 @@ const Navbar = () => {
         =================================================== */}
 
         <Link
-          to="/"
+          to="/wakarider"
           onClick={closeMobileMenu}
           aria-label="WakaRider home"
           className="
@@ -282,44 +287,41 @@ const Navbar = () => {
           {/* Main Links */}
 
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="
-                group
-                relative
-                py-2
-                text-[14px]
-                font-semibold
-                text-[#171A19]
-                transition-colors
-                duration-300
+  <a
+    key={link.name}
+    href={link.href}
+    className="
+      group
+      relative
+      py-2
+      text-[14px]
+      font-semibold
+      text-[#171A19]
+      transition-colors
+      duration-300
+      hover:text-[#008F68]
+      focus:outline-none
+      focus-visible:text-[#008F68]
+    "
+  >
+    {link.name}
 
-                hover:text-[#008F68]
-
-                focus:outline-none
-                focus-visible:text-[#008F68]
-              "
-            >
-              {link.name}
-
-              <span
-                className="
-                  absolute
-                  bottom-0
-                  left-0
-                  h-[2px]
-                  w-0
-                  rounded-full
-                  bg-[#008F68]
-                  transition-all
-                  duration-300
-
-                  group-hover:w-full
-                "
-              />
-            </a>
-          ))}
+    <span
+      className="
+        absolute
+        bottom-0
+        left-0
+        h-[2px]
+        w-0
+        rounded-full
+        bg-[#008F68]
+        transition-all
+        duration-300
+        group-hover:w-full
+      "
+    />
+  </a>
+))}
 
           {/* =================================================
               SERVICES
@@ -738,7 +740,7 @@ const Navbar = () => {
               "
             >
               <Link
-                to="/"
+                to="/wakarider"
                 onClick={closeMobileMenu}
               >
                 <img
@@ -781,34 +783,33 @@ const Navbar = () => {
               {/* Mobile Links */}
 
               <div className="mt-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={closeMobileMenu}
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      border-b
-                      border-[#BFEBDD]
-                      py-5
-                      text-lg
-                      font-bold
-                      text-[#171A19]
-                      transition-colors
-                      duration-300
+               {navLinks.map((link) => (
+  <a
+    key={link.name}
+    href={link.href}
+    onClick={closeMobileMenu}
+    className="
+      flex
+      items-center
+      justify-between
+      border-b
+      border-[#BFEBDD]
+      py-5
+      text-lg
+      font-bold
+      text-[#171A19]
+      transition-colors
+      duration-300
+      hover:text-[#008F68]
+    "
+  >
+    {link.name}
 
-                      hover:text-[#008F68]
-                    "
-                  >
-                    {link.name}
-
-                    <span className="text-[#9BB8AD]">
-                      →
-                    </span>
-                  </a>
-                ))}
+    <span className="text-[#9BB8AD]">
+      →
+    </span>
+  </a>
+))}
               </div>
 
               {/* =================================================

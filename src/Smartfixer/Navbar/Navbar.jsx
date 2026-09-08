@@ -21,6 +21,10 @@ const navLinks = [
     href: "/",
   },
   {
+    name: "How It Works",
+    href: "#how-it-works",
+  },
+  {
     name: "Why Choose Us",
     href: "#whychooseus",
   },
@@ -237,7 +241,7 @@ const Navbar = () => {
         ================================================= */}
 
         <a
-          href="/"
+          href="/smartfixer"
           onClick={closeMobileMenu}
           aria-label="SmartFixer home"
           className="

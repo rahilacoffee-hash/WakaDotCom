@@ -90,7 +90,6 @@ const HowItWorks = () => {
 
   return (
     <section
-      id="how-it-works"
       className="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-32"
     >
       {/* =====================================================

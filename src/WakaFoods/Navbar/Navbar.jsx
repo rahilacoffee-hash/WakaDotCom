@@ -230,7 +230,7 @@ const Navbar = () => {
         =================================================== */}
 
         <Link
-          to="/"
+          to="/wakafoods"
           onClick={closeMobileMenu}
           aria-label="WakaFoods home"
           className="
@@ -713,7 +713,7 @@ const Navbar = () => {
               "
             >
               <Link
-                to="/"
+                to="/wakafoods"
                 onClick={closeMobileMenu}
               >
                 <img

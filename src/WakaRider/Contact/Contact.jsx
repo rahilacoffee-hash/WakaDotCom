@@ -24,7 +24,7 @@ let channels = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#EFFFF9] py-24 sm:py-28 overflow-hidden relative">
+    <section className="bg-[#EFFFF9] py-24 sm:py-28 overflow-hidden relative">
 
          {/* FIX: these glows were left over at #1769C2 (a different page's
              blue), clashing with the green WakaRider theme used everywhere

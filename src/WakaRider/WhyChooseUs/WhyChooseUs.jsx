@@ -56,7 +56,6 @@ const itemVariants = {
 const WhyChooseUs = () => {
   return (
     <section
-      id="why-choose-us"
       className="relative overflow-hidden bg-[#EFFFF9] py-20 sm:py-24 lg:py-28"
     >
       {/* =========================

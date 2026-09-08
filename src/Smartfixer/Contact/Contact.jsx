@@ -24,7 +24,7 @@ let channels = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#F4F8FF] py-24 sm:py-28 overflow-hidden relative">
+    <section className="bg-[#F4F8FF] py-24 sm:py-28 overflow-hidden relative">
 
          <div
         className="

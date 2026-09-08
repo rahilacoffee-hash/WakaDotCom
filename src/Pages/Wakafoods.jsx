@@ -11,7 +11,7 @@ const Contact = lazy(() => import('../WakaFoods/Contact/Contact'))
 const Testimonials = lazy(() => import('../components/Testimonials/Testimonials'))
 const Footer = lazy(() => import('../components/Footer/Footer'))
 
-function DeferredSection({ children, minHeight }) {
+function DeferredSection({ children, minHeight, id }) {
   const sectionRef = useRef(null)
   const [shouldLoad, setShouldLoad] = useState(false)
 
@@ -31,7 +31,12 @@ function DeferredSection({ children, minHeight }) {
   }, [])
 
   return (
-    <section ref={sectionRef} style={{ minHeight: shouldLoad ? undefined : minHeight }}>
+    <section
+      ref={sectionRef}
+      id={id}
+      className={id ? 'scroll-mt-20' : undefined}
+      style={{ minHeight: shouldLoad ? undefined : minHeight }}
+    >
       {shouldLoad && <Suspense fallback={null}>{children}</Suspense>}
     </section>
   )
@@ -44,9 +49,9 @@ const Wakafoods = () => {
       <Hero/>
       <DeferredSection minHeight="180px"><Stats /></DeferredSection>
       <DeferredSection minHeight="260px"><TrustedClients /></DeferredSection>
-      <DeferredSection minHeight="700px"><WhyChooseUs /></DeferredSection>
+      <DeferredSection id="why-choose-us" minHeight="700px"><WhyChooseUs /></DeferredSection>
       <DeferredSection minHeight="600px"><Dishes /></DeferredSection>
-      <DeferredSection minHeight="500px"><Contact /></DeferredSection>
+      <DeferredSection id="contact" minHeight="500px"><Contact /></DeferredSection>
       <DeferredSection minHeight="550px"><Testimonials /></DeferredSection>
       <DeferredSection minHeight="300px"><Footer /></DeferredSection>
       <ScrollToTopButton/>
