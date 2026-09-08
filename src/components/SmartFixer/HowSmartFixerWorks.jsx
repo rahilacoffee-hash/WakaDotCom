@@ -29,6 +29,7 @@ const options = [
   },
 ];
 
+
 const HowSmartFixerWorks = () => {
   return (
     <section

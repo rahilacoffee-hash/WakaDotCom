@@ -78,19 +78,18 @@ export default function Testimonials() {
           BACKGROUND GLOW
       ========================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -left-40
-          -top-40
-          h-[420px]
-          w-[420px]
-          rounded-full
-          bg-[#11B5AE]/[0.06]
-          blur-[110px]
-        "
-      />
+           <div
+          className="
+            absolute
+            -right-[220px]
+            -top-[220px]
+            h-[550px]
+            w-[550px]
+            rounded-full
+             bg-[#11B5AE]/[0.06]
+            blur-[120px]
+          "
+        />
 
       <div
         className="

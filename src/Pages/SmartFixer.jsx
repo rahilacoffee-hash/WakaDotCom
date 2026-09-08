@@ -1,28 +1,55 @@
-import React from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Navbar from '../Smartfixer/Navbar/Navbar'
 import Hero from '../Smartfixer/Hero/Hero'
-import GetApp from '../Smartfixer/GetApp/GetApp'
-import WhyChooseUs from '../Smartfixer/WhyChooseUs/WhyChooseUs'
-import HowItWorks from '../Smartfixer/HowItWorks/HowItWorks'
-import Professionals from '../Smartfixer/Professionals/Professionals'
-import Contact from '../Smartfixer/Contact/Contact'
-import Testimonials from '../Smartfixer/Testimonials/Testimonials'
-import Footer from '../components/Footer/Footer'
 import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
 
+const GetApp = lazy(() => import('../Smartfixer/GetApp/GetApp'))
+const WhyChooseUs = lazy(() => import('../Smartfixer/WhyChooseUs/WhyChooseUs'))
+const HowItWorks = lazy(() => import('../Smartfixer/HowItWorks/HowItWorks'))
+const Professionals = lazy(() => import('../Smartfixer/Professionals/Professionals'))
+const Contact = lazy(() => import('../Smartfixer/Contact/Contact'))
+const Testimonials = lazy(() => import('../Smartfixer/Testimonials/Testimonials'))
+const Footer = lazy(() => import('../components/Footer/Footer'))
+
+function DeferredSection({ children, minHeight }) {
+  const sectionRef = useRef(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setShouldLoad(true)
+        observer.disconnect()
+      }
+    }, { rootMargin: '400px 0px' })
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section ref={sectionRef} style={{ minHeight: shouldLoad ? undefined : minHeight }}>
+      {shouldLoad && <Suspense fallback={null}>{children}</Suspense>}
+    </section>
+  )
+}
 
 const SmartFixer = () => {
   return (
     <>
       <Navbar/>
       <Hero/>
-      <GetApp/>
-      <WhyChooseUs/>
-      <HowItWorks/>
-      <Professionals/>
-      <Contact/>
-      <Testimonials/>
-      <Footer/>
+      <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
+      <DeferredSection minHeight="700px"><WhyChooseUs /></DeferredSection>
+      <DeferredSection minHeight="650px"><HowItWorks /></DeferredSection>
+      <DeferredSection minHeight="800px"><Professionals /></DeferredSection>
+       <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
+      <DeferredSection minHeight="500px"><Contact /></DeferredSection>
+      <DeferredSection minHeight="550px"><Testimonials /></DeferredSection>
+      <DeferredSection minHeight="300px"><Footer /></DeferredSection>
       <ScrollToTopButton />
     </>
   )

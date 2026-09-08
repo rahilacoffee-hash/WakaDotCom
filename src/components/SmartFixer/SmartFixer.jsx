@@ -11,6 +11,16 @@ const categories = [
   "Electrical",
 ];
 
+const GooglePlayIcon = ({ size = 22 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M4 2.5v19a1 1 0 0 0 1.6.8l12-9.5a1 1 0 0 0 0-1.6l-12-9.5A1 1 0 0 0 4 2.5Z" fill="#00D2FF" />
+    <path d="M4.4 21.9 15 12 4.4 2.1A1 1 0 0 0 4 2.9v18.2c0 .3.1.5.4.8Z" fill="#00D2FF" />
+    <path d="m15 12-3.4-2.7L4.6 2.2c.1 0 .3.1.4.2l12.9 7.2L15 12Z" fill="#00F076" />
+    <path d="M17.9 9.6 15 12l2.9 2.4 3.3-1.8a1.1 1.1 0 0 0 0-1.9l-3.3-1.1Z" fill="#FFC900" />
+    <path d="m15 12 3.4 2.7-12.9 7.2c-.1.1-.3.1-.4.2L15 12Z" fill="#FF3A44" />
+  </svg>
+);
+
 const SmartFixer = () => {
   return (
     <section
@@ -707,7 +717,7 @@ const SmartFixer = () => {
                   duration-300
                 "
               >
-                <BiLogoPlayStore
+                <GooglePlayIcon
                   size={25}
                   className="text-[#FB7A00]"
                 />

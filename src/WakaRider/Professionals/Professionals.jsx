@@ -9,44 +9,38 @@ import {
 
 const professionals = [
   {
-    title: "Plumber",
-    description: "Certified & background-checked",
+    title: "Emeka",
+    
     image:
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=90",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhv_as5EBuR-P_CAMltdjHuLGsTfJAYP0umcETwQ1yKfIQH61VVoyiQdA&s=10",
   },
   {
-    title: "Electrician",
-    description: "Certified & background-checked",
+    title: "Mary",
+   
     image:
-      "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=90",
+      "https://www.wakadotcom.com/wakarider/rider-mary.png",
   },
   {
-    title: "Painter",
-    description: "Certified & background-checked",
+    title: "Kennedy",
     image:
-      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=90",
+      "https://www.wakadotcom.com/wakarider/rider-kennedy.png",
   },
   {
-    title: "Carpenter",
-    description: "Certified & background-checked",
+    title: "David",
     image:
-      "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=90",
+      "https://viscorner.com/_next/image?url=https%3A%2F%2Fimages.viscorner.com%2Fcms%2Fdispatch_rider_and_delivery_service_on_Vis_Corner_9eceb0c7c6.jpg&w=3840&q=75",
+  },
+     {
+    title: "Chidi",
+    image:
+      "https://images.unsplash.com/photo-1753806901333-44632dc78b49?fm=jpg&q=60&w=1200&auto=format&fit=crop",
   },
   {
-    title: "AC Technician",
-    description: "Certified & background-checked",
-    // FIX: was a Google Images cached-thumbnail URL
-    // (encrypted-tbn0.gstatic.com) — unreliable to hotlink and of
-    // uncertain licensing since it's a scraped search-result thumbnail.
+    title: "Blessing",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90",
+      "https://images.unsplash.com/photo-1611004060674-7e8864bcb4e4?fm=jpg&q=60&w=1200&auto=format&fit=crop",
   },
-  {
-    title: "Cleaner",
-    description: "Certified & background-checked",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=90",
-  },
+ 
 ];
 
 const desktopPages = Math.ceil(professionals.length / 3);
@@ -227,7 +221,6 @@ const Professionals = () => {
           "
         />
 
-        {/* Grid — FIX: was #1769C2 (leftover blue), now #008F68 */}
         <div
           className="
             absolute
@@ -538,6 +531,8 @@ const Professionals = () => {
           </div>
         </div>
 
+        
+
         {/* ==========================================
             TRUST MICRO COPY
         ========================================== */}
@@ -799,18 +794,7 @@ const ProfessionalCard = ({
             {professional.title}
           </h3>
 
-          <p
-            className="
-              mt-0.5
-              truncate
-              text-[11px]
-              font-medium
-              text-black/40
-              sm:text-xs
-            "
-          >
-            {professional.description}
-          </p>
+    
         </div>
       </div>
 

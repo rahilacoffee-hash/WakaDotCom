@@ -95,14 +95,16 @@ export default function ClientLogo({ client }) {
             max-h-8
             max-w-[100px]
             object-contain
-            grayscale
-            opacity-55
+         
+            opacity-100
             transition-all
             duration-500
 
             group-hover:scale-105
             group-hover:grayscale-0
             group-hover:opacity-100
+       
+
 
             sm:max-h-10
             sm:max-w-[140px]

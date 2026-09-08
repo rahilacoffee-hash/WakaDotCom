@@ -1,9 +1,5 @@
 const clients = [
-  {
-    id: 1,
-
-    logo: "4-chester fries.png",
-  },
+ 
   {
     id: 2,
 

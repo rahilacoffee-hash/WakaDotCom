@@ -47,7 +47,7 @@ export default function Footer() {
       className="
         relative
         overflow-hidden
-        bg-[#111111]
+        bg-[#1B1B1B]
         text-white
       "
     >
@@ -66,22 +66,22 @@ export default function Footer() {
             h-[550px]
             w-[550px]
             rounded-full
-            bg-[#FB7A00]/[0.055]
+             bg-[#11B5AE]/[0.06]
             blur-[120px]
           "
         />
 
         {/* Bottom glow */}
 
-        <div
+            <div
           className="
             absolute
-            -left-[180px]
-            bottom-[80px]
-            h-[450px]
-            w-[450px]
+            -right-[220px]
+            -top-[220px]
+            h-[550px]
+            w-[550px]
             rounded-full
-            bg-[#FB7A00]/[0.035]
+             bg-[#11B5AE]/[0.06]
             blur-[120px]
           "
         />
@@ -105,8 +105,6 @@ export default function Footer() {
       {/* =====================================================
           TOP ORANGE LINE
       ====================================================== */}
-
-      <div className="absolute left-0 right-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FB7A00] to-transparent" />
 
       <div
         className="
@@ -561,6 +559,9 @@ export default function Footer() {
 
         <div
           className="
+          flex
+          items-center
+          justify-center
             relative
             mt-16
             overflow-hidden
@@ -577,6 +578,11 @@ export default function Footer() {
         >
           <p
             className="
+            flex
+            flex-wrap
+            items-center
+            justify-center
+        
               text-center
               text-[clamp(2.5rem,8vw,7rem)]
               font-black
@@ -586,7 +592,12 @@ export default function Footer() {
               select-none
             "
           >
-            WAKADOTCOM
+            <img
+            src="logo.png"
+            alt="WakaDotCom Logo"
+            className="h-9 sm:h-14 lg:h-25 w-auto"
+            />
+            AKADOTCOM
           </p>
 
           <div

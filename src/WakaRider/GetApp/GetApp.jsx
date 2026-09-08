@@ -19,9 +19,9 @@ export default function GetApp() {
       className="
         relative
         z-30
-        -mt-3
-        sm:-mt-28
-        lg:-mt-28
+        mt-8
+        sm:-mt-2
+        lg:-mt-2
         bg-[#F5F9FD]
         pb-16
         sm:pb-20
@@ -61,9 +61,9 @@ export default function GetApp() {
           border
           border-white/20
 
-          bg-[#1769C2]
+          bg-[#008F68]
 
-          shadow-[0_25px_70px_rgba(23,105,194,0.28)]
+          
 
           p-7
           sm:p-10
@@ -170,7 +170,7 @@ export default function GetApp() {
               lg:text-6xl
             "
           >
-            Get SmartFixer{" "}
+            Get WakaRider{" "}
             <span className="text-white/90">
               on your phone
             </span>
