@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" id="waka-favicon-link" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>wakadotcom</title>
 
@@ -21,10 +21,30 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 22px;
+        gap: 18px;
         background: rgba(255, 255, 255, 0);
-        transition: opacity 0.5s ease;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+        transition: opacity 0.5s ease, filter 0.5s ease, transform 0.5s ease;
+      }
+      #waka-loader.waka-loader--leaving {
+        opacity: 0;
+        filter: blur(6px);
+        transform: scale(1.04);
+      }
+
+      /* soft glow behind the mark — decorative only, still lets the
+         real page show through everywhere else */
+      .waka-loader__glow {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(249,115,22,0.16) 0%, rgba(249,115,22,0) 70%);
+        animation: waka-glow-pulse 3s ease-in-out infinite;
+      }
+      @keyframes waka-glow-pulse {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.15); opacity: 1; }
       }
 
       .waka-loader__badge {
@@ -34,12 +54,14 @@
         padding: 8px 16px;
         border-radius: 999px;
         border: 1px solid rgba(249, 115, 22, 0.25);
-        background: rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.75);
         backdrop-filter: blur(6px);
         color: #c2410c;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 0.01em;
+        opacity: 0;
+        animation: waka-fade-in 0.6s ease forwards 0.1s;
       }
       .waka-loader__dot {
         width: 6px;
@@ -52,49 +74,108 @@
         0%, 100% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.6); opacity: 0.4; }
       }
+      @keyframes waka-fade-in {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
 
-      .waka-loader__mark {
-        font-size: 44px;
+      /* ================= RING + LOGO ================= */
+      .waka-loader__ring-wrap {
+        position: relative;
+        width: 132px;
+        height: 132px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        animation: waka-scale-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      @keyframes waka-scale-in {
+        from { opacity: 0; transform: scale(0.85); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      .waka-loader__ring {
+        position: absolute;
+        inset: 0;
+        transform: rotate(-90deg);
+      }
+      .waka-loader__ring-track {
+        fill: none;
+        stroke: rgba(27, 27, 27, 0.08);
+        stroke-width: 6;
+      }
+      .waka-loader__ring-fill {
+        fill: none;
+        stroke: url(#waka-ring-gradient);
+        stroke-width: 6;
+        stroke-linecap: round;
+        stroke-dasharray: 326.7;
+        stroke-dashoffset: 326.7;
+        transition: stroke-dashoffset 0.3s ease-out;
+      }
+
+      /* slow decorative orbit ring, independent of real progress */
+      .waka-loader__orbit {
+        position: absolute;
+        inset: -14px;
+        border-radius: 50%;
+        border: 1.5px dashed rgba(249, 115, 22, 0.25);
+        animation: waka-orbit-spin 14s linear infinite;
+      }
+      @keyframes waka-orbit-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      .waka-loader__logo {
+        position: relative;
+        width: 76px;
+        height: 76px;
+        border-radius: 22px;
+        background: linear-gradient(135deg, #fb923c, #ea580c);
+        box-shadow: 0 14px 34px rgba(234, 88, 12, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
         font-weight: 900;
-        letter-spacing: -0.03em;
-        color: #1b1b1b;
-        line-height: 1;
+        color: white;
+        letter-spacing: -0.02em;
       }
-      .waka-loader__mark span { color: #f97316; }
-
-      .waka-loader__bar {
-        width: 220px;
-        height: 6px;
-        border-radius: 999px;
-        background: rgba(27, 27, 27, 0.08);
-        overflow: hidden;
-      }
-      .waka-loader__bar-fill {
-        height: 100%;
-        width: 0%;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #fb923c, #f97316);
-        transition: width 0.25s ease-out;
-      }
+      .waka-loader__logo span { opacity: 0.7; }
 
       .waka-loader__percent {
-        font-size: 12px;
-        font-weight: 700;
-        color: #a16207;
+        font-size: 26px;
+        font-weight: 800;
+        color: #1b1b1b;
         font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+        opacity: 0;
+        animation: waka-fade-in 0.6s ease forwards 0.25s;
+      }
+
+      .waka-loader__label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #a16207;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: waka-fade-in 0.6s ease forwards 0.35s;
       }
 
       .waka-loader__spark {
         position: absolute;
         color: #1b1b1b;
-        opacity: 0.6;
-        animation: waka-spark-float 2.4s ease-in-out infinite;
+        opacity: 0.55;
+        animation: waka-spark-float 2.6s ease-in-out infinite;
       }
-      .waka-loader__spark--1 { top: 32%; left: 32%; animation-delay: 0s; }
-      .waka-loader__spark--2 { top: 62%; right: 30%; animation-delay: 0.6s; }
+      .waka-loader__spark--1 { top: 26%; left: 26%; animation-delay: 0s; }
+      .waka-loader__spark--2 { bottom: 24%; right: 25%; animation-delay: 0.7s; }
       @keyframes waka-spark-float {
-        0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-        50% { transform: translateY(-6px) scale(1.15); opacity: 1; }
+        0%, 100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.5; }
+        50% { transform: translateY(-8px) scale(1.2) rotate(12deg); opacity: 1; }
       }
     </style>
   </head>
@@ -105,20 +186,35 @@
          has even downloaded — let alone mounted.
     =================================================================== -->
     <div id="waka-loader" aria-hidden="true">
+      <div class="waka-loader__glow"></div>
+
       <div class="waka-loader__badge">
         <span class="waka-loader__dot"></span>
         Loading your ecosystem
       </div>
-      <div class="waka-loader__mark">Waka<span>.</span></div>
-      <div class="waka-loader__bar">
-        <div class="waka-loader__bar-fill" id="waka-loader-fill"></div>
-      </div>
-      <div class="waka-loader__percent" id="waka-loader-percent">0%</div>
 
-      <svg class="waka-loader__spark waka-loader__spark--1" width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <div class="waka-loader__ring-wrap">
+        <div class="waka-loader__orbit"></div>
+        <svg class="waka-loader__ring" viewBox="0 0 120 120">
+          <defs>
+            <linearGradient id="waka-ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fb923c" />
+              <stop offset="100%" stop-color="#ea580c" />
+            </linearGradient>
+          </defs>
+          <circle class="waka-loader__ring-track" cx="60" cy="60" r="52" />
+          <circle class="waka-loader__ring-fill" id="waka-ring-fill" cx="60" cy="60" r="52" />
+        </svg>
+        <div class="waka-loader__logo">W<span>.</span></div>
+      </div>
+
+      <div class="waka-loader__percent" id="waka-loader-percent">0%</div>
+      <div class="waka-loader__label">Loading ecosystem</div>
+
+      <svg class="waka-loader__spark waka-loader__spark--1" width="16" height="16" viewBox="0 0 24 24" fill="none">
         <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor"/>
       </svg>
-      <svg class="waka-loader__spark waka-loader__spark--2" width="14" height="14" viewBox="0 0 24 24" fill="none">
+      <svg class="waka-loader__spark waka-loader__spark--2" width="12" height="12" viewBox="0 0 24 24" fill="none">
         <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill="currentColor"/>
       </svg>
     </div>
@@ -126,17 +222,25 @@
     <!-- ===================================================================
          WAKA LOADER SCRIPT
          Real-time progress via the browser's own Resource Timing API —
-         not a fake timer. Finishes when App.jsx dispatches
-         'waka:app-ready' (see the useEffect snippet you were given),
-         with window.load as a safety fallback so it can never hang.
+         not a fake timer. Also mirrors progress into the browser tab:
+         the title shows a live percentage and the favicon becomes a
+         small progress ring, both reverting once loading finishes.
+         Finishes when a page component dispatches 'waka:app-ready'
+         (see useAppReady.js), with window.load as a safety fallback.
     =================================================================== -->
     <script>
       (function () {
         function initWakaLoader() {
           var loader = document.getElementById('waka-loader');
-          var fill = document.getElementById('waka-loader-fill');
+          var ringFill = document.getElementById('waka-ring-fill');
           var percentEl = document.getElementById('waka-loader-percent');
-          if (!loader || !fill || !percentEl) return;
+          var faviconLink = document.getElementById('waka-favicon-link');
+          if (!loader || !ringFill || !percentEl) return;
+
+          var CIRCUMFERENCE = 326.7; // 2 * PI * r(52), matches the CSS
+          var originalTitle = document.title;
+          var originalFaviconHref = faviconLink ? faviconLink.href : null;
+          var lastFaviconStep = -1;
 
           var loadedCount = 0;
           var estimatedTotal = Math.max(
@@ -146,10 +250,43 @@
             6
           );
 
+          function drawFavicon(percent) {
+            var canvas = document.createElement('canvas');
+            canvas.width = 32;
+            canvas.height = 32;
+            var ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, 32, 32);
+
+            ctx.strokeStyle = 'rgba(27,27,27,0.15)';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.arc(16, 16, 13, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.strokeStyle = '#f97316';
+            ctx.lineWidth = 4;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.arc(16, 16, 13, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * (percent / 100));
+            ctx.stroke();
+
+            return canvas.toDataURL('image/png');
+          }
+
           function setProgress(p) {
             var clamped = Math.max(0, Math.min(100, p));
-            fill.style.width = clamped + '%';
-            percentEl.textContent = Math.round(clamped) + '%';
+            var rounded = Math.round(clamped);
+
+            ringFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - clamped / 100);
+            percentEl.textContent = rounded + '%';
+            document.title = rounded + '% \u00B7 ' + originalTitle;
+
+            // Redrawing a canvas favicon on every tick is unnecessary —
+            // only do it when the visible percentage actually changes.
+            if (faviconLink && rounded !== lastFaviconStep) {
+              lastFaviconStep = rounded;
+              faviconLink.href = drawFavicon(clamped);
+            }
           }
 
           var observer;
@@ -168,17 +305,21 @@
             if (finished) return;
             finished = true;
             setProgress(100);
+
             setTimeout(function () {
-              loader.style.opacity = '0';
+              loader.classList.add('waka-loader--leaving');
+              document.title = originalTitle;
+              if (faviconLink && originalFaviconHref) {
+                faviconLink.href = originalFaviconHref;
+              }
               setTimeout(function () {
                 loader.style.display = 'none';
-                loader.style.pointerEvents = 'none';
                 if (observer) observer.disconnect();
               }, 500);
-            }, 200);
+            }, 250);
           }
 
-          // Primary trigger: React tells us it's mounted and painted.
+          // Primary trigger: a page component tells us it's mounted and painted.
           document.addEventListener('waka:app-ready', finish, { once: true });
 
           // Safety fallback: never hang, even if that event is missing.
