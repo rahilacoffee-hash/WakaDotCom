@@ -7,6 +7,7 @@ import WhyChooseUs from '../WakaRider/WhyChooseUs/WhyChooseUs'
 import GetApp from '../WakaRider/GetApp/GetApp'
 import DeliveryProducts from '../WakaRider/DeliveryProducts/DeliveryProducts'
 import HowItWorks from '../WakaRider/HowItWorks/HowItWorks'
+import useAppReady from '../hooks/Useappready'
 
 const Professionals = lazy(() => import('../WakaRider/Professionals/Professionals'))
 const Contact = lazy(() => import('../WakaRider/Contact/Contact'))
@@ -45,6 +46,8 @@ function DeferredSection({ children, minHeight, id }) {
 }
 
 const WakaRider = () => {
+  useAppReady()
+
   return (
     <>
       <Navbar/>

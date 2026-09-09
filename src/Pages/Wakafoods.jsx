@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Navbar from '../WakaFoods/Navbar/Navbar'
 import Hero from '../WakaFoods/Hero/Hero'
 import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
+import useAppReady from '../hooks/Useappready'
 
 const Stats = lazy(() => import('../WakaFoods/Stats/Stats'))
 const TrustedClients = lazy(() => import('../WakaFoods/TrustedClients/TrustedClients'))
@@ -43,6 +44,8 @@ function DeferredSection({ children, minHeight, id }) {
 }
 
 const Wakafoods = () => {
+  useAppReady()
+
   return (
     <>
       <Navbar/>

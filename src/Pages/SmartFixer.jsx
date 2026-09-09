@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import Navbar from '../Smartfixer/Navbar/Navbar'
 import Hero from '../Smartfixer/Hero/Hero'
 import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
+import useAppReady from '../hooks/Useappready'
 
 const GetApp = lazy(() => import('../Smartfixer/GetApp/GetApp'))
 const WhyChooseUs = lazy(() => import('../Smartfixer/WhyChooseUs/WhyChooseUs'))
@@ -43,6 +44,8 @@ function DeferredSection({ children, minHeight, id }) {
 }
 
 const SmartFixer = () => {
+  useAppReady()
+
   return (
     <>
       <Navbar/>

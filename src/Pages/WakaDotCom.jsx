@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Hero from '../components/Hero/Hero'
 import Contact from '../components/Contact/Contact'
 import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
+import useAppReady from '../hooks/Useappready'
 
 const Stats = lazy(() => import('../components/Stats/Stats'))
 const SmartFixer = lazy(() => import('../components/SmartFixer/SmartFixer'))
@@ -42,6 +43,8 @@ function DeferredSection({ children, minHeight }) {
 }
 
 const WakaDotCom = () => {
+  useAppReady()
+
   return (
     <>
      <Navbar/>
