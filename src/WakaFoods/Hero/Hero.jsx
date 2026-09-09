@@ -67,7 +67,7 @@ const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#FCF3F6]">
+    <section className="relative min-h-[100svh] overflow-hidden bg-[#FCF3F6] lg:min-h-screen">
       {/* =====================================================
           BACKGROUND
           Smaller glows on mobile — they're blurred decoration,
@@ -94,7 +94,7 @@ const Hero = () => {
       {/* =====================================================
           CONTENT
       ====================================================== */}
-      <div className="relative z-10 mx-auto flex min-h-0 max-w-7xl items-start px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-32 lg:min-h-screen lg:items-center lg:px-12 lg:pb-16 lg:pt-32">
+      <div className="relative z-10 mx-auto flex min-h-0 max-w-7xl items-start px-5 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-24 sm:px-8 sm:pb-14 sm:pt-32 lg:min-h-screen lg:items-center lg:px-12 lg:pb-16 lg:pt-32">
         {/*
           Grid items default to min-width: auto (they size to their
           content's intrinsic width). The fixed-width food row further
@@ -105,7 +105,7 @@ const Hero = () => {
           min-w-0 on both children lets them shrink to the real
           column width instead.
         */}
-        <div className="grid w-full items-center gap-8 sm:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
+        <div className="grid w-full items-center gap-8 sm:gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 xl:gap-28">
           {/* =================================================
               LEFT CONTENT
           ================================================== */}
@@ -257,7 +257,7 @@ const Hero = () => {
                 pixel sizes per breakpoint — scales continuously so
                 there's no viewport width where the row can overflow.
             ================================================== */}
-            <div className="relative z-10 flex max-w-full items-center justify-center gap-1 sm:gap-3 lg:gap-4">
+            <div className="relative z-10 flex max-w-full items-center justify-center gap-0.5 min-[360px]:gap-1 sm:gap-3 lg:gap-4">
               {heroImages.map((image, index) => (
                 <motion.div
                   key={image.src}
@@ -284,7 +284,7 @@ const Hero = () => {
                         }
                   }
                   style={{ width: image.width, height: image.height }}
-                  className={`relative shrink-0 overflow-hidden rounded-[16px] border-[3px] border-white/90 shadow-[0_18px_40px_rgba(55,20,30,0.16)] sm:rounded-[35px] sm:border-[6px] sm:shadow-[0_25px_55px_rgba(55,20,30,0.18)] ${
+                  className={`relative shrink-0 overflow-hidden rounded-[16px] border-2 border-white/90 shadow-[0_18px_40px_rgba(55,20,30,0.16)] min-[360px]:border-[3px] sm:rounded-[35px] sm:border-[6px] sm:shadow-[0_25px_55px_rgba(55,20,30,0.18)] ${
                     index === 0 ? "-rotate-6" : index === 1 ? "z-20" : "rotate-6"
                   }`}
                 >
@@ -292,7 +292,7 @@ const Hero = () => {
                     src={image.src}
                     alt={image.alt}
                     loading={index === 1 ? "eager" : "lazy"}
-                    fetchpriority={index === 1 ? "high" : undefined}
+                    fetchPriority={index === 1 ? "high" : undefined}
                     className="h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10" />
@@ -350,10 +350,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.6 }}
-              className="absolute bottom-[2%] right-[2%] z-30 rounded-full border border-white/70 bg-white/90 px-2.5 py-1.5 shadow-[0_15px_35px_rgba(55,20,30,0.12)] backdrop-blur-xl sm:bottom-[8%] sm:right-[5%] sm:px-4 sm:py-2.5"
+              className="absolute bottom-[2%] right-[2%] z-30 rounded-full border border-white/70 bg-white/90 px-2 py-1 shadow-[0_15px_35px_rgba(55,20,30,0.12)] backdrop-blur-xl min-[360px]:px-2.5 min-[360px]:py-1.5 sm:bottom-[8%] sm:right-[5%] sm:px-4 sm:py-2.5"
             >
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <div className="flex items-center gap-0.5 text-[11px] sm:text-[13px]">
+              <div className="flex items-center gap-1 min-[360px]:gap-1.5 sm:gap-2">
+                <div className="flex items-center gap-0.5 text-[10px] min-[360px]:text-[11px] sm:text-[13px]">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <FiStar key={star} className="fill-[#902141] text-[#902141]" />
                   ))}
