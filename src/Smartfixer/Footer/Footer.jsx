@@ -344,7 +344,7 @@ export default function Footer() {
 
             <nav className="mt-4 flex flex-col gap-2.5">
               <a
-                href="#faqs"
+                href="/faqs"
                 className="
                   w-fit
                   text-[10px]
@@ -360,7 +360,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#privacy"
+                href="/privacy"
                 className="
                   w-fit
                   text-[10px]
@@ -376,7 +376,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="#terms"
+                href="/terms"
                 className="
                   w-fit
                   text-[10px]

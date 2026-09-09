@@ -41,7 +41,7 @@ export default function AboutWakaDotCom() {
       ===================================================== */}
 
       <img
-        src="/Wakadotcom-logo.png"
+        src="/Wakadotcom-logo.webp"
         alt=""
         aria-hidden="true"
         className="

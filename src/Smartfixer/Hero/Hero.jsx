@@ -312,7 +312,7 @@ const Hero = () => {
               "
             >
               <motion.a
-                href="#get-started"
+                href="#contact"
                 whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
                 whileTap={prefersReducedMotion ? {} : { scale: 0.97 }}
                 className="

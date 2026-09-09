@@ -14,7 +14,7 @@ const MotionCounter = ({ value }) => {
     });
 
     return () => controls.stop();
-  }, [value]);
+  }, [count, value]);
 
   return <motion.span>{display}</motion.span>;
 };

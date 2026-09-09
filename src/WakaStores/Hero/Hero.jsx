@@ -3,7 +3,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   HiArrowUpRight,
   HiOutlineShoppingBag,
-  HiOutlineTruck,
   HiOutlineSparkles,
 } from "react-icons/hi2";
 import { FaApple } from "react-icons/fa";
@@ -402,7 +401,7 @@ export default function Hero() {
               >
               <motion.a
                                 variants={storeButtonVariants}
-                                href="#"
+                                href="/#contact"
                                 whileHover={prefersReducedMotion ? {} : { scale: 1.04, y: -3 }}
                                 whileTap={prefersReducedMotion ? {} : { scale: 0.97 }}
                                 className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
@@ -420,7 +419,7 @@ export default function Hero() {
 
                <motion.a
                                variants={storeButtonVariants}
-                               href="#"
+                               href="/#contact"
                                whileHover={prefersReducedMotion ? {} : { scale: 1.04, y: -3 }}
                                whileTap={prefersReducedMotion ? {} : { scale: 0.97 }}
                                className="flex h-[54px] w-full min-w-[165px] items-center justify-center gap-3 rounded-[17px] bg-[#141310] px-5 text-white shadow-[0_15px_35px_rgba(20,19,16,0.14)] transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(20,19,16,0.22)] sm:h-[56px] sm:w-auto"
@@ -443,7 +442,7 @@ export default function Hero() {
 
               <motion.a
                 variants={fadeUp}
-                href="#shop"
+                href="/#contact"
                 className="
                   mt-8
                   flex
@@ -505,7 +504,7 @@ export default function Hero() {
             ================================================= */}
 
             <motion.a
-              href="#shop"
+              href="/#contact"
               variants={fadeUp}
               whileHover={{ y: -4 }}
               transition={{
@@ -642,7 +641,7 @@ export default function Hero() {
             ================================================= */}
 
             <motion.a
-              href="#track-order"
+              href="/#contact"
               variants={fadeUp}
               whileHover={{ y: -4 }}
               transition={{

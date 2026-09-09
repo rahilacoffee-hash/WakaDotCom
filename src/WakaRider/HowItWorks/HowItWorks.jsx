@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowRight,
   ArrowUpRight,
   CheckCircle2,
   Clock3,
   MapPin,
   Package,
-  ShieldCheck,
-  Smartphone,
   Truck,
   UserRound,
 } from "lucide-react";
@@ -55,21 +52,6 @@ const steps = [
     color: "#008F68",
   },
 ];
-
-const timelineVariants = {
-  hidden: {
-    opacity: 0,
-    y: 25,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(1);

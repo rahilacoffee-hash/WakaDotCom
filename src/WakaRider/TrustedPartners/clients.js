@@ -2,13 +2,13 @@ const partners = [
   {
     id: 1,
     name: "Downtown Grill",
-    logo: "/partners/5-downtown-grill.png",
+    logo: "/partners/5-downtown grill.png",
     category: "Restaurant",
   },
   {
     id: 2,
-    name: "Chicken Republic",
-    logo: "/partners/2-chicken-republic.png", // ⚠️ no matching file in your original list — placeholder path, update once you confirm the real filename
+    name: "Big Bites",
+    logo: "/partners/18-Big bites.jpg",
     category: "Restaurant",
   },
   {
@@ -26,13 +26,13 @@ const partners = [
   {
     id: 5,
     name: "Pocho",
-    logo: "/partners/11-pocho-cafe.png",
+    logo: "/partners/11-pocho cafe.png",
     category: "Restaurant",
   },
   {
     id: 6,
     name: "My Barman Kitchen",
-    logo: "/partners/9-my-barman-kitchen.png", // ⚠️ original said "9-My makan kitchen.png" — guessing this is a typo for "barman", confirm actual filename
+    logo: "/partners/9-My makan kitchen.png",
     category: "Restaurant",
   },
 ];

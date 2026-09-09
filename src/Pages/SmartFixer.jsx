@@ -3,6 +3,7 @@ import Navbar from '../Smartfixer/Navbar/Navbar'
 import Hero from '../Smartfixer/Hero/Hero'
 import ScrollToTopButton from '../components/layout/ScrollToTopButton/ScrollToTopButton'
 import useAppReady from '../hooks/Useappready'
+import SectionLoader from '../components/layout/SectionLoader'
 
 const GetApp = lazy(() => import('../Smartfixer/GetApp/GetApp'))
 const WhyChooseUs = lazy(() => import('../Smartfixer/WhyChooseUs/WhyChooseUs'))
@@ -38,7 +39,7 @@ function DeferredSection({ children, minHeight, id }) {
       className={id ? 'scroll-mt-20' : undefined}
       style={{ minHeight: shouldLoad ? undefined : minHeight }}
     >
-      {shouldLoad && <Suspense fallback={null}>{children}</Suspense>}
+      {shouldLoad && <Suspense fallback={<SectionLoader minHeight={minHeight} />}>{children}</Suspense>}
     </section>
   )
 }

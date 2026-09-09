@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck, Zap, Clock3 } from "lucide-react";
+import { ShieldCheck, Zap, Clock3 } from "lucide-react";
 import LogoMarquee from "./LogoMarquee";
 
 const defaultPartners = [
@@ -38,7 +38,7 @@ const defaultPartners = [
    {
     id: 6,
     name: "Big Bites",
-    logo: "18-Big bites.jpg",
+    logo: "/partners/18-Big bites.jpg",
     category: "Restaurant",
   },
 ];
@@ -94,6 +94,7 @@ const itemVariants = {
 const TrustedPartners = ({ partners = defaultPartners }) => {
   return (
     <section
+      id="trusted-partners"
       className="relative overflow-hidden bg-[#EFFFF9] px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28"
     >
       {/* Background decoration */}

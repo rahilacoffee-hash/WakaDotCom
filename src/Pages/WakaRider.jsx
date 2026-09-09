@@ -8,6 +8,7 @@ import GetApp from '../WakaRider/GetApp/GetApp'
 import DeliveryProducts from '../WakaRider/DeliveryProducts/DeliveryProducts'
 import HowItWorks from '../WakaRider/HowItWorks/HowItWorks'
 import useAppReady from '../hooks/Useappready'
+import SectionLoader from '../components/layout/SectionLoader'
 
 const Professionals = lazy(() => import('../WakaRider/Professionals/Professionals'))
 const Contact = lazy(() => import('../WakaRider/Contact/Contact'))
@@ -40,7 +41,7 @@ function DeferredSection({ children, minHeight, id }) {
       className={id ? 'scroll-mt-20' : undefined}
       style={{ minHeight: shouldLoad ? undefined : minHeight }}
     >
-      {shouldLoad && <Suspense fallback={null}>{children}</Suspense>}
+      {shouldLoad && <Suspense fallback={<SectionLoader minHeight={minHeight} />}>{children}</Suspense>}
     </section>
   )
 }

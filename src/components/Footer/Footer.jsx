@@ -24,7 +24,9 @@ export default function Footer() {
 
     if (!email.trim()) return;
 
-    console.log("Newsletter email:", email);
+    const subject = encodeURIComponent("WakaDotCom newsletter subscription");
+    const body = encodeURIComponent(`Please subscribe ${email.trim()} to WakaDotCom updates.`);
+    window.location.href = `mailto:help@wakadotcom.com?subject=${subject}&body=${body}`;
 
     setSubmitted(true);
     setEmail("");
@@ -357,7 +359,7 @@ export default function Footer() {
                       active:scale-[0.98]
                     "
                   >
-                    {submitted ? "Subscribed ✓" : "Subscribe"}
+                    {submitted ? "Email app opened ✓" : "Subscribe"}
 
                     {!submitted && (
                       <ArrowUpRight
@@ -819,10 +821,11 @@ function FooterLink({ to, children }) {
 
 function SocialIcon({ label, icon }) {
   return (
-    <a
-      href={`#${label.toLowerCase()}`}
+    <button
+      type="button"
+      disabled
       aria-label={label}
-      title={label}
+      title={`${label} is coming soon`}
       className="
         group
         flex
@@ -838,11 +841,8 @@ function SocialIcon({ label, icon }) {
         transition-all
         duration-300
 
-        hover:-translate-y-1
-        hover:border-[#FB7A00]/30
-        hover:bg-[#FB7A00]
-        hover:text-white
-        hover:shadow-[0_8px_25px_rgba(251,122,0,0.2)]
+        cursor-not-allowed
+        opacity-60
       "
     >
       <span
@@ -850,12 +850,11 @@ function SocialIcon({ label, icon }) {
           text-[12px]
           transition-transform
           duration-300
-          group-hover:scale-110
         "
       >
         {icon}
       </span>
-    </a>
+    </button>
   );
 }
 

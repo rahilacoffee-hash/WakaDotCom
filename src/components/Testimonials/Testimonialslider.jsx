@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaChevronLeft,
@@ -38,29 +38,17 @@ export default function TestimonialSlider({
 
   const total = testimonials.length;
 
-  useEffect(() => {
-    if (total === 0) return;
+  const currentIndex = Math.min(activeIndex, Math.max(total - 1, 0));
+  const prevIndex = (currentIndex - 1 + total) % total;
+  const nextIndex = (currentIndex + 1) % total;
 
-    setActiveIndex((current) =>
-      Math.min(current, total - 1)
-    );
-  }, [total]);
-
-  if (!total) return null;
-
-  const prevIndex =
-    (activeIndex - 1 + total) % total;
-
-  const nextIndex =
-    (activeIndex + 1) % total;
-
-  function goNext() {
+  const goNext = useCallback(() => {
     setDirection(1);
 
     setActiveIndex(
       (current) => (current + 1) % total
     );
-  }
+  }, [total]);
 
   function goPrev() {
     setDirection(-1);
@@ -72,10 +60,10 @@ export default function TestimonialSlider({
   }
 
   function goToIndex(index) {
-    if (index === activeIndex) return;
+    if (index === currentIndex) return;
 
     setDirection(
-      index > activeIndex ? 1 : -1
+      index > currentIndex ? 1 : -1
     );
 
     setActiveIndex(index);
@@ -98,7 +86,10 @@ export default function TestimonialSlider({
     activeIndex,
     isPaused,
     total,
+    goNext,
   ]);
+
+  if (!total) return null;
 
   // -----------------------------
   // Swipe
@@ -169,7 +160,7 @@ export default function TestimonialSlider({
           >
             <motion.div
               key={
-                testimonials[activeIndex].id
+                testimonials[currentIndex].id
               }
               custom={direction}
               variants={slideVariants}
@@ -207,7 +198,7 @@ export default function TestimonialSlider({
             >
               <TestimonialCard
                 testimonial={
-                  testimonials[activeIndex]
+                  testimonials[currentIndex]
                 }
                 variant="active"
               />
@@ -321,7 +312,7 @@ export default function TestimonialSlider({
       <div className="mx-auto mt-8 flex w-full max-w-[620px] items-center gap-4">
         <div className="h-[2px] flex-1 overflow-hidden bg-white/10">
           <motion.div
-            key={activeIndex}
+            key={currentIndex}
             initial={{ width: "0%" }}
             animate={{
               width: isPaused
@@ -363,7 +354,7 @@ export default function TestimonialSlider({
                 duration-300
 
                 ${
-                  index === activeIndex
+                  index === currentIndex
                     ? "w-7 bg-[#11B5AE]"
                     : "w-1.5 bg-white/20 hover:bg-white/50"
                 }

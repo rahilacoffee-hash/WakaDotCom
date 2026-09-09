@@ -28,7 +28,6 @@ const GooglePlayIcon = ({ size = 22 }) => (
 const Dishes = () => {
   return (
     <section
-    id="get-started"
     className="relative overflow-hidden bg-[#FCF3F6] px-5 py-16 text-center sm:py-20">
       <style>{`
         .yd-scroll::-webkit-scrollbar { display: none; }
@@ -116,7 +115,7 @@ const Dishes = () => {
         className="mt-10 flex items-center justify-center gap-3"
       >
         <a
-          href="#"
+          href="#contact"
           className="flex items-center gap-2 rounded-xl bg-[#902141] px-5 py-2.5 text-white shadow-md transition-transform duration-300 hover:scale-[1.03]"
         >
           <FaApple className="text-2xl" />
@@ -129,7 +128,7 @@ const Dishes = () => {
         </a>
 
         <a
-          href="#"
+          href="#contact"
           className="flex items-center gap-2 rounded-xl bg-[#902141] px-5 py-2.5 text-white shadow-md transition-transform duration-300 hover:scale-[1.03]"
         >
           <GooglePlayIcon size={22} />

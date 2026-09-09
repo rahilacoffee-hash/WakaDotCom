@@ -7,7 +7,6 @@ import {
   HiTruck,
   HiShoppingBag,
 } from "react-icons/hi";
-import { HiWrench } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -556,7 +555,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
 
           <a
-            href="#get-started"
+            href="#contact"
             className="
               hidden
               items-center
@@ -859,7 +858,7 @@ const Navbar = () => {
               ================================================= */}
 
               <a
-                href="#get-started"
+                href="#contact"
                 onClick={closeMobileMenu}
                 className="
                   mt-8

@@ -1,7 +1,9 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import ScrollToTop from './components/layout/ScrollToTop'
+import SectionLoader from './components/layout/SectionLoader'
 import WakaStores from './Pages/WakaStores'
+import InfoPage from './Pages/InfoPage'
 
 const WakaDotCom = lazy(() => import('./Pages/WakaDotCom'))
 const SmartFixer = lazy(() => import('./Pages/SmartFixer'))
@@ -13,13 +15,14 @@ const App = () => {
   return (
     <>
     <ScrollToTop />
-      <Suspense fallback={null}>
+      <Suspense fallback={<SectionLoader minHeight="100vh" />}>
         <Routes>
           <Route path="/" element={<WakaDotCom />} />
           <Route path="/smartfixer" element={<SmartFixer />} />
           <Route path="/wakafoods" element={<Wakafoods />} />
           <Route path="/wakarider" element={<WakaRider />} />
           <Route path="/wakastores" element={<WakaStores />} />
+          <Route path="/:page" element={<InfoPage />} />
         </Routes>
       </Suspense>
     </>

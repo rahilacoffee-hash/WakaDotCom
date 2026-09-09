@@ -4,10 +4,6 @@ import {
   UsersRound,
   MessageSquare,
   BadgeCheck,
-  Wrench,
-  Soup,
-  Bike,
-  Tag,
 } from "lucide-react";
 
 

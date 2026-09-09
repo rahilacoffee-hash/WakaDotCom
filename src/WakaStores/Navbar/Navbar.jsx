@@ -18,15 +18,15 @@ import { Link } from "react-router-dom";
 const navLinks = [
   {
     name: "Home",
-    href: "/",
+    href: "/wakastores",
   },
   {
     name: "About Us",
-    href: "#about",
+    href: "/#about",
   },
   {
     name: "Contact Us",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
 
@@ -545,7 +545,7 @@ export default function Navbar() {
           {/* DESKTOP CTA */}
 
           <Link
-            to="#get-started"
+            to="/#contact"
             className="
               hidden
               items-center
@@ -858,7 +858,7 @@ export default function Navbar() {
               {/* MOBILE CTA */}
 
               <Link
-                to="#get-started"
+                to="/#contact"
                 onClick={closeMobileMenu}
                 className="
                   mt-8

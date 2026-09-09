@@ -9,7 +9,6 @@ import {
   
 } from "react-icons/hi";
 import {HiArrowUpRight} from "react-icons/hi2"
-import { BiLogoPlayStore } from "react-icons/bi";
 import { FaApple } from "react-icons/fa";
 
 /* =========================================================

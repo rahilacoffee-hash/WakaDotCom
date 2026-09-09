@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiArrowUpRight, FiCheck } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 
 const options = [
   {
@@ -47,7 +47,7 @@ const HowSmartFixerWorks = () => {
       ===================================================== */}
 
       <img
-        src="/Wakadotcom-logo.png"
+        src="/Wakadotcom-logo.webp"
         alt=""
         aria-hidden="true"
         className="

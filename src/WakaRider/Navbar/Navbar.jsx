@@ -3,7 +3,6 @@ import {
   HiMenu,
   HiX,
   HiChevronDown,
-  HiTruck,
   HiShoppingBag,
   HiCake,
 } from "react-icons/hi";
@@ -606,7 +605,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
 
           <a
-            href="#get-started"
+            href="#contact"
             className="
               hidden
               items-center
@@ -990,7 +989,7 @@ const Navbar = () => {
               ================================================= */}
 
               <a
-                href="#get-started"
+                href="#contact"
                 onClick={closeMobileMenu}
                 className="
                   mt-8

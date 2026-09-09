@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BiLogoPlayStore } from "react-icons/bi";
 import { FaApple } from "react-icons/fa";
-import { FiArrowUpRight, FiCheck } from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 
 const categories = [
   "AC & Cooling",
@@ -653,7 +652,7 @@ const SmartFixer = () => {
               {/* Apple */}
 
               <motion.a
-                href="#"
+                href="#contact"
                 whileHover={{
                   scale: 1.04,
                   y: -2,
@@ -693,7 +692,7 @@ const SmartFixer = () => {
               {/* Google Play */}
 
               <motion.a
-                href="#"
+                href="#contact"
                 whileHover={{
                   scale: 1.04,
                   y: -2,

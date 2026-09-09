@@ -561,7 +561,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
 
           <a
-            href="#get-started"
+            href="#ecosystem"
             className="
               hidden
               items-center
@@ -890,7 +890,7 @@ export default function Navbar() {
               =================================== */}
 
               <a
-                href="#get-started"
+                href="#ecosystem"
                 onClick={closeMobileMenu}
                 className="
                   mt-8

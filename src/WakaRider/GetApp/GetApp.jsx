@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { BsGooglePlay } from "react-icons/bs";
 import { FaApple } from "react-icons/fa";
 
 
@@ -251,7 +250,7 @@ export default function GetApp() {
             ===================================== */}
 
             <a
-              href="#"
+              href="#contact"
               aria-label="Download SmartFixer on the App Store"
               className="
                 group
@@ -323,7 +322,7 @@ export default function GetApp() {
             ===================================== */}
 
             <a
-              href="#"
+              href="#contact"
               aria-label="Download SmartFixer on Google Play"
               className="
                 group
