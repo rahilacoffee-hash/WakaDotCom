@@ -291,19 +291,19 @@ export default function Footer() {
               {[
                 {
                   name: "SmartFixer",
-                  href: "#smartfixer",
+                  href: "/smartfixer",
                 },
                 {
                   name: "WakaFoods",
-                  href: "#wakafoods",
+                  href: "/wakafoods",
                 },
                 {
                   name: "WakaRider",
-                  href: "#wakarider",
+                  href: "/wakarider",
                 },
                 {
                   name: "WakaStores",
-                  href: "#wakastores",
+                  href: "/wakastores",
                 },
               ].map((item) => (
                 <a
@@ -520,7 +520,7 @@ export default function Footer() {
 function Logo() {
   return (
     <a
-      href="/"
+      href="/smartfixer"
       aria-label="SmartFixer home"
       className="
         group
@@ -554,9 +554,11 @@ function Logo() {
 
 function SocialIcon({ label, icon }) {
   return (
-    <a
-      href={`#${label.toLowerCase()}`}
+    <button
+      type="button"
+      disabled
       aria-label={label}
+      title={`${label} is coming soon`}
       className="
         flex
         h-8
@@ -570,15 +572,13 @@ function SocialIcon({ label, icon }) {
         text-[#B8B8B8]
         transition-all
         duration-300
-        hover:-translate-y-1
-        hover:border-[#5BA5F5]/50
-        hover:bg-[#1769C2]
-        hover:text-white
+        cursor-not-allowed
+        opacity-60
       "
     >
       <span className="text-[11px]">
         {icon}
       </span>
-    </a>
+    </button>
   );
 }

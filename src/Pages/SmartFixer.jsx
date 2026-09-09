@@ -55,7 +55,6 @@ const SmartFixer = () => {
       <DeferredSection id="whychooseus" minHeight="700px"><WhyChooseUs /></DeferredSection>
       <DeferredSection minHeight="650px"><HowItWorks /></DeferredSection>
       <DeferredSection minHeight="800px"><Professionals /></DeferredSection>
-       <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
       <DeferredSection id="contact" minHeight="500px"><Contact /></DeferredSection>
       <DeferredSection minHeight="550px"><Testimonials /></DeferredSection>
       <DeferredSection minHeight="300px"><Footer /></DeferredSection>

@@ -7,11 +7,11 @@ import { FaApple } from "react-icons/fa";
  * prefixed). Drop matching files into /public and they'll pick up.
  */
 const dishes = [
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwn16qcQVv_D668Gzq1YGyWJQUfDeXGIxj0keiKgiSww&s=10", alt: "Crispy fries" },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJ203VhKuEqLH1_XuG3d7flf6KzHWN2VYbw26K17TU1hvZbH6BZtEFTA&s=10", alt: "Spaghetti with herbs" },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlzxdU0GFB4yQBFdoBWRWHszyMCb8OYkUsSKKqHVtOiESK7ditzqoy2XWc&s=10", alt: "Pepperoni and olive pizza" },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5N652G6Nx0D4Lio8CZ37UOzS0EDQE1Irh2RzzB88yDrTVM9F3N8PwdyZ3&s=10", alt: "Grilled chicken and rice" },
-  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIHUwnFAF2hb9bqimwha-eR-BNxGFF0HCZLXbB1vB_VOhkgblg79FxVOQ&s=10", alt: "Jollof rice with sides" },
+  { src: "/partners/4-chester-fries.png", alt: "Chester Fries meal" },
+  { src: "/partners/9-My makan kitchen.png", alt: "My Makan Kitchen meal" },
+  { src: "/partners/11-pocho cafe.png", alt: "Pocho Cafe meal" },
+  { src: "/partners/7-drumstix.png", alt: "Drumstix meal" },
+  { src: "/partners/5-downtown grill.png", alt: "Downtown Grill meal" },
 ];
 
 

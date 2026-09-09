@@ -18,15 +18,19 @@ import { Link } from "react-router-dom";
 const navLinks = [
   {
     name: "Home",
-    href: "/wakastores",
+    href: "/",
   },
   {
-    name: "About Us",
-    href: "/#about",
+    name: "How It Works",
+    href: "#how-it-works",
+  },
+  {
+    name: "Why Choose Us",
+    href: "#why-choose-us",
   },
   {
     name: "Contact Us",
-    href: "/#contact",
+    href: "#contact",
   },
 ];
 
@@ -237,7 +241,7 @@ export default function Navbar() {
         ================================================= */}
 
         <Link
-          to="/"
+          to="/wakastores"
           onClick={closeMobileMenu}
           aria-label="WakaDotCom home"
           className="
@@ -271,9 +275,9 @@ export default function Navbar() {
           {/* HOME / ABOUT / CONTACT */}
 
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.href}
+              href={link.href}
               className="
                 group
                 relative
@@ -305,7 +309,7 @@ export default function Navbar() {
                   group-hover:w-5
                 "
               />
-            </Link>
+            </a>
           ))}
 
           {/* =================================================
@@ -544,8 +548,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* DESKTOP CTA */}
 
-          <Link
-            to="/#contact"
+          <a
+            href="#contact"
             className="
               hidden
               items-center
@@ -567,7 +571,7 @@ export default function Navbar() {
             "
           >
             Get Started
-          </Link>
+          </a>
 
           {/* MOBILE MENU BUTTON */}
 
@@ -700,9 +704,9 @@ export default function Navbar() {
 
               <div className="mt-4">
                 {navLinks.map((link) => (
-                  <Link
+                  <a
                     key={link.name}
-                    to={link.href}
+                    href={link.href}
                     onClick={closeMobileMenu}
                     className="
                       flex
@@ -724,7 +728,7 @@ export default function Navbar() {
                     <span className="text-[#C3AAAD]">
                       →
                     </span>
-                  </Link>
+                  </a>
                 ))}
               </div>
 
@@ -857,8 +861,8 @@ export default function Navbar() {
 
               {/* MOBILE CTA */}
 
-              <Link
-                to="/#contact"
+              <a
+                href="#contact"
                 onClick={closeMobileMenu}
                 className="
                   mt-8
@@ -880,7 +884,7 @@ export default function Navbar() {
                 "
               >
                 Get Started
-              </Link>
+              </a>
 
               {/* MOBILE FOOTER */}
 

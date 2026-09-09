@@ -60,7 +60,6 @@ const WakaRider = () => {
       <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
         <DeferredSection id="why-choose-us" minHeight="700px"><WhyChooseUs /></DeferredSection>
         <DeferredSection id="how-it-works" minHeight="650px"><HowItWorks /></DeferredSection>
-      <DeferredSection minHeight="400px"><GetApp /></DeferredSection>
       <DeferredSection id="contact" minHeight="500px"><Contact /></DeferredSection>
       <DeferredSection minHeight="550px"><Testimonials /></DeferredSection>
       <DeferredSection minHeight="300px"><Footer /></DeferredSection>
