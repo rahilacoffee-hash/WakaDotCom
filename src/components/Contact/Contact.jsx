@@ -44,7 +44,7 @@ export default function Contact() {
           </h2>
           <p className="text-[#6B6B6B] text-lg mt-5 leading-relaxed">
             Repairs, food, delivery or commerce — it's the same support team behind all of them.
-            Reach us however's easiest.
+            Reach us however easiest.
           </p>
         </motion.div>
 

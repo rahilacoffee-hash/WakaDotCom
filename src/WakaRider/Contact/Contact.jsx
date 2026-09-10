@@ -133,7 +133,7 @@ export default function Contact() {
           </h2>
           <p className="text-[#66736E] text-lg mt-5 leading-relaxed">
             Repairs, food, delivery or commerce — it's the same support team behind all of them.
-            Reach us however's easiest.
+            Reach us however easiest.
           </p>
         </motion.div>
 
