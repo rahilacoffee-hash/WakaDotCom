@@ -7,11 +7,11 @@ import { FaApple } from "react-icons/fa";
  * prefixed). Drop matching files into /public and they'll pick up.
  */
 const dishes = [
-  { src: "/partners/4-chester-fries.png", alt: "Chester Fries meal" },
-  { src: "/partners/9-My makan kitchen.png", alt: "My Makan Kitchen meal" },
-  { src: "/partners/11-pocho cafe.png", alt: "Pocho Cafe meal" },
-  { src: "/partners/7-drumstix.png", alt: "Drumstix meal" },
-  { src: "/partners/5-downtown grill.png", alt: "Downtown Grill meal" },
+  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2uFjLohbzv-rdEhsLv3IqPDDOjejPpiR11MyGc-P_R62xnHCePEaQqMw&s=10", alt: "Crispy fries" },
+  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlLFpziyreB_-QxnQ1oVtGiO0BZqejLGZcMyVT8PL6WA&s=10", alt: "Spaghetti with herbs" },
+  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7oSd1OnzgWFdMjjunZSFRTeDl_S2xAW_ZKkk1Fr_g8Q&s=10", alt: "Pepperoni and olive pizza" },
+  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_-AMe7adJKhL63cSqNWNcsRpc85WLaGndoOrkWu3nlg&s=10", alt: "Grilled chicken and rice" },
+  { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3tcyeOjVOZGIA9K7eerh_ozTFcqoy40pl6M7Hr8za5w&s=10", alt: "Jollof rice with sides" },
 ];
 
 
