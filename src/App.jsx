@@ -4,6 +4,7 @@ import ScrollToTop from './components/layout/ScrollToTop'
 import SectionLoader from './components/layout/SectionLoader'
 import WakaStores from './Pages/WakaStores'
 import InfoPage from './Pages/InfoPage'
+import FaqPage from './Pages/Faqpage'
 
 const WakaDotCom = lazy(() => import('./Pages/WakaDotCom'))
 const SmartFixer = lazy(() => import('./Pages/SmartFixer'))
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/wakarider" element={<WakaRider />} />
           <Route path="/wakastores" element={<WakaStores />} />
           <Route path="/:page" element={<InfoPage />} />
+          <Route path="/faqs" element={<FaqPage />} />
         </Routes>
       </Suspense>
     </>

@@ -506,7 +506,7 @@ export default function Footer() {
                 FAQs
               </FooterLink>
 
-              <FooterLink to="/help">
+              <FooterLink to="/faqs">
                 Help center
               </FooterLink>
 
