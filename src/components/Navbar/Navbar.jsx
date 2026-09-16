@@ -259,6 +259,7 @@ export default function Navbar() {
             alt="WakaDotCom"
             className="
               w-[128px]
+              h-auto
               object-contain
               sm:w-[140px]
               lg:w-[145px]
