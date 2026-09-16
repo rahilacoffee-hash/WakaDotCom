@@ -454,20 +454,28 @@ function Hero() {
 
           {/* Image */}
 
-          <img
-            src="/hero-lg.webp"
-            alt="WakaDot ecosystem team"
-            draggable="false"
-            className="
-              relative
-              z-[1]
-              mx-auto
-              h-auto
-              w-full
-              select-none
-              object-contain
-            "
-          />
+        <img
+  src="/hero-lg.webp"
+  srcSet="
+    /hero-sm.webp 640w,
+    /hero-md.webp 1024w,
+    /hero-lg.webp 1600w
+  "
+  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
+  alt="WakaDot ecosystem team"
+  draggable="false"
+  fetchPriority="high"
+  decoding="async"
+  className="
+    relative
+    z-[1]
+    mx-auto
+    h-auto
+    w-full
+    select-none
+    object-contain
+  "
+/>
         </motion.div>
       </div>
 
@@ -791,21 +799,28 @@ function Hero() {
           </motion.span>
 
           {/* Image */}
-
-          <img
-            src="/hero-sm.webp"
-            alt="WakaDot ecosystem team"
-            draggable="false"
-            className="
-              relative
-              z-[1]
-              mx-auto
-              h-auto
-              w-full
-              select-none
-              object-contain
-            "
-          />
+<img
+  src="/hero-sm.webp"
+  srcSet="
+    /hero-sm.webp 640w,
+    /hero-md.webp 1024w,
+    /hero-lg.webp 1600w
+  "
+  sizes="100vw"
+  alt="WakaDot ecosystem team"
+  draggable="false"
+  fetchPriority="high"
+  decoding="async"
+  className="
+    relative
+    z-[1]
+    mx-auto
+    h-auto
+    w-full
+    select-none
+    object-contain
+  "
+/>
         </motion.div>
       </div>
     </section>

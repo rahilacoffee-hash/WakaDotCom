@@ -287,6 +287,9 @@ function EcosystemCard({
             w-full
             object-cover
           "
+          loading="lazy"
+          decoding="async"
+          
         />
 
         {/* Gradient */}

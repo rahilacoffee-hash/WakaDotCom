@@ -11,41 +11,34 @@ const professionals = [
   {
     title: "Plumber",
     description: "Leaks, pipes & installations",
-    image:
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=90",
+    image: "/professionals/plumber.avif",
   },
   {
     title: "Electrician",
     description: "Electrical repairs & installations",
-    image:
-      "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1200&q=90",
+    image: "/professionals/electrician.avif",
   },
   {
     title: "Painter",
     description: "Interior & exterior painting",
-    image:
-      "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=90",
+    image: "/professionals/painter.avif",
   },
   {
     title: "Carpenter",
     description: "Furniture & woodwork",
-    image:
-      "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1200&q=90",
+    image: "/professionals/carpenter.avif",
   },
   {
     title: "AC Technician",
     description: "Cooling & AC maintenance",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIqh2daxefbWXF_v9GtPL0CJmKA6i4zGo8JEbW7qIvYim0YNXa5gd236et&s=10",
+    image: "/professionals/ac-technician.avif",
   },
   {
     title: "Cleaner",
     description: "Professional home cleaning",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=90",
+    image: "/professionals/cleaner.avif",
   },
 ];
-
 const desktopPages = Math.ceil(professionals.length / 3);
 
 const slideVariants = {
@@ -680,22 +673,22 @@ const ProfessionalCard = ({
       {/* Image */}
 
       <img
-        src={professional.image}
-        alt={`${professional.title} professional`}
-        loading="lazy"
-        className="
-          absolute
-          inset-0
-          h-full
-          w-full
-          object-cover
-          transition-transform
-          duration-700
-          ease-out
-          group-hover:scale-[1.07]
-        "
-      />
-
+  src={professional.image}
+  alt={`${professional.title} professional`}
+  loading="lazy"
+  decoding="async"
+  className="
+    absolute
+    inset-0
+    h-full
+    w-full
+    object-cover
+    transition-transform
+    duration-700
+    ease-out
+    group-hover:scale-[1.07]
+  "
+/>
       {/* Image gradient */}
 
       <div

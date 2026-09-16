@@ -284,6 +284,9 @@ const SmartFixer = () => {
                   w-full
                   object-cover
                 "
+                loading="lazy"
+                decoding="async"
+  
               />
             </motion.div>
 
@@ -325,6 +328,8 @@ const SmartFixer = () => {
                   w-full
                   object-cover
                 "
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
 
@@ -366,6 +371,8 @@ const SmartFixer = () => {
                   w-full
                   object-cover
                 "
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
 

@@ -268,6 +268,8 @@ const Navbar = () => {
 
               lg:w-[145px]
             "
+            loading="lazy"
+          decoding="async"
           />
         </Link>
 

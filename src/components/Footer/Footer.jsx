@@ -598,6 +598,8 @@ export default function Footer() {
             src="logo.png"
             alt="WakaDotCom Logo"
             className="h-9 sm:h-14 lg:h-25 w-auto"
+            loading="lazy"
+          decoding="async"
             />
             AKADOTCOM
           </p>
@@ -887,6 +889,8 @@ function Logo() {
 
           group-hover:scale-[1.02]
         "
+        loading="lazy"
+          decoding="async"
       />
     </Link>
   );

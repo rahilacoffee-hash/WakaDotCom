@@ -302,6 +302,10 @@ export default function Hero() {
             <img
               src={images.hero}
               alt="WakaStores shopping"
+              
+  draggable="false"
+  fetchPriority="high"
+  decoding="async"
               className="
                 absolute
                 inset-0
@@ -651,6 +655,10 @@ export default function Hero() {
               <img
                 src={images.shop}
                 alt="Shop products"
+                
+  draggable="false"
+  fetchPriority="high"
+  decoding="async"
                 className="
                   absolute
                   inset-0
@@ -778,6 +786,10 @@ export default function Hero() {
               <img
                 src={images.tracking}
                 alt="Track WakaStores order"
+                
+  draggable="false"
+  fetchPriority="high"
+  decoding="async"
                 className="
                   absolute
                   inset-0

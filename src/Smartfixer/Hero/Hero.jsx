@@ -466,12 +466,13 @@ const Hero = () => {
                 sm:shadow-[0_25px_70px_rgba(23,105,194,0.12)]
               "
             >
-              <img
-                src="smartfixer-1.png"
-                alt="SmartFixer professional"
-                loading="eager"
-                className="h-full w-full object-cover"
-              />
+             <img
+  src="/smartfixer-1.webp"
+  alt="SmartFixer professional"
+  loading="eager"
+  decoding="async"
+  className="h-full w-full object-cover"
+/>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#171717]/20 via-transparent to-transparent" />
             </motion.div>
 
@@ -497,12 +498,13 @@ const Hero = () => {
                 sm:shadow-[0_25px_70px_rgba(23,105,194,0.12)]
               "
             >
-              <img
-                src="smartfixer-2.png"
-                alt="SmartFixer home repair"
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
+             <img
+  src="/smartfixer-2.webp"
+  alt="SmartFixer home repair"
+  loading="lazy"
+  decoding="async"
+  className="h-full w-full object-cover"
+/>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#171717]/20 via-transparent to-transparent" />
             </motion.div>
 
@@ -534,13 +536,14 @@ const Hero = () => {
                 sm:shadow-[0_30px_80px_rgba(23,105,194,0.18)]
               "
             >
-              <img
-                src="smartfixer-3.png"
-                alt="SmartFixer professional fixing an appliance"
-                loading="eager"
-                fetchpriority="high"
-                className="h-full w-full object-cover"
-              />
+           <img
+  src="/smartfixer-3.webp"
+  alt="SmartFixer professional fixing an appliance"
+  loading="eager"
+  fetchPriority="high"
+  decoding="async"
+  className="h-full w-full object-cover"
+/>
             </motion.div>
 
             {/* VERIFIED BADGE */}

@@ -411,6 +411,9 @@ const HowSmartFixerWorks = () => {
                         w-full
                         object-cover
                       "
+                      loading="lazy"
+                      decoding="async"
+                
                     />
                   ) : (
                     <div

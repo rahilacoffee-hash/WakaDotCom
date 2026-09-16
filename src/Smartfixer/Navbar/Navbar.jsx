@@ -267,6 +267,8 @@ const Navbar = () => {
               sm:w-[155px]
               lg:w-[165px]
             "
+            loading="lazy"
+          decoding="async"
           />
         </a>
 

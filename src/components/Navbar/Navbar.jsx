@@ -263,6 +263,8 @@ export default function Navbar() {
               sm:w-[140px]
               lg:w-[145px]
             "
+            loading="lazy"
+          decoding="async"
           />
         </a>
 

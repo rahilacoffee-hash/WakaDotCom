@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   FaCog,
   FaArrowLeft,
@@ -7,43 +7,51 @@ import {
   FaCheck,
 } from "react-icons/fa";
 
+/* ============================================================
+   PROFESSIONALS DATA
+============================================================ */
+
 const professionals = [
   {
+    id: 1,
     title: "Emeka",
-    
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhv_as5EBuR-P_CAMltdjHuLGsTfJAYP0umcETwQ1yKfIQH61VVoyiQdA&s=10",
+    image: "/professionals/emeka.avif",
   },
   {
+    id: 2,
     title: "Mary",
-   
-    image:
-      "https://www.wakadotcom.com/wakarider/rider-mary.png",
+    image: "/professionals/mary.avif",
   },
   {
+    id: 3,
     title: "Kennedy",
-    image:
-      "https://www.wakadotcom.com/wakarider/rider-kennedy.png",
+    image: "/professionals/kennedy.avif",
   },
   {
+    id: 4,
     title: "David",
-    image:
-      "https://viscorner.com/_next/image?url=https%3A%2F%2Fimages.viscorner.com%2Fcms%2Fdispatch_rider_and_delivery_service_on_Vis_Corner_9eceb0c7c6.jpg&w=3840&q=75",
-  },
-     {
-    title: "Chidi",
-    image:
-      "https://images.unsplash.com/photo-1753806901333-44632dc78b49?fm=jpg&q=60&w=1200&auto=format&fit=crop",
+    image: "/professionals/david.avif",
   },
   {
-    title: "Blessing",
-    image:
-      "https://images.unsplash.com/photo-1611004060674-7e8864bcb4e4?fm=jpg&q=60&w=1200&auto=format&fit=crop",
+    id: 5,
+    title: "Chidi",
+    image: "/professionals/chidi.avif",
   },
- 
+  {
+    id: 6,
+    title: "Blessing",
+    image: "/professionals/blessing.avif",
+  },
 ];
 
-const desktopPages = Math.ceil(professionals.length / 3);
+const DESKTOP_ITEMS_PER_PAGE = 3;
+const desktopPages = Math.ceil(
+  professionals.length / DESKTOP_ITEMS_PER_PAGE
+);
+
+/* ============================================================
+   SLIDE ANIMATIONS
+============================================================ */
 
 const slideVariants = {
   enter: {
@@ -78,66 +86,89 @@ const mobileSlideVariants = {
   },
 };
 
+/* ============================================================
+   PROFESSIONALS
+============================================================ */
+
 const Professionals = () => {
+  const shouldReduceMotion = useReducedMotion();
+
   const [activePage, setActivePage] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  /* ==========================================
+  /* ==========================================================
      DESKTOP AUTOPLAY
-  ========================================== */
+  ========================================================== */
 
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || shouldReduceMotion || desktopPages <= 1) {
+      return;
+    }
 
     const interval = setInterval(() => {
       setActivePage((prev) => (prev + 1) % desktopPages);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, shouldReduceMotion]);
 
-  /* ==========================================
+  /* ==========================================================
      MOBILE AUTOPLAY
-  ========================================== */
+  ========================================================== */
 
   useEffect(() => {
-    if (isPaused) return;
+    if (
+      isPaused ||
+      shouldReduceMotion ||
+      professionals.length <= 1
+    ) {
+      return;
+    }
 
     const interval = setInterval(() => {
-      setMobileIndex((prev) => (prev + 1) % professionals.length);
+      setMobileIndex(
+        (prev) => (prev + 1) % professionals.length
+      );
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, shouldReduceMotion]);
 
-  /* ==========================================
+  /* ==========================================================
      DESKTOP SLIDES
-  ========================================== */
+  ========================================================== */
 
   const getDesktopProfessionals = () => {
-    const start = activePage * 3;
+    const start =
+      activePage * DESKTOP_ITEMS_PER_PAGE;
 
-    return professionals.slice(start, start + 3);
+    return professionals.slice(
+      start,
+      start + DESKTOP_ITEMS_PER_PAGE
+    );
   };
 
-  /* ==========================================
+  /* ==========================================================
      DESKTOP CONTROLS
-  ========================================== */
+  ========================================================== */
 
   const nextDesktop = () => {
-    setActivePage((prev) => (prev + 1) % desktopPages);
+    setActivePage(
+      (prev) => (prev + 1) % desktopPages
+    );
   };
 
   const previousDesktop = () => {
     setActivePage(
-      (prev) => (prev - 1 + desktopPages) % desktopPages
+      (prev) =>
+        (prev - 1 + desktopPages) % desktopPages
     );
   };
 
-  /* ==========================================
+  /* ==========================================================
      MOBILE CONTROLS
-  ========================================== */
+  ========================================================== */
 
   const nextMobile = () => {
     setMobileIndex(
@@ -153,6 +184,31 @@ const Professionals = () => {
     );
   };
 
+  /* ==========================================================
+     ANIMATION SETTINGS
+  ========================================================== */
+
+  const sectionAnimation = shouldReduceMotion
+    ? {}
+    : {
+        initial: {
+          opacity: 0,
+          y: 35,
+        },
+        whileInView: {
+          opacity: 1,
+          y: 0,
+        },
+        viewport: {
+          once: true,
+          amount: 0.3,
+        },
+        transition: {
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      };
+
   return (
     <section
       className="
@@ -164,63 +220,82 @@ const Professionals = () => {
         lg:py-32
       "
     >
-      {/* ==========================================
+      {/* ========================================================
           BACKGROUND
-      ========================================== */}
+      ======================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Top right glow — FIX: was at /70 opacity, which for a
-            saturated color like #008F68 rendered as a near-solid blob
-            instead of a subtle glow. Matched to the sibling glow's /10. */}
+        {/* Desktop top-right glow */}
         <motion.div
-          animate={{
-            scale: [1, 1.12, 1],
-            opacity: [0.25, 0.4, 0.25],
-            x: [0, 25, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  scale: [1, 1.12, 1],
+                  opacity: [0.25, 0.4, 0.25],
+                  x: [0, 25, 0],
+                  y: [0, -20, 0],
+                }
+          }
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }
+          }
           className="
             absolute
             -right-40
             -top-40
+            hidden
             h-[450px]
             w-[450px]
             rounded-full
             bg-[#008F68]/10
             blur-3xl
+            lg:block
           "
         />
 
-        {/* Bottom left glow */}
+        {/* Desktop bottom-left glow */}
         <motion.div
-          animate={{
-            scale: [1, 1.08, 1],
-            opacity: [0.12, 0.22, 0.12],
-            x: [0, -25, 0],
-            y: [0, 25, 0],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  scale: [1, 1.08, 1],
+                  opacity: [0.12, 0.22, 0.12],
+                  x: [0, -25, 0],
+                  y: [0, 25, 0],
+                }
+          }
+          transition={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  duration: 14,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }
+          }
           className="
             absolute
             -bottom-48
             -left-40
+            hidden
             h-[500px]
             w-[500px]
             rounded-full
             bg-[#008F68]/10
             blur-3xl
+            lg:block
           "
         />
 
+        {/* Grid */}
         <div
           className="
             absolute
@@ -232,32 +307,17 @@ const Professionals = () => {
         />
       </div>
 
-      {/* ==========================================
+      {/* ========================================================
           CONTENT
-      ========================================== */}
+      ======================================================== */}
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12">
-        {/* ==========================================
+        {/* ======================================================
             HEADER
-        ========================================== */}
+        ====================================================== */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 35,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3,
-          }}
-          transition={{
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          }}
+          {...sectionAnimation}
           className="max-w-3xl"
         >
           {/* Badge */}
@@ -277,6 +337,7 @@ const Professionals = () => {
               font-semibold
               text-[#008F68]
               shadow-[0_5px_20px_rgba(0,143,104,0.06)]
+              backdrop-blur-sm
               sm:text-sm
             "
           >
@@ -304,7 +365,7 @@ const Professionals = () => {
               />
             </span>
 
-            Find trusted Professionals
+            MEET OUR RIDERS
           </div>
 
           {/* Heading */}
@@ -321,10 +382,10 @@ const Professionals = () => {
               lg:text-6xl
             "
           >
-            Find a dispatch rider 
+            Find a rider when
 
             <span className="block text-[#008F68]">
-              near me
+              it matters.
             </span>
           </h2>
 
@@ -340,24 +401,24 @@ const Professionals = () => {
               sm:text-base
             "
           >
-            Getting help shouldn't be complicated. Tell us
-            what went wrong, we'll find the right fixer, and
-            you can get back to your day.
+            From urgent deliveries to everyday errands,
+            connect with trusted dispatch riders ready to
+            get your package where it needs to go.
           </p>
         </motion.div>
 
-        {/* ==========================================
+        {/* ======================================================
             CAROUSEL
-        ========================================== */}
+        ====================================================== */}
 
         <div
           className="relative mt-14 sm:mt-16 lg:mt-20"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* ========================================
+          {/* ====================================================
               DESKTOP
-          ======================================== */}
+          ==================================================== */}
 
           <div className="hidden md:block">
             <AnimatePresence mode="wait">
@@ -368,7 +429,9 @@ const Professionals = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  duration: 0.55,
+                  duration: shouldReduceMotion
+                    ? 0
+                    : 0.55,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className="
@@ -381,9 +444,12 @@ const Professionals = () => {
                 {getDesktopProfessionals().map(
                   (professional, index) => (
                     <ProfessionalCard
-                      key={professional.title}
+                      key={professional.id}
                       professional={professional}
                       index={index}
+                      shouldReduceMotion={
+                        shouldReduceMotion
+                      }
                     />
                   )
                 )}
@@ -391,9 +457,9 @@ const Professionals = () => {
             </AnimatePresence>
           </div>
 
-          {/* ========================================
+          {/* ====================================================
               MOBILE
-          ======================================== */}
+          ==================================================== */}
 
           <div className="md:hidden">
             <AnimatePresence mode="wait">
@@ -404,21 +470,28 @@ const Professionals = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  duration: 0.45,
+                  duration: shouldReduceMotion
+                    ? 0
+                    : 0.45,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
                 <ProfessionalCard
-                  professional={professionals[mobileIndex]}
+                  professional={
+                    professionals[mobileIndex]
+                  }
                   mobile
+                  shouldReduceMotion={
+                    shouldReduceMotion
+                  }
                 />
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* ========================================
+          {/* ====================================================
               DESKTOP NAVIGATION
-          ======================================== */}
+          ==================================================== */}
 
           <div
             className="
@@ -431,21 +504,37 @@ const Professionals = () => {
           >
             {/* Progress */}
 
-            <div className="flex items-center gap-2">
+            <div
+              className="flex items-center gap-2"
+              role="tablist"
+              aria-label="Professional slides"
+            >
               {Array.from({
                 length: desktopPages,
               }).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setActivePage(index)}
+                  type="button"
+                  onClick={() =>
+                    setActivePage(index)
+                  }
                   aria-label={`Go to professional slide ${
                     index + 1
                   }`}
+                  aria-current={
+                    activePage === index
+                      ? "true"
+                      : undefined
+                  }
                   className={`
                     h-1.5
                     rounded-full
                     transition-all
                     duration-500
+                    focus:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-[#008F68]
+                    focus-visible:ring-offset-2
                     ${
                       activePage === index
                         ? "w-10 bg-[#008F68]"
@@ -461,23 +550,23 @@ const Professionals = () => {
             <div className="flex items-center gap-2">
               <CarouselButton
                 onClick={previousDesktop}
-                label="Previous professionals"
+                label="Previous riders"
               >
                 <FaArrowLeft />
               </CarouselButton>
 
               <CarouselButton
                 onClick={nextDesktop}
-                label="Next professionals"
+                label="Next riders"
               >
                 <FaArrowRight />
               </CarouselButton>
             </div>
           </div>
 
-          {/* ========================================
+          {/* ====================================================
               MOBILE NAVIGATION
-          ======================================== */}
+          ==================================================== */}
 
           <div
             className="
@@ -490,25 +579,43 @@ const Professionals = () => {
           >
             {/* Dots */}
 
-            <div className="flex items-center gap-1.5">
-              {professionals.map((professional, index) => (
-                <button
-                  key={professional.title}
-                  onClick={() => setMobileIndex(index)}
-                  aria-label={`View ${professional.title}`}
-                  className={`
-                    h-1.5
-                    rounded-full
-                    transition-all
-                    duration-300
-                    ${
-                      mobileIndex === index
-                        ? "w-6 bg-[#008F68]"
-                        : "w-1.5 bg-[#008F68]/25"
+            <div
+              className="flex items-center gap-1.5"
+              role="tablist"
+              aria-label="Rider slides"
+            >
+              {professionals.map(
+                (professional, index) => (
+                  <button
+                    key={professional.id}
+                    type="button"
+                    onClick={() =>
+                      setMobileIndex(index)
                     }
-                  `}
-                />
-              ))}
+                    aria-label={`View ${professional.title}`}
+                    aria-current={
+                      mobileIndex === index
+                        ? "true"
+                        : undefined
+                    }
+                    className={`
+                      h-1.5
+                      rounded-full
+                      transition-all
+                      duration-300
+                      focus:outline-none
+                      focus-visible:ring-2
+                      focus-visible:ring-[#008F68]
+                      focus-visible:ring-offset-2
+                      ${
+                        mobileIndex === index
+                          ? "w-6 bg-[#008F68]"
+                          : "w-1.5 bg-[#008F68]/25"
+                      }
+                    `}
+                  />
+                )
+              )}
             </div>
 
             {/* Arrows */}
@@ -516,14 +623,14 @@ const Professionals = () => {
             <div className="flex items-center gap-2">
               <CarouselButton
                 onClick={previousMobile}
-                label="Previous professional"
+                label="Previous rider"
               >
                 <FaArrowLeft />
               </CarouselButton>
 
               <CarouselButton
                 onClick={nextMobile}
-                label="Next professional"
+                label="Next rider"
               >
                 <FaArrowRight />
               </CarouselButton>
@@ -531,28 +638,38 @@ const Professionals = () => {
           </div>
         </div>
 
-        
-
-        {/* ==========================================
+        {/* ======================================================
             TRUST MICRO COPY
-        ========================================== */}
+        ====================================================== */}
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  opacity: 1,
+                  y: 0,
+                }
+          }
           viewport={{
             once: true,
             amount: 0.5,
           }}
           transition={{
-            duration: 0.7,
-            delay: 0.15,
+            duration: shouldReduceMotion
+              ? 0
+              : 0.7,
+            delay: shouldReduceMotion
+              ? 0
+              : 0.15,
           }}
           className="
             mt-10
@@ -571,6 +688,7 @@ const Professionals = () => {
               flex
               h-5
               w-5
+              flex-shrink-0
               items-center
               justify-center
               rounded-full
@@ -581,7 +699,7 @@ const Professionals = () => {
             <FaCheck className="text-[9px]" />
           </span>
 
-          Verified professionals you can trust
+          Verified riders, ready when you are.
         </motion.div>
       </div>
     </section>
@@ -621,6 +739,10 @@ const CarouselButton = ({
         hover:text-white
         hover:shadow-[0_10px_30px_rgba(0,143,104,0.2)]
         active:scale-95
+        focus:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-[#008F68]
+        focus-visible:ring-offset-2
       "
     >
       {children}
@@ -636,29 +758,46 @@ const ProfessionalCard = ({
   professional,
   index = 0,
   mobile = false,
+  shouldReduceMotion = false,
 }) => {
   return (
     <motion.article
-      initial={{
-        opacity: 0,
-        y: 20,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
+      initial={
+        shouldReduceMotion
+          ? undefined
+          : {
+              opacity: 0,
+              y: 20,
+            }
+      }
+      whileInView={
+        shouldReduceMotion
+          ? undefined
+          : {
+              opacity: 1,
+              y: 0,
+            }
+      }
       viewport={{
         once: true,
         amount: 0.2,
       }}
       transition={{
-        duration: 0.6,
-        delay: index * 0.08,
+        duration: shouldReduceMotion
+          ? 0
+          : 0.6,
+        delay: shouldReduceMotion
+          ? 0
+          : index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      whileHover={{
-        y: -7,
-      }}
+      whileHover={
+        shouldReduceMotion
+          ? undefined
+          : {
+              y: -7,
+            }
+      }
       className={`
         group
         relative
@@ -676,12 +815,18 @@ const ProfessionalCard = ({
         }
       `}
     >
-      {/* Image */}
+      {/* ======================================================
+          IMAGE
+      ====================================================== */}
 
       <img
         src={professional.image}
-        alt={`${professional.title} professional`}
+        alt={`${professional.title} dispatch rider`}
         loading="lazy"
+        decoding="async"
+        width="800"
+        height="600"
+        draggable="false"
         className="
           absolute
           inset-0
@@ -695,7 +840,9 @@ const ProfessionalCard = ({
         "
       />
 
-      {/* Image gradient */}
+      {/* ======================================================
+          IMAGE GRADIENT
+      ====================================================== */}
 
       <div
         className="
@@ -708,7 +855,9 @@ const ProfessionalCard = ({
         "
       />
 
-      {/* Top shine */}
+      {/* ======================================================
+          TOP SHINE
+      ====================================================== */}
 
       <div
         className="
@@ -726,9 +875,9 @@ const ProfessionalCard = ({
         "
       />
 
-      {/* ==========================================
+      {/* ======================================================
           FLOATING LABEL
-      ========================================== */}
+      ====================================================== */}
 
       <div
         className="
@@ -794,11 +943,23 @@ const ProfessionalCard = ({
             {professional.title}
           </h3>
 
-    
+          <p
+            className="
+              mt-0.5
+              text-[11px]
+              font-medium
+              text-[#66736E]
+              sm:text-xs
+            "
+          >
+            Dispatch Rider
+          </p>
         </div>
       </div>
 
-      {/* Hover border */}
+      {/* ======================================================
+          HOVER BORDER
+      ====================================================== */}
 
       <div
         className="
