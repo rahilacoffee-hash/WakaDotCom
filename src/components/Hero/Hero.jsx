@@ -456,11 +456,7 @@ function Hero() {
 
         <img
   src="/hero-lg.avif"
-  srcSet="
-    /hero-sm.webp 640w,
-    /hero-md.webp 1024w,
-    /hero-lg.avif 1600w
-  "
+ 
   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
   alt="WakaDot ecosystem team"
   draggable="false"
@@ -801,11 +797,7 @@ function Hero() {
           {/* Image */}
 <img
   src="/hero-sm.webp"
-  srcSet="
-    /hero-sm.webp 640w,
-    /hero-md.webp 1024w,
-    /hero-lg.webp 1600w
-  "
+  
   sizes="100vw"
   alt="WakaDot ecosystem team"
   draggable="false"
