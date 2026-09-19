@@ -158,7 +158,6 @@ function Hero() {
                 "
               >
                 {/* Pulsing dot */}
-
                 <motion.span
                   animate={{
                     scale: [1, 1.25, 1],
@@ -177,7 +176,6 @@ function Hero() {
                     bg-[#FB7A00]
                   "
                 />
-
                 Africa's connected digital lifestyle ecosystem
               </motion.span>
 
@@ -195,7 +193,6 @@ function Hero() {
               >
                 One Signup.
                 <br />
-
                 <span className="mt-2 inline-block text-[#FB7A00]">
                   Four Apps. One Waka.
                 </span>
@@ -246,7 +243,6 @@ function Hero() {
                 "
               >
                 Explore the Ecosystem
-
                 <span className="ml-2 text-lg">→</span>
               </motion.a>
             </div>
@@ -322,9 +318,7 @@ function Hero() {
 
                   {item.prefix}
 
-                  <span className="font-bold">
-                    {item.bold}
-                  </span>
+                  <span className="font-bold">{item.bold}</span>
                 </motion.li>
               ))}
             </ul>
@@ -454,15 +448,15 @@ function Hero() {
 
           {/* Image */}
 
-        <img
-  src="/hero-lg.avif"
- 
-  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
-  alt="WakaDot ecosystem team"
-  draggable="false"
-  fetchPriority="high"
-  decoding="async"
-  className="
+          <img
+            src="/hero-lg.avif"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1600px"
+            alt="WakaDot ecosystem team"
+            draggable="false"
+            fetchPriority="low"
+            loading="lazy"
+            decoding="async"
+            className="
     relative
     z-[1]
     mx-auto
@@ -471,7 +465,7 @@ function Hero() {
     select-none
     object-contain
   "
-/>
+          />
         </motion.div>
       </div>
 
@@ -540,7 +534,6 @@ function Hero() {
               bg-[#FB7A00]
             "
           />
-
           Africa's connected digital lifestyle ecosystem
         </motion.span>
 
@@ -672,9 +665,7 @@ function Hero() {
               <span>
                 {item.prefix}
 
-                <span className="font-bold">
-                  {item.bold}
-                </span>
+                <span className="font-bold">{item.bold}</span>
               </span>
             </li>
           ))}
@@ -702,7 +693,7 @@ function Hero() {
           whileTap={{
             scale: 0.97,
           }}
-        className="
+          className="
   mx-auto
   mt-6
   flex
@@ -722,7 +713,6 @@ function Hero() {
 "
         >
           Explore the Ecosystem
-
           <span className="ml-2">→</span>
         </motion.a>
 
@@ -795,15 +785,17 @@ function Hero() {
           </motion.span>
 
           {/* Image */}
-<img
-  src="/hero-sm.webp"
-  
-  sizes="100vw"
-  alt="WakaDot ecosystem team"
-  draggable="false"
-  fetchPriority="high"
-  decoding="async"
-  className="
+          <img
+            src="/hero-sm.webp"
+            width="1312"
+            height="1199"
+            sizes="100vw"
+            alt="WakaDot ecosystem team"
+            draggable="false"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="
     relative
     z-[1]
     mx-auto
@@ -812,7 +804,7 @@ function Hero() {
     select-none
     object-contain
   "
-/>
+          />
         </motion.div>
       </div>
     </section>

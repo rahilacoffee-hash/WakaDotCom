@@ -1,21 +1,20 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import ScrollToTop from './components/layout/ScrollToTop'
-import SectionLoader from './components/layout/SectionLoader'
-import WakaStores from './Pages/WakaStores'
-import InfoPage from './Pages/InfoPage'
-import FaqPage from './Pages/Faqpage'
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+import ScrollToTop from "./components/layout/ScrollToTop";
+import SectionLoader from "./components/layout/SectionLoader";
 
-const WakaDotCom = lazy(() => import('./Pages/WakaDotCom'))
-const SmartFixer = lazy(() => import('./Pages/SmartFixer'))
-const Wakafoods = lazy(() => import('./Pages/Wakafoods'))
-const WakaRider = lazy(() => import('./Pages/WakaRider'))
-
+const WakaDotCom = lazy(() => import("./Pages/WakaDotCom"));
+const SmartFixer = lazy(() => import("./Pages/SmartFixer"));
+const Wakafoods = lazy(() => import("./Pages/Wakafoods"));
+const WakaRider = lazy(() => import("./Pages/WakaRider"));
+const WakaStores = lazy(() => import("./Pages/WakaStores"));
+const InfoPage = lazy(() => import("./Pages/InfoPage"));
+const FaqPage = lazy(() => import("./Pages/Faqpage"));
 
 const App = () => {
   return (
     <>
-    <ScrollToTop />
+      <ScrollToTop />
       <Suspense fallback={<SectionLoader minHeight="100vh" />}>
         <Routes>
           <Route path="/" element={<WakaDotCom />} />
@@ -28,7 +27,7 @@ const App = () => {
         </Routes>
       </Suspense>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
