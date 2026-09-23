@@ -489,14 +489,6 @@ export default function Footer() {
               <FooterLink to="/contact">
                 Contact
               </FooterLink>
-
-              <FooterLink to="/careers">
-                Careers
-              </FooterLink>
-
-              <FooterLink to="/partners">
-                Partners
-              </FooterLink>
             </FooterColumn>
 
             {/* Support */}
