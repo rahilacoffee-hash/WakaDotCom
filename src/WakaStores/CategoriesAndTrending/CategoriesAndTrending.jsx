@@ -43,7 +43,7 @@ const products = [
     reviews: 124,
     badge: "Popular",
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/classicwhitesneakers.avif",
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ const products = [
     reviews: 86,
     badge: "Trending",
     image:
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/premiumwhitesneakers.avif",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const products = [
     rating: 4.7,
     reviews: 64,
     image:
-      "https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/black-whitetrainers.avif",
   },
   {
     id: 4,
@@ -75,7 +75,7 @@ const products = [
     reviews: 152,
     badge: "Best Seller",
     image:
-      "https://images.pexels.com/photos/20247841/pexels-photo-20247841.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/black-redsneakers.avif",
   },
   {
     id: 5,
@@ -85,7 +85,7 @@ const products = [
     rating: 4.6,
     reviews: 43,
     image:
-      "https://images.pexels.com/photos/12739974/pexels-photo-12739974.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/urbanwhitesneakers.avif",
   },
   {
     id: 6,
@@ -96,7 +96,7 @@ const products = [
     reviews: 91,
     badge: "New",
     image:
-      "https://images.pexels.com/photos/15592489/pexels-photo-15592489.jpeg?auto=compress&cs=tinysrgb&w=900",
+      "/category/modernnikesneakers.avif",
   },
 ];
 
