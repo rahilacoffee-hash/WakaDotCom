@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/layout/ScrollToTop";
-import { SpeedInsights } from "@vercel/speed-insights"
+
 import SectionLoader from "./components/layout/SectionLoader";
 
 const WakaDotCom = lazy(() => import("./Pages/WakaDotCom"));
@@ -16,7 +16,6 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
-      <SpeedInsights/>
       <Suspense fallback={<SectionLoader minHeight="100vh" />}>
         <Routes>
           <Route path="/" element={<WakaDotCom />} />
